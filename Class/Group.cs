@@ -1,6 +1,7 @@
 ﻿public class Group 
 {
-    private string? nameGroup { get; set; }
-    private int maxNumberStudent { get; set; }
-    List<int>? studentId { get; set; }  
+    public int Id { get; set; }
+    public string? nameGroup { get; set; }
+    public int maxNumberStudent { get; set; }
+    public List<int>? studentId { get; set; }  
 }

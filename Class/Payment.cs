@@ -1,6 +1,7 @@
 ﻿public class Payment 
 {
-    private int studentId { get; set; }
-    private DateTime paymentTime { get; set; }
-    private DateOnly endDatePayment { get; set; }
+    public int Id { get; set; }
+    public int studentId { get; set; }
+    public DateTime paymentTime { get; set; }
+    public DateOnly endDatePayment { get; set; }
 }

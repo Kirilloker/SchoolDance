@@ -5985,7 +5985,7 @@
 								"$ref": "AAAAAAGLujGK0lFVWdk="
 							},
 							"name": "Список учеников",
-							"visibility": "private"
+							"visibility": "public"
 						}
 					]
 				},

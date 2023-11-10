@@ -1,7 +1,8 @@
 ﻿public class SupportMessage 
 {
-    private int personId { get; set; }
-    private string? typeMessage { get; set; }
-    private string? message { get; set; }
-    private bool isSolved { get; set; } 
+    public int Id { get; set; }
+    public int personId { get; set; }
+    public string? typeMessage { get; set; }
+    public string? message { get; set; }
+    public bool isSolved { get; set; } 
 }

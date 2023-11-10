@@ -1,9 +1,11 @@
 ﻿public class Class 
 {
-    private List<string>? weekday { get; set; }
-    private int danceHallId { get; set; }
-    private int groupId { get; set; }
-    private int coachId { get; set; }
-    private string? className { get; set;}
-    private string? DanceStyleId { get; set; }
+    public int Id { get; set; }
+    public string? className { get; set;}
+    // Example: "ВТ\ЧТ"
+    public string? weekdays { get; set; }
+    public int danceHallId { get; set; }
+    public int groupId { get; set; }
+    public int coachId { get; set; }
+    public string? DanceStyleId { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿public class DanceStyle 
 {
-    private string? name { get; set; }
-    private string? description { get; set; }
+    public int Id { get; set; }
+    public string? name { get; set; }
+    public string? description { get; set; }
 }

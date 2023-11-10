@@ -1,7 +1,4 @@
-﻿public class Administrator : Employee
-{ 
-
+﻿ public class Administrator : Employee
+{
+     
 }
-
-
-

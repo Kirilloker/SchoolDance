@@ -1,9 +1,9 @@
 ﻿public class Person 
 {
-    private string? fullName { get; set; }
-    private DateOnly date { get; set; }
-    private bool isMale { get; set; }
-
-    private string? login { get; set; }
-    private string? password { get; set; }
+    public int Id { get; set; }
+    public string? fullName { get; set; }
+    public DateOnly date { get; set; }
+    public bool isMale { get; set; }
+    public string? login { get; set; }
+    public string? password { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿public class Employee : Person 
 {
-    private int workExperienceMonth { get; set; }
-    private string? phoneNumber { get; set; }
-    private string? position { get; set; }
+    public int workExperienceMonth { get; set; }
+    public string? phoneNumber { get; set; }
+    public string? position { get; set; }
 }

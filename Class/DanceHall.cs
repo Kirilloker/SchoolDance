@@ -1,5 +1,6 @@
 ﻿public class DanceHall
 {
-    private int roomNumber { get; set; }
-    private int capacity { get; set; }
+    public int Id { get; set; }
+    public int roomNumber { get; set; }
+    public int capacity { get; set; }
 }
