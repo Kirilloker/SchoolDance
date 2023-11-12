@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SchoolDance.Migrations
 {
-    [DbContext(typeof(DBContext))]
+    [DbContext(typeof(DB_Context))]
     partial class DBContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

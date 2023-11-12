@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-class DBContext : DbContext
+class DB_Context : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -28,7 +28,7 @@ class DBContext : DbContext
     }
 
 
-    public DBContext()
+    public DB_Context()
     {
         Database.EnsureCreated();
     }

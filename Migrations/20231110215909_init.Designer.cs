@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SchoolDance.Migrations
 {
-    [DbContext(typeof(DBContext))]
+    [DbContext(typeof(DB_Context))]
     [Migration("20231110215909_init")]
     partial class init
     {
