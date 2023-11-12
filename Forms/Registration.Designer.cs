@@ -77,7 +77,6 @@
             input_login.Name = "input_login";
             input_login.Size = new Size(210, 23);
             input_login.TabIndex = 11;
-            input_login.TextChanged += input_login_TextChanged;
             // 
             // label2
             // 
@@ -276,7 +275,7 @@
             Controls.Add(background);
             Controls.Add(text_registration);
             Name = "Registration";
-            Text = "Registration";
+            Text = "Школа танцев";
             background.ResumeLayout(false);
             background.PerformLayout();
             ResumeLayout(false);

@@ -8,12 +8,13 @@ namespace SchoolDance.Forms
         public Autorization()
         {
             InitializeComponent();
+            input_password.UseSystemPasswordChar = true;
         }
 
 
         private void b_SignUp_Click(object sender, EventArgs e)
         {
-            Registration registration = new Registration();
+            Registration registration = new();
             registration.Show();
         }
 
@@ -25,9 +26,30 @@ namespace SchoolDance.Forms
                 return;
             }
 
-            if (SignInUpLogic.correctSignIn(input_login.Text, input_password.Text)) 
+            if (SignInUpLogic.correctSignIn(input_login.Text, input_password.Text))
             {
                 TypePerson typePerson = SignInUpLogic.getTypePerson(input_login.Text);
+
+                switch (typePerson)
+                {
+                    case TypePerson.Student:
+                        Administrator_menu student_Menu = new(input_login.Text, input_password.Text);
+                        student_Menu.Show();
+                        break;
+                    case TypePerson.Coach:
+                        Administrator_menu coach_Menu = new(input_login.Text, input_password.Text);
+                        coach_Menu.Show();
+                        break;
+                    case TypePerson.Administrator:
+                        Administrator_menu administrator_Menu = new(input_login.Text, input_password.Text);
+                        administrator_Menu.Show();
+                        break;
+                    default:
+                        ToolsForm.ShowMessage("Не известный тип пользователя. Обратитесь в поддержку.", "Ошибка");
+                        return;
+                }
+
+                this.Hide();
                 Console.WriteLine(typePerson);
             }
             else

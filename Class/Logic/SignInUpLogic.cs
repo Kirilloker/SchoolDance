@@ -22,6 +22,8 @@ namespace SchoolDance.Class.Logic
             else return false;
         }
 
+
+        // Возвращается тип пользователя, который авторизовался
         public static TypePerson getTypePerson(string login) 
         {
             return DB_API.GetPerson(login).typePerson;

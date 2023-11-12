@@ -13,14 +13,8 @@ namespace SchoolDance.Forms
 
         private void b_SignIn_Click(object sender, EventArgs e)
         {
-            if (
-                input_login.Text == "" ||
-                input_password.Text == "" ||
-                input_first_name.Text == "" ||
-                input_second_name.Text == "" ||
-                input_patronymic.Text == "" ||
-                (radio_female.Checked == false && radio_male.Checked == false)
-                )
+            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" || input_second_name.Text == "" ||
+                input_patronymic.Text == "" || (radio_female.Checked == false && radio_male.Checked == false))
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля.");
                 return;
@@ -32,27 +26,11 @@ namespace SchoolDance.Forms
                 return;
             }
 
-            if (SignInUpLogic.signUpNewStudent(
-                input_login.Text,
-                input_password.Text,
-                input_first_name.Text,
-                input_second_name.Text,
-                input_patronymic.Text,
-                radio_male.Checked,
-                dateTime_birth_date.Value
-                ) == true) 
-            {
+            if (SignInUpLogic.signUpNewStudent(input_login.Text, input_password.Text, input_first_name.Text, input_second_name.Text,
+                input_patronymic.Text, radio_male.Checked, dateTime_birth_date.Value) == true)
                 ToolsForm.ShowMessage("Регистрация успешно завершена!", "Регистрация", MessageBoxIcon.Asterisk);
-            }
-            else 
-            {
+            else
                 ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
-            }
-        }
-
-        private void input_login_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -170,7 +170,7 @@
             Controls.Add(background);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Autorization";
-            Text = "Autorization";
+            Text = "Школа танцев";
             background.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

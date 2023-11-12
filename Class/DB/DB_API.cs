@@ -64,5 +64,22 @@ namespace SchoolDance.Class.DB
             }
         }
 
+        public static void UpdateStudent(Student student)
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                try
+                {
+                    Student user = db.students.Where(b => b.Id == student.Id).ToList()[0];
+                    user.copy(student);
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    return;
+                }
+            }
+        }
+
     }
 }
