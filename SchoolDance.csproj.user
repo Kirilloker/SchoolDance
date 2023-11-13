@@ -4,7 +4,10 @@
     <Compile Update="Forms\Administrator_menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel.cs">
+    <Compile Update="Forms\AdminPanel\AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AdminPanel\AdminPanelStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Autorization.cs">

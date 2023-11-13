@@ -1,4 +1,4 @@
-﻿public class Class 
+﻿public class Lesson 
 {
     public int Id { get; set; }
     public string? className { get; set;}

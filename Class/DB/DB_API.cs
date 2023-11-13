@@ -30,23 +30,25 @@ namespace SchoolDance.Class.DB
             }
         }
 
-
         public static bool AddStudent(string log, string pas, string FIO, bool _isMale, DateTime birth)
+        {
+            Student student = new Student { login = log, password = pas, fullName = FIO, gender = _isMale == true ? "Male" : "Female", date = birth, typePerson = TypePerson.Student };
+            return AddStudent(student);
+        }
+
+        public static bool AddStudent(Student student) 
         {
             using (DB_Context db = new DB_Context())
             {
                 try
                 {
                     List<string?> students = db.students
-                        .Where(b => b.login == log)
+                        .Where(b => b.login == student.login)
                         .Select(b => b.login)
                         .ToList();
 
-
                     if (students.Count == 0)
                     {
-                        Student student = new Student { login = log, password = pas, fullName = FIO, isMale = _isMale, date = birth, typePerson = TypePerson.Student };
-
                         db.students.Add(student);
                         db.SaveChanges();
                         return true;
@@ -77,6 +79,74 @@ namespace SchoolDance.Class.DB
                 catch (Exception e)
                 {
                     return;
+                }
+            }
+        }
+
+        public static bool DeleteStudent(int id)
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                try
+                {
+                    Student user = db.students.Where(b => b.Id == id).ToList()[0];
+
+                    if (user != null)
+                    {
+                        db.students.Remove(user);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    else return false;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static List<Student>? GetAllStudent()
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                try
+                {
+                    return db.students.ToList();
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static List<Coach>? GetAllCoach()
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                try
+                {
+                    return db.coaches.ToList();
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static List<Lesson>? GetAllUser()
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                try
+                {
+                    return db.lessons.ToList();
+                }
+                catch
+                {
+                    return null;
                 }
             }
         }

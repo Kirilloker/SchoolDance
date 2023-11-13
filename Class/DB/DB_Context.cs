@@ -5,10 +5,7 @@ class DB_Context : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-
         string connect = "server=192.168.0.35;database=SchoolDance;user=kirillok;password=loki5566";
-
-
         optionsBuilder.UseMySQL(connect);
     }
 
@@ -35,7 +32,7 @@ class DB_Context : DbContext
 
     public DbSet<Administrator> administrators { get; set; }
     public DbSet<Coach> coaches { get; set; }
-    public DbSet<Class> classes { get; set; }
+    public DbSet<Lesson> lessons { get; set; }
     public DbSet<DanceHall> danceHalls { get; set; }
     public DbSet<DanceStyle> danceStyles { get; set; }
     public DbSet<Group> groups { get; set; }
@@ -43,8 +40,6 @@ class DB_Context : DbContext
     public DbSet<Student> students { get; set; }
     public DbSet<SupportMessage> supportMessages { get; set; }
 }
-
-
 
 
 public class IntListToStringConverter : ValueConverter<List<int>, string>
