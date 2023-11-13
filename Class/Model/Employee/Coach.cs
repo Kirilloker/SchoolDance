@@ -1,4 +1,4 @@
 ﻿public class Coach : Employee
 {
-    public List<int>? danceStylesId;
+    public string? danceStylesNames { get; set; }
 }

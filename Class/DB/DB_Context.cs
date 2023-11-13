@@ -14,14 +14,10 @@ class DB_Context : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .Entity<Coach>()
-            .Property(e => e.danceStylesId)
-            .HasConversion(new IntListToStringConverter());
-
-        modelBuilder
             .Entity<Group>()
             .Property(e => e.studentId)
             .HasConversion(new IntListToStringConverter());
+ 
     }
 
 
@@ -63,3 +59,23 @@ public class IntListToStringConverter : ValueConverter<List<int>, string>
     }
 }
 
+public class StrListToStringConverter : ValueConverter<List<string>, string>
+{
+    public StrListToStringConverter(ConverterMappingHints mappingHints = null)
+        : base(
+              list => ConvertListToString(list),
+              str => ConvertStringToList(str),
+              mappingHints)
+    {
+    }
+
+    private static string ConvertListToString(List<string> list)
+    {
+        return string.Join(",", list);
+    }
+
+    private static List<string> ConvertStringToList(string str)
+    {
+        return str.Split(',').ToList();
+    }
+}

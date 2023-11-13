@@ -24,7 +24,7 @@ namespace SchoolDance
         static void Main(string[] args)
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new AdminPanelStudent());
+            Application.Run(new AdminPanelCoach());
         }
     }
 

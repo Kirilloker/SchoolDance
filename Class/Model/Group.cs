@@ -1,4 +1,4 @@
-﻿public class Group 
+﻿public class Group : IId
 {
     public int Id { get; set; }
     public string? nameGroup { get; set; }

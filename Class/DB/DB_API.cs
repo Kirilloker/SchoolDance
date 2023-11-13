@@ -33,23 +33,23 @@ namespace SchoolDance.Class.DB
         public static bool AddStudent(string log, string pas, string FIO, bool _isMale, DateTime birth)
         {
             Student student = new Student { login = log, password = pas, fullName = FIO, gender = _isMale == true ? "Male" : "Female", date = birth, typePerson = TypePerson.Student };
-            return AddStudent(student);
+            return AddPerson<Student>(student);
         }
 
-        public static bool AddStudent(Student student) 
+        public static bool AddPerson<T>(T entity) where T : class, ILogin
         {
             using (DB_Context db = new DB_Context())
             {
                 try
                 {
-                    List<string?> students = db.students
-                        .Where(b => b.login == student.login)
+                    List<string?> existingEntity = db.Set<T>()
+                        .Where(b => b.login == entity.login)
                         .Select(b => b.login)
                         .ToList();
 
-                    if (students.Count == 0)
+                    if (existingEntity.Count == 0)
                     {
-                        db.students.Add(student);
+                        db.Set<T>().Add(entity);
                         db.SaveChanges();
                         return true;
                     }
@@ -66,15 +66,18 @@ namespace SchoolDance.Class.DB
             }
         }
 
-        public static void UpdateStudent(Student student)
+        public static void Update<T>(T entity) where T : class, IId
         {
             using (DB_Context db = new DB_Context())
             {
                 try
                 {
-                    Student user = db.students.Where(b => b.Id == student.Id).ToList()[0];
-                    user.copy(student);
-                    db.SaveChanges();
+                    T existingEntity = db.Set<T>().Find(entity.Id);
+                    if (existingEntity != null)
+                    {
+                        db.Entry(existingEntity).CurrentValues.SetValues(entity);
+                        db.SaveChanges();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -83,36 +86,38 @@ namespace SchoolDance.Class.DB
             }
         }
 
-        public static bool DeleteStudent(int id)
+
+
+        public static bool Delete<T>(int id) where T : class
         {
             using (DB_Context db = new DB_Context())
             {
                 try
                 {
-                    Student user = db.students.Where(b => b.Id == id).ToList()[0];
+                    var entity = db.Set<T>().Find(id);
 
-                    if (user != null)
+                    if (entity != null)
                     {
-                        db.students.Remove(user);
+                        db.Set<T>().Remove(entity);
                         db.SaveChanges();
                         return true;
                     }
                     else return false;
                 }
-                catch (Exception e)
+                catch
                 {
                     return false;
                 }
             }
         }
 
-        public static List<Student>? GetAllStudent()
+        public static List<T> GetAll<T>() where T : class
         {
             using (DB_Context db = new DB_Context())
             {
                 try
                 {
-                    return db.students.ToList();
+                    return db.Set<T>().ToList();
                 }
                 catch
                 {
@@ -120,36 +125,5 @@ namespace SchoolDance.Class.DB
                 }
             }
         }
-
-        public static List<Coach>? GetAllCoach()
-        {
-            using (DB_Context db = new DB_Context())
-            {
-                try
-                {
-                    return db.coaches.ToList();
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
-
-        public static List<Lesson>? GetAllUser()
-        {
-            using (DB_Context db = new DB_Context())
-            {
-                try
-                {
-                    return db.lessons.ToList();
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
-
     }
 }

@@ -8,31 +8,36 @@ namespace SchoolDance.Forms
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" || 
+            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" ||
                 (radio_female.Checked == false && radio_male.Checked == false))
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля.");
                 return;
             }
 
-            Student student = new Student { login = input_login.Text,
-                password = SignInUpLogic.EncodeStringToBase64(input_password.Text), 
-                fullName = input_first_name.Text, gender = radio_male.Checked == true ? "Male" : "Female", 
-                date = dateTime_birth_date.Value, typePerson = TypePerson.Student };
+            Student student = new Student
+            {
+                login = input_login.Text,
+                password = SignInUpLogic.EncodeStringToBase64(input_password.Text),
+                fullName = input_first_name.Text,
+                gender = radio_male.Checked == true ? "Male" : "Female",
+                date = dateTime_birth_date.Value,
+                typePerson = TypePerson.Student
+            };
 
-            if (DB_API.AddStudent(student) == true) 
+            if (DB_API.AddPerson<Student>(student) == true)
             {
                 add_data_row<Student>(student);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
             }
-            else 
+            else
             {
                 ToolsForm.ShowMessage("Что-то пошло не так");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAllStudent();
-        private void changeCell(int rowIndex) => DB_API.UpdateStudent(((List<Student>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.DeleteStudent(id);
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Student>();
+        private void changeCell(int rowIndex) => DB_API.Update<Student>(((List<Student>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<Student>(id);
         private void deleteRow() => del_data_row<Student>();
 
 

@@ -1,4 +1,4 @@
-﻿public class DanceStyle 
+﻿public class DanceStyle : IId
 {
     public int Id { get; set; }
     public string? name { get; set; }

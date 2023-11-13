@@ -1,4 +1,4 @@
-﻿public class Person 
+﻿public class Person : IId, ILogin
 {
     public int Id { get; set; }
     public string? fullName { get; set; }

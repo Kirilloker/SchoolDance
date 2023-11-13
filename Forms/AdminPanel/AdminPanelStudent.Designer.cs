@@ -70,6 +70,7 @@
             // DataGrid
             // 
             DataGrid.AllowUserToAddRows = false;
+            DataGrid.AllowUserToDeleteRows = false;
             DataGrid.AllowUserToResizeRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;

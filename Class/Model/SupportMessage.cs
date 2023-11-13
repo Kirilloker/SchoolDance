@@ -1,4 +1,4 @@
-﻿public class SupportMessage 
+﻿public class SupportMessage : IId
 {
     public int Id { get; set; }
     public int personId { get; set; }

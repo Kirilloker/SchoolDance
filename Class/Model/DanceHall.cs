@@ -1,4 +1,4 @@
-﻿public class DanceHall
+﻿public class DanceHall : IId
 {
     public int Id { get; set; }
     public int roomNumber { get; set; }
