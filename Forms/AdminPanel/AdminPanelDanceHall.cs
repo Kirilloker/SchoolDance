@@ -4,30 +4,32 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelStudent : Form
+    public partial class AdminPanelDanceHall : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" ||
-                (radio_female.Checked == false && radio_male.Checked == false))
+            if (input_roomNumber.Text == "" || input_capacity.Text == "" )
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля.");
                 return;
             }
 
-            Student student = new Student
+            int capacity = 0;
+            if (!int.TryParse(input_capacity.Text, out capacity))
             {
-                login = input_login.Text,
-                password = SignInUpLogic.EncodeStringToBase64(input_password.Text),
-                fullName = input_first_name.Text,
-                gender = radio_male.Checked == true ? "Male" : "Female",
-                date = dateTime_birth_date.Value,
-                typePerson = TypePerson.Student
+                ToolsForm.ShowMessage("В поле Максимальная вместимость, нужно ввести число.");
+                return;
+            }
+
+            DanceHall obj = new DanceHall
+            {
+                roomNumber = input_roomNumber.Text,
+                capacity = capacity
             };
 
-            if (DB_API.AddStudent(student) == true)
+            if (DB_API.AddDanceHall(obj) == true)
             {
-                add_data_row<Student>(student);
+                add_data_row<DanceHall>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
             }
             else
@@ -35,16 +37,16 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Student>();
-        private void changeCell(int rowIndex) => DB_API.Update<Student>(((List<Student>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Student>(id);
-        private void deleteRow() => del_data_row<Student>();
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<DanceHall>();
+        private void changeCell(int rowIndex) => DB_API.Update<DanceHall>(((List<DanceHall>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<DanceHall>(id);
+        private void deleteRow() => del_data_row<DanceHall>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelStudent()
+        public AdminPanelDanceHall()
         {
             InitializeComponent();
 
@@ -100,26 +102,3 @@ namespace SchoolDance.Forms
         }
     }
 }
-
-
-//// Фильтрация (работает с багами)
-//private void FilterDataGridByColumn(int columnIndex)
-//{
-//    if (DataGrid.Columns[columnIndex].SortMode != DataGridViewColumnSortMode.NotSortable)
-//    {
-//        // Получаем текущий столбец
-//        DataGridViewColumn newColumn = DataGrid.Columns[columnIndex];
-//        // Получаем направление сортировки
-//        ListSortDirection direction = (newColumn.HeaderCell.SortGlyphDirection == SortOrder.Ascending) ? ListSortDirection.Descending : ListSortDirection.Ascending;
-
-//        // Сбрасываем сортировку для остальных столбцов
-//        foreach (DataGridViewColumn column in DataGrid.Columns)
-//            column.HeaderCell.SortGlyphDirection = SortOrder.None;
-
-//        // Применяем сортировку к выбранному столбцу
-//        newColumn.HeaderCell.SortGlyphDirection = (direction == ListSortDirection.Ascending) ? SortOrder.Ascending : SortOrder.Descending;
-
-//        // Применяем сортировку к DataGrid
-//        DataGrid.Sort(DataGrid.Columns[4], ListSortDirection.Ascending);
-//    }
-//}

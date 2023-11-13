@@ -4,30 +4,26 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelStudent : Form
+    public partial class AdminPanelPayment : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" ||
-                (radio_female.Checked == false && radio_male.Checked == false))
+            if (date_payment_time.Value > date_endpayment_time.Value)
             {
-                ToolsForm.ShowMessage("Нужно заполнить все поля.");
+                ToolsForm.ShowMessage("Дата окончания платежа не может быть раньше даты оплаты!");
                 return;
             }
 
-            Student student = new Student
+            Payment obj = new Payment
             {
-                login = input_login.Text,
-                password = SignInUpLogic.EncodeStringToBase64(input_password.Text),
-                fullName = input_first_name.Text,
-                gender = radio_male.Checked == true ? "Male" : "Female",
-                date = dateTime_birth_date.Value,
-                typePerson = TypePerson.Student
+                studentId = DB_API.GetStudentId((string)list_student.Items[0]),
+                paymentTime = date_payment_time.Value,
+                endDatePayment = date_endpayment_time.Value
             };
 
-            if (DB_API.AddStudent(student) == true)
+            if (DB_API.AddPayment(obj) == true)
             {
-                add_data_row<Student>(student);
+                add_data_row<Payment>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
             }
             else
@@ -35,16 +31,16 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Student>();
-        private void changeCell(int rowIndex) => DB_API.Update<Student>(((List<Student>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Student>(id);
-        private void deleteRow() => del_data_row<Student>();
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Payment>();
+        private void changeCell(int rowIndex) => DB_API.Update<Payment>(((List<Payment>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<Payment>(id);
+        private void deleteRow() => del_data_row<Payment>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelStudent()
+        public AdminPanelPayment()
         {
             InitializeComponent();
 
@@ -52,6 +48,11 @@ namespace SchoolDance.Forms
             this.AutoSize = true;
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            list_student.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            List<Student> danceStyles = DB_API.GetAll<Student>();
+            list_student.Items.AddRange(danceStyles.Select(ds => ds.fullName).ToArray());
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -100,26 +101,3 @@ namespace SchoolDance.Forms
         }
     }
 }
-
-
-//// Фильтрация (работает с багами)
-//private void FilterDataGridByColumn(int columnIndex)
-//{
-//    if (DataGrid.Columns[columnIndex].SortMode != DataGridViewColumnSortMode.NotSortable)
-//    {
-//        // Получаем текущий столбец
-//        DataGridViewColumn newColumn = DataGrid.Columns[columnIndex];
-//        // Получаем направление сортировки
-//        ListSortDirection direction = (newColumn.HeaderCell.SortGlyphDirection == SortOrder.Ascending) ? ListSortDirection.Descending : ListSortDirection.Ascending;
-
-//        // Сбрасываем сортировку для остальных столбцов
-//        foreach (DataGridViewColumn column in DataGrid.Columns)
-//            column.HeaderCell.SortGlyphDirection = SortOrder.None;
-
-//        // Применяем сортировку к выбранному столбцу
-//        newColumn.HeaderCell.SortGlyphDirection = (direction == ListSortDirection.Ascending) ? SortOrder.Ascending : SortOrder.Descending;
-
-//        // Применяем сортировку к DataGrid
-//        DataGrid.Sort(DataGrid.Columns[4], ListSortDirection.Ascending);
-//    }
-//}

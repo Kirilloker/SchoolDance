@@ -1,8 +1,6 @@
 ﻿using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
 using SchoolDance.Util;
-using System;
-using System.Collections.Generic;
 
 namespace SchoolDance.Forms
 {
@@ -59,14 +57,14 @@ namespace SchoolDance.Forms
                 };
 
 
-                if (DB_API.AddPerson<Coach>(obj) == true)
+                if (DB_API.AddCoach(obj) == true)
                 {
                     add_data_row<Coach>(obj);
                     ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
                 }
                 else
                 {
-                    ToolsForm.ShowMessage("Что-то пошло не так");
+                    ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
                 }
             }
             catch (Exception)

@@ -51,42 +51,49 @@
             // 
             b_student.BackColor = Color.Silver;
             b_student.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_student.Location = new Point(31, 115);
+            b_student.Location = new Point(18, 153);
+            b_student.Margin = new Padding(3, 4, 3, 4);
             b_student.Name = "b_student";
-            b_student.Size = new Size(152, 44);
+            b_student.Size = new Size(191, 59);
             b_student.TabIndex = 0;
             b_student.Text = "Ученики";
             b_student.UseVisualStyleBackColor = false;
+            b_student.Click += b_student_Click;
             // 
             // b_coach
             // 
             b_coach.BackColor = Color.Silver;
             b_coach.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_coach.Location = new Point(199, 115);
+            b_coach.Location = new Point(227, 153);
+            b_coach.Margin = new Padding(3, 4, 3, 4);
             b_coach.Name = "b_coach";
-            b_coach.Size = new Size(152, 44);
+            b_coach.Size = new Size(174, 59);
             b_coach.TabIndex = 0;
             b_coach.Text = "Тренера";
             b_coach.UseVisualStyleBackColor = false;
+            b_coach.Click += b_coach_Click;
             // 
             // b_payment
             // 
             b_payment.BackColor = Color.Silver;
             b_payment.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_payment.Location = new Point(370, 115);
+            b_payment.Location = new Point(423, 153);
+            b_payment.Margin = new Padding(3, 4, 3, 4);
             b_payment.Name = "b_payment";
-            b_payment.Size = new Size(152, 44);
+            b_payment.Size = new Size(174, 59);
             b_payment.TabIndex = 0;
             b_payment.Text = "Платеж";
             b_payment.UseVisualStyleBackColor = false;
+            b_payment.Click += b_payment_Click;
             // 
             // b_group
             // 
             b_group.BackColor = Color.Silver;
             b_group.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_group.Location = new Point(555, 115);
+            b_group.Location = new Point(634, 153);
+            b_group.Margin = new Padding(3, 4, 3, 4);
             b_group.Name = "b_group";
-            b_group.Size = new Size(152, 44);
+            b_group.Size = new Size(174, 59);
             b_group.TabIndex = 0;
             b_group.Text = "Группа";
             b_group.UseVisualStyleBackColor = false;
@@ -95,9 +102,10 @@
             // 
             b_event.BackColor = Color.Silver;
             b_event.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_event.Location = new Point(31, 181);
+            b_event.Location = new Point(18, 241);
+            b_event.Margin = new Padding(3, 4, 3, 4);
             b_event.Name = "b_event";
-            b_event.Size = new Size(152, 44);
+            b_event.Size = new Size(191, 59);
             b_event.TabIndex = 0;
             b_event.Text = "Мероприятия";
             b_event.UseVisualStyleBackColor = false;
@@ -106,9 +114,10 @@
             // 
             b_class.BackColor = Color.Silver;
             b_class.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_class.Location = new Point(199, 181);
+            b_class.Location = new Point(227, 241);
+            b_class.Margin = new Padding(3, 4, 3, 4);
             b_class.Name = "b_class";
-            b_class.Size = new Size(152, 44);
+            b_class.Size = new Size(174, 59);
             b_class.TabIndex = 0;
             b_class.Text = "Занятия";
             b_class.UseVisualStyleBackColor = false;
@@ -117,31 +126,36 @@
             // 
             b_hall.BackColor = Color.Silver;
             b_hall.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_hall.Location = new Point(370, 181);
+            b_hall.Location = new Point(423, 241);
+            b_hall.Margin = new Padding(3, 4, 3, 4);
             b_hall.Name = "b_hall";
-            b_hall.Size = new Size(152, 44);
+            b_hall.Size = new Size(174, 59);
             b_hall.TabIndex = 0;
             b_hall.Text = "Зал";
             b_hall.UseVisualStyleBackColor = false;
+            b_hall.Click += b_hall_Click;
             // 
             // button8
             // 
             button8.BackColor = Color.Silver;
             button8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(555, 181);
+            button8.Location = new Point(634, 241);
+            button8.Margin = new Padding(3, 4, 3, 4);
             button8.Name = "button8";
-            button8.Size = new Size(152, 44);
+            button8.Size = new Size(174, 59);
             button8.TabIndex = 0;
             button8.Text = "Другое";
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // b_answers
             // 
             b_answers.BackColor = SystemColors.ActiveCaption;
             b_answers.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_answers.Location = new Point(199, 345);
+            b_answers.Location = new Point(227, 460);
+            b_answers.Margin = new Padding(3, 4, 3, 4);
             b_answers.Name = "b_answers";
-            b_answers.Size = new Size(323, 44);
+            b_answers.Size = new Size(369, 59);
             b_answers.TabIndex = 0;
             b_answers.Text = "Присланные вопросы";
             b_answers.UseVisualStyleBackColor = false;
@@ -153,17 +167,18 @@
             bg1.Controls.Add(text_FIO);
             bg1.Controls.Add(text_account);
             bg1.Location = new Point(1, 0);
+            bg1.Margin = new Padding(3, 4, 3, 4);
             bg1.Name = "bg1";
-            bg1.Size = new Size(743, 68);
+            bg1.Size = new Size(849, 91);
             bg1.TabIndex = 1;
             // 
             // text_role
             // 
             text_role.AutoSize = true;
             text_role.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            text_role.Location = new Point(15, 41);
+            text_role.Location = new Point(17, 55);
             text_role.Name = "text_role";
-            text_role.Size = new Size(108, 17);
+            text_role.Size = new Size(144, 23);
             text_role.TabIndex = 1;
             text_role.Text = "Администратор";
             // 
@@ -171,9 +186,9 @@
             // 
             text_FIO.AutoSize = true;
             text_FIO.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            text_FIO.Location = new Point(90, 9);
+            text_FIO.Location = new Point(111, 12);
             text_FIO.Name = "text_FIO";
-            text_FIO.Size = new Size(20, 25);
+            text_FIO.Size = new Size(24, 32);
             text_FIO.TabIndex = 0;
             text_FIO.Text = "-";
             // 
@@ -181,9 +196,9 @@
             // 
             text_account.AutoSize = true;
             text_account.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            text_account.Location = new Point(11, 9);
+            text_account.Location = new Point(13, 12);
             text_account.Name = "text_account";
-            text_account.Size = new Size(89, 25);
+            text_account.Size = new Size(113, 32);
             text_account.TabIndex = 0;
             text_account.Text = "Аккаунт: ";
             // 
@@ -191,24 +206,26 @@
             // 
             bg2.BackColor = Color.MistyRose;
             bg2.Controls.Add(bg3);
-            bg2.Location = new Point(1, 68);
+            bg2.Location = new Point(1, 91);
+            bg2.Margin = new Padding(3, 4, 3, 4);
             bg2.Name = "bg2";
-            bg2.Size = new Size(743, 384);
+            bg2.Size = new Size(849, 512);
             bg2.TabIndex = 2;
             // 
             // bg3
             // 
             bg3.BackColor = Color.FromArgb(255, 192, 128);
-            bg3.Location = new Point(0, 356);
+            bg3.Location = new Point(0, 475);
+            bg3.Margin = new Padding(3, 4, 3, 4);
             bg3.Name = "bg3";
-            bg3.Size = new Size(743, 27);
+            bg3.Size = new Size(849, 36);
             bg3.TabIndex = 0;
             // 
             // Administrator_menu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(745, 450);
+            ClientSize = new Size(851, 600);
             Controls.Add(bg1);
             Controls.Add(button8);
             Controls.Add(b_hall);
@@ -220,6 +237,7 @@
             Controls.Add(b_coach);
             Controls.Add(b_student);
             Controls.Add(bg2);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Administrator_menu";
             Text = "Меню администратора";
             bg1.ResumeLayout(false);
