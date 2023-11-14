@@ -97,6 +97,7 @@
             b_group.TabIndex = 0;
             b_group.Text = "Группа";
             b_group.UseVisualStyleBackColor = false;
+            b_group.Click += b_group_Click;
             // 
             // b_event
             // 
@@ -121,6 +122,7 @@
             b_class.TabIndex = 0;
             b_class.Text = "Занятия";
             b_class.UseVisualStyleBackColor = false;
+            b_class.Click += b_class_Click;
             // 
             // b_hall
             // 

@@ -9,17 +9,13 @@ class DB_Context : DbContext
         optionsBuilder.UseMySQL(connect);
     }
 
-
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder
-            .Entity<Group>()
-            .Property(e => e.studentId)
-            .HasConversion(new IntListToStringConverter());
- 
+        //modelBuilder
+        //    .Entity<Group>()
+        //    .Property(e => e.studentId)
+        //    .HasConversion(new IntListToStringConverter());
     }
-
 
     public DB_Context()
     {
@@ -35,6 +31,7 @@ class DB_Context : DbContext
     public DbSet<Payment> payments { get; set; }
     public DbSet<Student> students { get; set; }
     public DbSet<SupportMessage> supportMessages { get; set; }
+    public DbSet<EventDance> eventDances { get; set; }
 }
 
 

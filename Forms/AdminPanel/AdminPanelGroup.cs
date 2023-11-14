@@ -3,30 +3,49 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelPayment : Form
+    public partial class AdminPanelGroup : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (date_payment_time.Value > date_endpayment_time.Value)
+            if (input_name_group.Text == "")
             {
-                ToolsForm.ShowMessage("Дата окончания платежа не может быть раньше даты оплаты!");
+                ToolsForm.ShowMessage("Нужно заполнить все поля.");
                 return;
             }
 
-            string name_student = (string)list_student.SelectedItem;
-            int id_student = int.Parse(name_student.Split(". ")[0]);
-            //name_student = name_student.Split(". ")[1];
-
-            Payment obj = new Payment
+            int number_max_student = 0;
+            if (!int.TryParse(input_number_max_student.Text, out number_max_student))
             {
-                studentId = id_student,
-                paymentTime = date_payment_time.Value,
-                endDatePayment = date_endpayment_time.Value
+                ToolsForm.ShowMessage("В поле Максимальное количество студентов, нужно ввести число.");
+                return;
+            }
+
+            List<int> selectedIds = new List<int>();
+            foreach (int index in list_students.CheckedIndices)
+            {
+                string name = (string)list_students.Items[index];
+                int id = int.Parse(name.Split(". ")[0]);
+                selectedIds.Add(id);
+            }
+
+            if (selectedIds.Count > number_max_student)
+            {
+                ToolsForm.ShowMessage("Количество студентов, не может привышать максимального возможного количества студентов!");
+                return;
+            }
+
+            string student_id = string.Join(", ", selectedIds);
+
+            Group obj = new Group
+            {
+                nameGroup = input_name_group.Text,
+                maxNumberStudent = number_max_student,
+                studentId = student_id
             };
 
-            if (DB_API.AddPayment(obj) == true)
+            if (DB_API.AddGroup(obj) == true)
             {
-                add_data_row<Payment>(obj);
+                add_data_row<Group>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
             }
             else
@@ -34,16 +53,16 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Payment>();
-        private void changeCell(int rowIndex) => DB_API.Update<Payment>(((List<Payment>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Payment>(id);
-        private void deleteRow() => del_data_row<Payment>();
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Group>();
+        private void changeCell(int rowIndex) => DB_API.Update<Group>(((List<Group>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<Group>(id);
+        private void deleteRow() => del_data_row<Group>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelPayment()
+        public AdminPanelGroup()
         {
             InitializeComponent();
 
@@ -52,11 +71,13 @@ namespace SchoolDance.Forms
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            list_student.DropDownStyle = ComboBoxStyle.DropDownList;
+            List<Student> danceStyles = DB_API.GetAll<Student>();
 
-            List<Student> students = DB_API.GetAll<Student>();
-            string[] formattedNames = students.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
-            list_student.Items.AddRange(formattedNames);
+            string[] formattedNames = danceStyles
+            .Select((ds) => $"{ds.Id}. {ds.fullName}")
+            .ToArray();
+
+            list_students.Items.AddRange(formattedNames);
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -102,6 +123,11 @@ namespace SchoolDance.Forms
             {
                 ToolsForm.ShowMessage();
             }
+        }
+
+        private void list_students_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,29 +6,30 @@ namespace SchoolDance.Class.DB
 {
     public static class DB_API
     {
-        
+
         public static Person? GetPerson(string login)
         {
             using (DB_Context db = new DB_Context())
             {
                 try
                 {
-                    Person person = db.students.Where(b => b.login == login ).ToList()[0];
+                    Person person = db.students.FirstOrDefault(b => b.login == login);
 
                     if (person == null)
-                        person = db.coaches.Where(b => b.login == login).ToList()[0];
-                    
+                        person = db.coaches.FirstOrDefault(b => b.login == login);
+
                     if (person == null)
-                        person = db.administrators.Where(b => b.login == login).ToList()[0];
+                        person = db.administrators.FirstOrDefault(b => b.login == login);
 
                     return person;
                 }
-                catch 
+                catch
                 {
                     return null;
                 }
             }
         }
+
 
         public static int GetStudentId(string fullName)
         {
@@ -42,7 +43,6 @@ namespace SchoolDance.Class.DB
                 return studentId;
             }
         }
-
 
         public static bool AddStudent(string log, string pas, string FIO, bool _isMale, DateTime birth)
         {
@@ -70,6 +70,11 @@ namespace SchoolDance.Class.DB
             return AddEntity<Coach>(entity, b => b.login == entity.login);
         }
 
+        public static bool AddAdministrator(Administrator entity)
+        {
+            return AddEntity<Administrator>(entity, b => b.login == entity.login);
+        }
+
         public static bool AddGroup(Group entity)
         {
             return AddEntity<Group>(entity, b => b.nameGroup == entity.nameGroup);
@@ -78,7 +83,7 @@ namespace SchoolDance.Class.DB
         public static bool AddLesson(Lesson entity)
         {
             return AddEntity<Lesson>(entity, b => b.className == entity.className && b.groupId == entity.groupId
-                                    && b.DanceStyleId == entity.DanceStyleId);
+                                    && b.danceStylesId == entity.danceStylesId);
         }
 
         public static bool AddPayment(Payment entity)

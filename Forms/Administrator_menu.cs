@@ -47,5 +47,17 @@ namespace SchoolDance.Forms
             AdminPanelDanceStyle menu = new();
             menu.Show();
         }
+
+        private void b_class_Click(object sender, EventArgs e)
+        {
+            AdminPanelLesson menu = new();
+            menu.Show();
+        }
+
+        private void b_group_Click(object sender, EventArgs e)
+        {
+            AdminPanelGroup menu = new();
+            menu.Show();
+        }
     }
 }

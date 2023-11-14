@@ -7,5 +7,5 @@
     public int danceHallId { get; set; }
     public int groupId { get; set; }
     public int coachId { get; set; }
-    public string? DanceStyleId { get; set; }
+    public int? danceStylesId { get; set; }
 }
