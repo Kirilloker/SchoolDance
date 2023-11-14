@@ -1,12 +1,8 @@
 ﻿
-using Microsoft.VisualBasic.ApplicationServices;
-using Microsoft.VisualBasic.Logging;
-
 namespace SchoolDance.Class.DB
 {
     public static class DB_API
     {
-
         public static Person? GetPerson(string login)
         {
             using (DB_Context db = new DB_Context())
@@ -30,7 +26,6 @@ namespace SchoolDance.Class.DB
             }
         }
 
-
         public static int GetStudentId(string fullName)
         {
             using (DB_Context db = new DB_Context())
@@ -41,6 +36,14 @@ namespace SchoolDance.Class.DB
                     .FirstOrDefault();
 
                 return studentId;
+            }
+        }
+
+        public static SupportMessage? GetSupportMessage(int id)
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                return db.supportMessages.Where(s => s.Id == id).FirstOrDefault();
             }
         }
 
@@ -89,6 +92,11 @@ namespace SchoolDance.Class.DB
         public static bool AddPayment(Payment entity)
         {
             return AddEntity<Payment>(entity, b => b.paymentTime == entity.paymentTime);
+        }
+
+        public static bool AddEventDance(EventDance entity)
+        {
+            return AddEntity<EventDance>(entity, b => b.Id == -1);
         }
 
         public static bool AddSupportMessage(SupportMessage entity)

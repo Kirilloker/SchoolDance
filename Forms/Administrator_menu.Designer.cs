@@ -110,6 +110,7 @@
             b_event.TabIndex = 0;
             b_event.Text = "Мероприятия";
             b_event.UseVisualStyleBackColor = false;
+            b_event.Click += b_event_Click;
             // 
             // b_class
             // 
@@ -161,6 +162,7 @@
             b_answers.TabIndex = 0;
             b_answers.Text = "Присланные вопросы";
             b_answers.UseVisualStyleBackColor = false;
+            b_answers.Click += b_answers_Click;
             // 
             // bg1
             // 

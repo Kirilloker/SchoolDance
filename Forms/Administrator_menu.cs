@@ -1,5 +1,6 @@
 ﻿using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
+using SchoolDance.Forms.AdminPanel;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -57,6 +58,18 @@ namespace SchoolDance.Forms
         private void b_group_Click(object sender, EventArgs e)
         {
             AdminPanelGroup menu = new();
+            menu.Show();
+        }
+
+        private void b_event_Click(object sender, EventArgs e)
+        {
+            AdminPanelEventDance menu = new();
+            menu.Show();
+        }
+
+        private void b_answers_Click(object sender, EventArgs e)
+        {
+            AdminPanelSupportMesage menu = new();
             menu.Show();
         }
     }

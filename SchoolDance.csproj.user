@@ -10,6 +10,12 @@
     <Compile Update="Forms\AdminPanel\AdminPanelStudent.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\AdminPanel\AdminPanelSupportMesage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AdminPanel\AdminPanelSupportMesageDeep.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Autorization.cs">
       <SubType>Form</SubType>
     </Compile>
