@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Forms\Administrator_menu.cs">
+    <Compile Update="Forms\Admin\Administrator_menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelCoach.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelCoach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelStudent.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelSupportMesage.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelSupportMesage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelSupportMesageDeep.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelSupportMesageDeep.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Autorization.cs">
+    <Compile Update="Forms\Common\Autorization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Registration.cs">
+    <Compile Update="Forms\Common\Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Common\SupportMessageForUser.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

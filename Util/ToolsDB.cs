@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.Logging;
-using SchoolDance.Class.DB;
+﻿using SchoolDance.Class.DB;
 
 namespace SchoolDance.Util
 {

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
 using SchoolDance.Forms;
+using SchoolDance.Forms.AdminPanel;
 
 public class MysqlEntityFrameworkDesignTimeServices : IDesignTimeServices
 {
@@ -22,7 +23,7 @@ namespace SchoolDance
         static void Main(string[] args)
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Autorization());
+            Application.Run(new SupportMessageForUser("пукатель 2000"));
         }
     }
 

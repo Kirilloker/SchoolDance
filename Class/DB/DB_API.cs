@@ -101,7 +101,8 @@ namespace SchoolDance.Class.DB
 
         public static bool AddSupportMessage(SupportMessage entity)
         {
-            return AddEntity<SupportMessage>(entity, b => b.Id == -1);
+            return AddEntity<SupportMessage>(entity, b => b.personName == entity.personName 
+                                            && b.message == entity.message);
         }
 
         public static bool AddEntity<T>(T entity, Func<T, bool> predicate) where T : class

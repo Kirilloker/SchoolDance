@@ -1,6 +1,6 @@
 ﻿namespace SchoolDance.Forms
 {
-    partial class Administrator_menu
+    partial class Coach_menu
     {
         /// <summary>
         /// Required designer variable.
@@ -58,7 +58,6 @@
             b_student.TabIndex = 0;
             b_student.Text = "Ученики";
             b_student.UseVisualStyleBackColor = false;
-            b_student.Click += b_student_Click;
             // 
             // b_coach
             // 
@@ -71,7 +70,6 @@
             b_coach.TabIndex = 0;
             b_coach.Text = "Тренера";
             b_coach.UseVisualStyleBackColor = false;
-            b_coach.Click += b_coach_Click;
             // 
             // b_payment
             // 
@@ -84,7 +82,6 @@
             b_payment.TabIndex = 0;
             b_payment.Text = "Платеж";
             b_payment.UseVisualStyleBackColor = false;
-            b_payment.Click += b_payment_Click;
             // 
             // b_group
             // 
@@ -97,7 +94,6 @@
             b_group.TabIndex = 0;
             b_group.Text = "Группа";
             b_group.UseVisualStyleBackColor = false;
-            b_group.Click += b_group_Click;
             // 
             // b_event
             // 
@@ -110,7 +106,6 @@
             b_event.TabIndex = 0;
             b_event.Text = "Мероприятия";
             b_event.UseVisualStyleBackColor = false;
-            b_event.Click += b_event_Click;
             // 
             // b_class
             // 
@@ -123,7 +118,6 @@
             b_class.TabIndex = 0;
             b_class.Text = "Занятия";
             b_class.UseVisualStyleBackColor = false;
-            b_class.Click += b_class_Click;
             // 
             // b_hall
             // 
@@ -136,7 +130,6 @@
             b_hall.TabIndex = 0;
             b_hall.Text = "Зал";
             b_hall.UseVisualStyleBackColor = false;
-            b_hall.Click += b_hall_Click;
             // 
             // button8
             // 
@@ -149,24 +142,23 @@
             button8.TabIndex = 0;
             button8.Text = "Другое";
             button8.UseVisualStyleBackColor = false;
-            button8.Click += button8_Click;
             // 
             // b_answers
             // 
             b_answers.BackColor = SystemColors.ActiveCaption;
             b_answers.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_answers.Location = new Point(227, 460);
+            b_answers.Location = new Point(159, 381);
             b_answers.Margin = new Padding(3, 4, 3, 4);
             b_answers.Name = "b_answers";
-            b_answers.Size = new Size(369, 59);
+            b_answers.Size = new Size(519, 59);
             b_answers.TabIndex = 0;
-            b_answers.Text = "Присланные вопросы";
+            b_answers.Text = "Отправить сообщение об ошибке";
             b_answers.UseVisualStyleBackColor = false;
             b_answers.Click += b_answers_Click;
             // 
             // bg1
             // 
-            bg1.BackColor = Color.LightSalmon;
+            bg1.BackColor = Color.LightSeaGreen;
             bg1.Controls.Add(text_role);
             bg1.Controls.Add(text_FIO);
             bg1.Controls.Add(text_account);
@@ -182,9 +174,9 @@
             text_role.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             text_role.Location = new Point(17, 55);
             text_role.Name = "text_role";
-            text_role.Size = new Size(144, 23);
+            text_role.Size = new Size(69, 23);
             text_role.TabIndex = 1;
-            text_role.Text = "Администратор";
+            text_role.Text = "Тренер";
             // 
             // text_FIO
             // 
@@ -208,8 +200,9 @@
             // 
             // bg2
             // 
-            bg2.BackColor = Color.MistyRose;
+            bg2.BackColor = Color.PaleTurquoise;
             bg2.Controls.Add(bg3);
+            bg2.Controls.Add(b_answers);
             bg2.Location = new Point(1, 91);
             bg2.Margin = new Padding(3, 4, 3, 4);
             bg2.Name = "bg2";
@@ -218,14 +211,14 @@
             // 
             // bg3
             // 
-            bg3.BackColor = Color.FromArgb(255, 192, 128);
+            bg3.BackColor = Color.DarkSlateGray;
             bg3.Location = new Point(0, 475);
             bg3.Margin = new Padding(3, 4, 3, 4);
             bg3.Name = "bg3";
             bg3.Size = new Size(849, 36);
             bg3.TabIndex = 0;
             // 
-            // Administrator_menu
+            // Coach_menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -233,7 +226,6 @@
             Controls.Add(bg1);
             Controls.Add(button8);
             Controls.Add(b_hall);
-            Controls.Add(b_answers);
             Controls.Add(b_class);
             Controls.Add(b_event);
             Controls.Add(b_group);
@@ -242,7 +234,7 @@
             Controls.Add(b_student);
             Controls.Add(bg2);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Administrator_menu";
+            Name = "Coach_menu";
             Text = "Меню администратора";
             bg1.ResumeLayout(false);
             bg1.PerformLayout();

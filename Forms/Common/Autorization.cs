@@ -33,11 +33,11 @@ namespace SchoolDance.Forms
                 switch (typePerson)
                 {
                     case TypePerson.Student:
-                        Administrator_menu student_Menu = new(input_login.Text, input_password.Text);
+                        Student_menu student_Menu = new(input_login.Text, input_password.Text);
                         student_Menu.Show();
                         break;
                     case TypePerson.Coach:
-                        Administrator_menu coach_Menu = new(input_login.Text, input_password.Text);
+                        Coach_menu coach_Menu = new(input_login.Text, input_password.Text);
                         coach_Menu.Show();
                         break;
                     case TypePerson.Administrator:

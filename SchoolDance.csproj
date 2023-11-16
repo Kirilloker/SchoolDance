@@ -24,23 +24,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\AdminPanel\AdminPanelEventDance.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelEventDance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelLesson.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelLesson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelCoach.cs" />
-    <Compile Update="Forms\AdminPanel\AdminPanelGroup.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelCoach.cs" />
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelPayment.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelDanceStyle.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelDanceStyle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AdminPanel\AdminPanelDanceHall.cs">
+    <Compile Update="Forms\Admin\AdminPanel\AdminPanelDanceHall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Coach\Coach_menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Student\Student_menu.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
