@@ -36,6 +36,10 @@
             bg2 = new Panel();
             button8 = new Button();
             bg3 = new Panel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             bg1.SuspendLayout();
             bg2.SuspendLayout();
             SuspendLayout();
@@ -98,6 +102,10 @@
             // bg2
             // 
             bg2.BackColor = Color.PaleTurquoise;
+            bg2.Controls.Add(button2);
+            bg2.Controls.Add(button4);
+            bg2.Controls.Add(button3);
+            bg2.Controls.Add(button1);
             bg2.Controls.Add(button8);
             bg2.Controls.Add(bg3);
             bg2.Controls.Add(b_answers);
@@ -111,7 +119,7 @@
             // 
             button8.BackColor = Color.Silver;
             button8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(279, 263);
+            button8.Location = new Point(279, 274);
             button8.Margin = new Padding(3, 4, 3, 4);
             button8.Name = "button8";
             button8.Size = new Size(296, 59);
@@ -128,6 +136,58 @@
             bg3.Name = "bg3";
             bg3.Size = new Size(849, 36);
             bg3.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Silver;
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(279, 196);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(296, 59);
+            button1.TabIndex = 1;
+            button1.Text = "Просмотр всех занятий";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button8_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Silver;
+            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(461, 29);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(296, 59);
+            button2.TabIndex = 1;
+            button2.Text = "Занятия";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button8_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Silver;
+            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(84, 113);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(296, 59);
+            button3.TabIndex = 1;
+            button3.Text = "Расписание";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button8_Click;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.Silver;
+            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(461, 113);
+            button4.Margin = new Padding(3, 4, 3, 4);
+            button4.Name = "button4";
+            button4.Size = new Size(296, 59);
+            button4.TabIndex = 1;
+            button4.Text = "Мероприятия";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button8_Click;
             // 
             // Coach_menu
             // 
@@ -154,5 +214,9 @@
         private Label text_FIO;
         private Panel bg3;
         private Button button8;
+        private Button button2;
+        private Button button4;
+        private Button button3;
+        private Button button1;
     }
 }

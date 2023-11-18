@@ -43,6 +43,9 @@
     <Compile Update="Forms\Admin\AdminPanel\AdminPanelDanceHall.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Coach\Coach_create_lesson.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Coach\Coach_menu.cs">
       <SubType>Form</SubType>
     </Compile>

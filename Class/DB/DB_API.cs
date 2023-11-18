@@ -58,8 +58,7 @@ namespace SchoolDance.Class.DB
 
         public static bool AddLesson(Lesson entity)
         {
-            return AddEntity<Lesson>(entity, b => b.className == entity.className && b.groupId == entity.groupId
-                                    && b.danceStylesId == entity.danceStylesId);
+            return AddEntity<Lesson>(entity, b => b.Id == -1);
         }
 
         public static bool AddPayment(Payment entity)

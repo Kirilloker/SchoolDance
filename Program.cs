@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
 using SchoolDance.Forms;
 using SchoolDance.Forms.AdminPanel;
+using SchoolDance.Util;
 
 public class MysqlEntityFrameworkDesignTimeServices : IDesignTimeServices
 {
@@ -22,8 +23,10 @@ namespace SchoolDance
         [STAThread]
         static void Main(string[] args)
         {
+            bool new_data = true;
+            if (new_data) ToolsDB.AddNewData();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Coach_personal_info(1));
+            Application.Run(new Coach_create_lesson(1));
         }
     }
 
@@ -32,4 +35,5 @@ namespace SchoolDance
         public void ConfigureServices(IServiceCollection services)
             => services.AddDbContext<DB_Context>();  
     }
+
 }

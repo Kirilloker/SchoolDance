@@ -7,37 +7,47 @@ namespace SchoolDance.Forms
 {
     public partial class AdminPanelLesson : Form
     {
+
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
             try
             {
                 if (input_name.Text == "" ||
+                    input_description.Text == "" ||
+                    input_price.Text == "" ||
+                    input_time.Text == "" ||
                     list_danceHall.SelectedItem == null ||
-                    list_coach.SelectedItem == null ||
-                    list_group.SelectedItem == null ||
                     list_style.SelectedItem == null)
                 {
                     ToolsForm.ShowMessage("Нужно заполнить все поля.");
                     return;
                 }
 
+                int price = 0;
+                if (!int.TryParse(input_price.Text, out price))
+                {
+                    ToolsForm.ShowMessage("В поле Стоимость, нужно ввести число.");
+                    return;
+                }
+
+                if (correct_time(input_time.Text) == false)
+                {
+                    ToolsForm.ShowMessage("В поле Время начала, нужно ввести время, когда начинается занятие. Например: 12:30");
+                    return;
+                }
 
                 List<string> selectedItems = new List<string>();
                 foreach (var item in list_weekdays.CheckedItems)
-                {
                     selectedItems.Add(item.ToString());
-                }
                 string weekdays = string.Join(", ", selectedItems);
-
 
                 string danceHall = (string)list_danceHall.SelectedItem;
                 int id_dance = int.Parse(danceHall.Split(". ")[0]);
 
+
                 string coach = (string)list_coach.SelectedItem;
                 int id_coach = int.Parse(coach.Split(". ")[0]);
 
-                string group = (string)list_group.SelectedItem;
-                int id_group = int.Parse(group.Split(". ")[0]);
 
                 string style = (string)list_style.SelectedItem;
                 int id_style = int.Parse(style.Split(". ")[0]);
@@ -47,9 +57,11 @@ namespace SchoolDance.Forms
                     className = input_name.Text,
                     weekdays = weekdays,
                     danceHallId = id_dance,
-                    groupId = id_group,
+                    danceStylesId = id_style,
                     coachId = id_coach,
-                    danceStylesId = id_style
+                    price = price,
+                    description = input_description.Text,
+                    time_start = input_time.Text
                 };
 
 
@@ -88,7 +100,6 @@ namespace SchoolDance.Forms
             InitializeComponent();
 
             list_coach.DropDownStyle = ComboBoxStyle.DropDownList;
-            list_group.DropDownStyle = ComboBoxStyle.DropDownList;
             list_style.DropDownStyle = ComboBoxStyle.DropDownList;
             list_danceHall.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -97,12 +108,8 @@ namespace SchoolDance.Forms
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<Group> groups = DB_API.GetAll<Group>();
-            string[] formattedNames = groups.Select((ds) => $"{ds.Id}. {ds.nameGroup}").ToArray();
-            list_group.Items.AddRange(formattedNames);
-
             List<DanceHall> danceHalls = DB_API.GetAll<DanceHall>();
-            formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
+            string[] formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
             list_danceHall.Items.AddRange(formattedNames);
 
             List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
@@ -159,5 +166,23 @@ namespace SchoolDance.Forms
             }
         }
 
+        private void b_add_new_rows_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool correct_time(string input)
+        {
+            if (input.Length != 6)
+                return false;
+
+            if (input[2] != ':')
+                return false;
+
+            if (!char.IsDigit(input[0]) || !char.IsDigit(input[1]) || !char.IsDigit(input[4]) || !char.IsDigit(input[5]))
+                return false;
+
+            return true;
+        }
     }
 }

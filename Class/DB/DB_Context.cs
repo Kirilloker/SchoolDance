@@ -5,7 +5,7 @@ class DB_Context : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connect = "server=192.168.0.35;database=SchoolDance;user=kirillok;password=loki5566";
+        string connect = "server=192.168.0.116;database=SchoolDance;user=kirillok;password=loki5566";
         optionsBuilder.UseMySQL(connect);
     }
 
