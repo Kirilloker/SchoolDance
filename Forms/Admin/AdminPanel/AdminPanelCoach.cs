@@ -19,13 +19,14 @@ namespace SchoolDance.Forms
                     return;
                 }
 
+
+                string str_danceStyleId = "";
+
                 List<string> list_danceStyle = new();
                 foreach (var item in box_danceStyle.SelectedItems)
                 {
-                    list_danceStyle.Add(item.ToString());
+                    str_danceStyleId += item.ToString().Split(". ")[0] + ", ";
                 }
-
-                string str_danceStyle = string.Join(",", list_danceStyle);
 
                 Double phoneNumber = 0;
                 if (!Double.TryParse(input_phoneNumber.Text, out phoneNumber) ||
@@ -50,7 +51,7 @@ namespace SchoolDance.Forms
                     gender = radio_male.Checked == true ? "Male" : "Female",
                     date = dateTime_birth_date.Value,
                     typePerson = TypePerson.Coach,
-                    danceStylesNames = str_danceStyle,
+                    danceStylesId = str_danceStyleId,
                     position = input_position.Text,
                     phoneNumber = input_phoneNumber.Text,
                     workExperienceMonth = workExp
@@ -97,7 +98,8 @@ namespace SchoolDance.Forms
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
-            box_danceStyle.Items.AddRange(danceStyles.Select(ds => ds.name).ToArray());
+            string[] formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
+            box_danceStyle.Items.AddRange(formattedNames);
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

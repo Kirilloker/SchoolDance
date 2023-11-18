@@ -37,6 +37,7 @@
             input_password = new TextBox();
             b_SignIn = new Button();
             background = new Panel();
+            show_password = new CheckBox();
             b_SignUp = new Button();
             b_help = new Button();
             background.SuspendLayout();
@@ -46,9 +47,9 @@
             // 
             text_autorization.AutoSize = true;
             text_autorization.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            text_autorization.Location = new Point(66, 22);
+            text_autorization.Location = new Point(75, 29);
             text_autorization.Name = "text_autorization";
-            text_autorization.Size = new Size(314, 65);
+            text_autorization.Size = new Size(395, 81);
             text_autorization.TabIndex = 0;
             text_autorization.Text = "Авторизация";
             // 
@@ -57,27 +58,26 @@
             text_login.AutoSize = true;
             text_login.BackColor = SystemColors.ActiveCaption;
             text_login.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
-            text_login.Location = new Point(66, 142);
+            text_login.Location = new Point(17, 21);
             text_login.Name = "text_login";
-            text_login.Size = new Size(93, 37);
+            text_login.Size = new Size(116, 46);
             text_login.TabIndex = 1;
             text_login.Text = "Логин";
             // 
             // Password_text
             // 
             Password_text.AutoSize = true;
-            Password_text.Location = new Point(166, 195);
+            Password_text.Location = new Point(190, 260);
             Password_text.Name = "Password_text";
-            Password_text.Size = new Size(0, 15);
+            Password_text.Size = new Size(0, 20);
             Password_text.TabIndex = 2;
             // 
             // input_login
             // 
             input_login.BackColor = SystemColors.Window;
-            input_login.Location = new Point(190, 154);
-            input_login.Margin = new Padding(3, 2, 3, 2);
+            input_login.Location = new Point(159, 37);
             input_login.Name = "input_login";
-            input_login.Size = new Size(206, 23);
+            input_login.Size = new Size(235, 27);
             input_login.TabIndex = 3;
             // 
             // text_password
@@ -85,36 +85,34 @@
             text_password.AutoSize = true;
             text_password.BackColor = SystemColors.ActiveCaption;
             text_password.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
-            text_password.Location = new Point(66, 195);
+            text_password.Location = new Point(17, 92);
             text_password.Name = "text_password";
-            text_password.Size = new Size(110, 37);
+            text_password.Size = new Size(136, 46);
             text_password.TabIndex = 1;
             text_password.Text = "Пароль";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(111, 248);
+            label2.Location = new Point(127, 331);
             label2.Name = "label2";
-            label2.Size = new Size(0, 15);
+            label2.Size = new Size(0, 20);
             label2.TabIndex = 2;
             // 
             // input_password
             // 
-            input_password.Location = new Point(190, 208);
-            input_password.Margin = new Padding(3, 2, 3, 2);
+            input_password.Location = new Point(159, 109);
             input_password.Name = "input_password";
-            input_password.Size = new Size(206, 23);
+            input_password.Size = new Size(235, 27);
             input_password.TabIndex = 3;
             // 
             // b_SignIn
             // 
             b_SignIn.BackColor = Color.PaleGreen;
             b_SignIn.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            b_SignIn.Location = new Point(139, 119);
-            b_SignIn.Margin = new Padding(3, 2, 3, 2);
+            b_SignIn.Location = new Point(159, 213);
             b_SignIn.Name = "b_SignIn";
-            b_SignIn.Size = new Size(118, 51);
+            b_SignIn.Size = new Size(135, 68);
             b_SignIn.TabIndex = 4;
             b_SignIn.Text = "Вход";
             b_SignIn.UseVisualStyleBackColor = false;
@@ -123,21 +121,36 @@
             // background
             // 
             background.BackColor = SystemColors.ActiveCaption;
+            background.Controls.Add(b_help);
+            background.Controls.Add(show_password);
+            background.Controls.Add(input_password);
             background.Controls.Add(b_SignUp);
+            background.Controls.Add(input_login);
             background.Controls.Add(b_SignIn);
-            background.Location = new Point(51, 129);
-            background.Margin = new Padding(3, 2, 3, 2);
+            background.Controls.Add(text_login);
+            background.Controls.Add(text_password);
+            background.Location = new Point(58, 136);
             background.Name = "background";
-            background.Size = new Size(384, 212);
+            background.Size = new Size(439, 352);
             background.TabIndex = 5;
+            // 
+            // show_password
+            // 
+            show_password.AutoSize = true;
+            show_password.Location = new Point(159, 142);
+            show_password.Name = "show_password";
+            show_password.Size = new Size(150, 24);
+            show_password.TabIndex = 15;
+            show_password.Text = "Показать пароль";
+            show_password.UseVisualStyleBackColor = true;
+            show_password.CheckedChanged += show_password_CheckedChanged_1;
             // 
             // b_SignUp
             // 
             b_SignUp.BackColor = SystemColors.ControlLight;
-            b_SignUp.Location = new Point(139, 175);
-            b_SignUp.Margin = new Padding(3, 2, 3, 2);
+            b_SignUp.Location = new Point(159, 297);
             b_SignUp.Name = "b_SignUp";
-            b_SignUp.Size = new Size(118, 28);
+            b_SignUp.Size = new Size(135, 37);
             b_SignUp.TabIndex = 6;
             b_SignUp.Text = "Регистрация";
             b_SignUp.UseVisualStyleBackColor = false;
@@ -145,33 +158,29 @@
             // 
             // b_help
             // 
-            b_help.Location = new Point(190, 400);
-            b_help.Margin = new Padding(3, 2, 3, 2);
+            b_help.BackColor = SystemColors.GradientActiveCaption;
+            b_help.Location = new Point(358, 297);
             b_help.Name = "b_help";
-            b_help.Size = new Size(118, 28);
+            b_help.Size = new Size(78, 37);
             b_help.TabIndex = 6;
             b_help.Text = "Помощь";
-            b_help.UseVisualStyleBackColor = true;
+            b_help.UseVisualStyleBackColor = false;
             b_help.Click += b_help_Click;
             // 
             // Autorization
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(484, 461);
-            Controls.Add(b_help);
-            Controls.Add(input_password);
-            Controls.Add(input_login);
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(553, 539);
             Controls.Add(label2);
             Controls.Add(Password_text);
-            Controls.Add(text_password);
-            Controls.Add(text_login);
             Controls.Add(text_autorization);
             Controls.Add(background);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Autorization";
             Text = "Школа танцев";
             background.ResumeLayout(false);
+            background.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,5 +198,6 @@
         private Panel background;
         private Button b_help;
         private Button b_SignUp;
+        private CheckBox show_password;
     }
 }

@@ -1,27 +1,29 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
-using SchoolDance.Forms.AdminPanel;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
     public partial class Coach_menu : Form
     {
-        string login = "";
-        string password = "";
-        public Coach_menu(string login_, string password_)
+        int id;
+        public Coach_menu(int id)
         {
-            this.login = login_;
-            this.password = password_;
+            this.id = id;
 
             InitializeComponent();
-            text_FIO.Text = ToolsDB.getName(login);
+            text_FIO.Text = DB_API.Get<Coach>(id).fullName;
         }
 
         private void b_answers_Click(object sender, EventArgs e)
         {
             SupportMessageForUser supportMessageForUser = new(text_FIO.Text);
             supportMessageForUser.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Coach_personal_info forms = new(id);
+            forms.Show();
         }
     }
 }

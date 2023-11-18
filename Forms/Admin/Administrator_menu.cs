@@ -7,16 +7,12 @@ namespace SchoolDance.Forms
 {
     public partial class Administrator_menu : Form
     {
-        string login = "";
-        string password = "";
-        public Administrator_menu(string login_, string password_)
+        int id;
+        public Administrator_menu(int id)
         {
-            this.login = login_;
-            this.password = password_;
-
+            this.id = id;
             InitializeComponent();
-
-            text_FIO.Text = ToolsDB.getName(login);
+            text_FIO.Text = DB_API.Get<Administrator>(id).fullName;
         }
 
         private void b_student_Click(object sender, EventArgs e)

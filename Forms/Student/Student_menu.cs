@@ -7,21 +7,24 @@ namespace SchoolDance.Forms
 {
     public partial class Student_menu : Form
     {
-        string login = "";
-        string password = "";
-        public Student_menu(string login_, string password_)
+        int id;
+        public Student_menu(int id)
         {
-            this.login = login_;
-            this.password = password_;
-
+            this.id = id;
             InitializeComponent();
-            text_FIO.Text = ToolsDB.getName(login);
+            text_FIO.Text = DB_API.Get<Student>(id).fullName;
         }
 
         private void b_answers_Click(object sender, EventArgs e)
         {
             SupportMessageForUser supportMessageForUser = new(text_FIO.Text);
             supportMessageForUser.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Student_personal_info forms = new(id);
+            forms.Show();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SchoolDance.Forms.AdminPanel
             idMessage = _idMessage;
 
 
-            supportMessage = DB_API.GetSupportMessage(idMessage);
+            supportMessage = DB_API.Get<SupportMessage>(idMessage);
 
             text_topic.Text = "Тема: " + supportMessage.typeMessage;
             text_status.Text = "Статус: " + (supportMessage.isSolved == true ? "Решено" : "Не решено");

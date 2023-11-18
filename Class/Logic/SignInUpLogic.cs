@@ -1,4 +1,5 @@
-﻿using SchoolDance.Class.DB;
+﻿using Microsoft.VisualBasic.Logging;
+using SchoolDance.Class.DB;
 using System;
 
 namespace SchoolDance.Class.Logic
@@ -23,19 +24,14 @@ namespace SchoolDance.Class.Logic
         }
 
 
-        // Возвращается тип пользователя, который авторизовался
-        public static TypePerson getTypePerson(string login) 
-        {
-            return DB_API.GetPerson(login).typePerson;
-        }
-
         // Возвращает True, если регистрация студента прошла успешно
         public static bool signUpNewStudent(string login, string password, string first_name,
             string second_name, string patronymic, bool isMale, DateTime birth)
         {
-            return DB_API.AddStudent(login, EncodeStringToBase64(password),
-                first_name + " " + second_name + " " + patronymic,
-                isMale, birth);
+            Student student = new Student { login = login, password = password, 
+                            fullName = first_name + " " + second_name + " " + patronymic, gender = isMale == true ? "Male" : "Female", 
+                            date = birth, typePerson = TypePerson.Student };
+            return DB_API.AddStudent(student);
         }
     }
 }

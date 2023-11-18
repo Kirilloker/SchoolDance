@@ -1,4 +1,5 @@
-﻿using SchoolDance.Class.Logic;
+﻿using SchoolDance.Class.DB;
+using SchoolDance.Class.Logic;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -8,7 +9,7 @@ namespace SchoolDance.Forms
         public Autorization()
         {
             InitializeComponent();
-            input_password.UseSystemPasswordChar = true;
+            Show_hide_password();
         }
 
 
@@ -28,20 +29,20 @@ namespace SchoolDance.Forms
 
             if (SignInUpLogic.correctSignIn(input_login.Text, input_password.Text))
             {
-                TypePerson typePerson = SignInUpLogic.getTypePerson(input_login.Text);
+                Person person = DB_API.GetPerson(input_login.Text);
 
-                switch (typePerson)
+                switch (person.typePerson)
                 {
                     case TypePerson.Student:
-                        Student_menu student_Menu = new(input_login.Text, input_password.Text);
+                        Student_menu student_Menu = new(person.Id);
                         student_Menu.Show();
                         break;
                     case TypePerson.Coach:
-                        Coach_menu coach_Menu = new(input_login.Text, input_password.Text);
+                        Coach_menu coach_Menu = new(person.Id);
                         coach_Menu.Show();
                         break;
                     case TypePerson.Administrator:
-                        Administrator_menu administrator_Menu = new(input_login.Text, input_password.Text);
+                        Administrator_menu administrator_Menu = new(person.Id);
                         administrator_Menu.Show();
                         break;
                     default:
@@ -50,7 +51,6 @@ namespace SchoolDance.Forms
                 }
 
                 this.Hide();
-                Console.WriteLine(typePerson);
             }
             else
                 ToolsForm.ShowMessage("Пользователь не найден", "Ошибка");
@@ -59,6 +59,16 @@ namespace SchoolDance.Forms
         private void b_help_Click(object sender, EventArgs e)
         {
             ToolsForm.ShowMessage("Если возникли трудности с приложением, пожалуйста, напишите нам на почту: schoolDanceNN.ru", "Помощь", MessageBoxIcon.Question);
+        }
+
+        private void Show_hide_password()
+        {
+            input_password.UseSystemPasswordChar = !input_password.UseSystemPasswordChar;
+        }
+
+        private void show_password_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Show_hide_password();
         }
     }
 }

@@ -46,6 +46,12 @@
     <Compile Update="Forms\Coach\Coach_menu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Coach\Coach_personal_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Student\Student_personal_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Student\Student_menu.cs">
       <SubType>Form</SubType>
     </Compile>

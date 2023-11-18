@@ -26,33 +26,6 @@ namespace SchoolDance.Class.DB
             }
         }
 
-        public static int GetStudentId(string fullName)
-        {
-            using (DB_Context db = new DB_Context())
-            {
-                int studentId = db.students
-                    .Where(s => s.fullName == fullName)
-                    .Select(s => s.Id)
-                    .FirstOrDefault();
-
-                return studentId;
-            }
-        }
-
-        public static SupportMessage? GetSupportMessage(int id)
-        {
-            using (DB_Context db = new DB_Context())
-            {
-                return db.supportMessages.Where(s => s.Id == id).FirstOrDefault();
-            }
-        }
-
-        public static bool AddStudent(string log, string pas, string FIO, bool _isMale, DateTime birth)
-        {
-            Student student = new Student { login = log, password = pas, fullName = FIO, gender = _isMale == true ? "Male" : "Female", date = birth, typePerson = TypePerson.Student };
-            return AddStudent(student);
-        }
-
         public static bool AddDanceStyle(DanceStyle entity)
         {
             return AddEntity<DanceStyle>(entity, b => b.name == entity.name);
@@ -183,6 +156,20 @@ namespace SchoolDance.Class.DB
                     return db.Set<T>().ToList();
                 }
                 catch
+                {
+                    return null;
+                }
+            }
+        }
+        public static T Get<T>(int id) where T : class, IId
+        {
+            using (DB_Context db = new DB_Context())
+            {
+                try
+                {
+                    return db.Set<T>().Find(id);
+                }
+                catch (Exception)
                 {
                     return null;
                 }

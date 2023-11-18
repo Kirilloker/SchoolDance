@@ -23,7 +23,7 @@ namespace SchoolDance
         static void Main(string[] args)
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new SupportMessageForUser("пукатель 2000"));
+            Application.Run(new Coach_personal_info(1));
         }
     }
 
