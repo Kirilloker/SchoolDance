@@ -9,10 +9,11 @@ namespace SchoolDance.Util
         {
             AddDanceHall();
             AddDanceStyle();
-            AddPayment();
+            AddTopUp();
             AddStudent();
             AddCoach();
             AddLesson();
+            AddPayment();
         }
 
         static void AddDanceHall()
@@ -48,97 +49,97 @@ namespace SchoolDance.Util
                 DB_API.AddDanceStyle(item);
         }
 
-        static void AddPayment() 
+        static void AddTopUp() 
         {
-            Payment obj = new Payment
+            TopUp obj = new TopUp
             {
                 studentId = 1,
                 paymentTime = DateTime.Now,
-                endDatePayment = DateTime.Now.AddMonths(1)
+                price = 100
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 2,
                 paymentTime = DateTime.Now.AddHours(1),
-                endDatePayment = DateTime.Now.AddMonths(2)
+                price = 1200
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 3,
                 paymentTime = DateTime.Now.AddHours(2),
-                endDatePayment = DateTime.Now.AddMonths(3)
+                price = 140
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 4,
                 paymentTime = DateTime.Now.AddHours(3),
-                endDatePayment = DateTime.Now.AddMonths(4)
+                price = 10
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 5,
                 paymentTime = DateTime.Now.AddHours(4),
-                endDatePayment = DateTime.Now.AddMonths(5)
+                price = 500
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 6,
                 paymentTime = DateTime.Now.AddHours(5),
-                endDatePayment = DateTime.Now.AddMonths(6)
+                price = 11100
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 7,
                 paymentTime = DateTime.Now.AddHours(6),
-                endDatePayment = DateTime.Now.AddMonths(7)
+                price = 1200
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 8,
                 paymentTime = DateTime.Now.AddHours(7),
-                endDatePayment = DateTime.Now.AddMonths(8)
+                price = 100
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 9,
                 paymentTime = DateTime.Now.AddHours(8),
-                endDatePayment = DateTime.Now.AddMonths(9)
+                price = 1400
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
 
-            obj = new Payment
+            obj = new TopUp
             {
                 studentId = 10,
                 paymentTime = DateTime.Now.AddHours(9),
-                endDatePayment = DateTime.Now.AddMonths(10)
+                price = 100 
             };
 
-            DB_API.AddPayment(obj);
+            DB_API.AddTopUp(obj);
         }
 
         static void AddStudent() 
@@ -152,7 +153,8 @@ namespace SchoolDance.Util
                 fullName = "John Smith",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-10),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 2300
             },
             new Student
             {
@@ -161,7 +163,8 @@ namespace SchoolDance.Util
                 fullName = "Emma Johnson",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-20),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 1100
             },
             new Student
             {
@@ -170,7 +173,8 @@ namespace SchoolDance.Util
                 fullName = "Alexander Brown",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-30),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 400
             },
             new Student
             {
@@ -179,7 +183,8 @@ namespace SchoolDance.Util
                 fullName = "Sophia Davis",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-40),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 200
             },
             new Student
             {
@@ -188,7 +193,8 @@ namespace SchoolDance.Util
                 fullName = "William Wilson",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-50),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 0
             },
             new Student
             {
@@ -197,7 +203,8 @@ namespace SchoolDance.Util
                 fullName = "Olivia Taylor",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-60),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 10
             },
             new Student
             {
@@ -206,7 +213,8 @@ namespace SchoolDance.Util
                 fullName = "James Anderson",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-70),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 100
             },
             new Student
             {
@@ -215,7 +223,8 @@ namespace SchoolDance.Util
                 fullName = "Isabella Thomas",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-80),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 4100
             },
             new Student
             {
@@ -224,7 +233,8 @@ namespace SchoolDance.Util
                 fullName = "Michael Johnson",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-90),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 2100
             },
             new Student
             {
@@ -233,7 +243,8 @@ namespace SchoolDance.Util
                 fullName = "Sophia Jackson",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-100),
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = 1004
             }
         };
 
@@ -412,7 +423,7 @@ namespace SchoolDance.Util
                 price = 2000,
                 description = "Изучайте самбу на низкой гравитации и с погружением в вакуум!",
                 time_start = "18:00",
-                studentId = "1, 2, 3, "
+                studentId = "1, 2, 3"
             };
 
             DB_API.AddLesson(obj);
@@ -427,7 +438,7 @@ namespace SchoolDance.Util
                 price = 1800,
                 description = "Научитесь танцевать вместе с пингвинами и ощутите их неповторимую грацию!",
                 time_start = "17:30",
-                studentId = "2, 3, 1, "
+                studentId = "2, 3, 1"
             };
 
             DB_API.AddLesson(obj);
@@ -446,6 +457,45 @@ namespace SchoolDance.Util
             };
 
             DB_API.AddLesson(obj);
+        }
+
+        static void AddPayment()
+        {
+            Payment obj = new Payment
+            {
+                studentId = 1,
+                lessonId = 1,
+                date_end_subscription = DateTime.Now,
+            };
+
+            DB_API.AddPayment(obj);
+
+            obj = new Payment
+            {
+                studentId = 1,
+                lessonId = 2,
+                date_end_subscription = DateTime.Now,
+            };
+
+            DB_API.AddPayment(obj);
+
+            obj = new Payment
+            {
+                studentId = 2,
+                lessonId = 1,
+                date_end_subscription = DateTime.Now,
+            };
+
+            DB_API.AddPayment(obj);
+
+            obj = new Payment
+            {
+                studentId = 2,
+                lessonId = 2,
+                date_end_subscription = DateTime.Now,
+            };
+
+            DB_API.AddPayment(obj);
         }
     }
 }

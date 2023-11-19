@@ -1,5 +1,7 @@
 ﻿public class Student : Person 
 {
+    public int balance { get; set; }
+
     public void copy(Student another)
     {
         this.date = another.date;

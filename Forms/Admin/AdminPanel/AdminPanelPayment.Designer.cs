@@ -1,6 +1,6 @@
 ﻿namespace SchoolDance.Forms
 {
-    partial class AdminPanelPayment
+    partial class AdminPanelTopUp
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,11 @@
             Column1 = new DataGridViewTextBoxColumn();
             studentId = new DataGridViewTextBoxColumn();
             paymentTime = new DataGridViewTextBoxColumn();
-            endDatePayment = new DataGridViewTextBoxColumn();
+            endDateTopUp = new DataGridViewTextBoxColumn();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            studentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            paymentTimeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            endDateTopUpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             paymentBindingSource = new BindingSource(components);
             danceStyleBindingSource = new BindingSource(components);
             danceHallBindingSource = new BindingSource(components);
@@ -45,17 +49,13 @@
             bg_delete = new Panel();
             bg_Create = new Panel();
             list_student = new ComboBox();
-            date_endpayment_time = new DateTimePicker();
             date_payment_time = new DateTimePicker();
             b_add_new_rows = new Button();
             text_login = new Label();
             label1 = new Label();
             text_password = new Label();
             text_name_data = new Label();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            studentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            paymentTimeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            endDatePaymentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            input_price = new TextBox();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)paymentBindingSource).BeginInit();
@@ -77,7 +77,7 @@
             DataGrid.AllowUserToResizeRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, studentId, paymentTime, endDatePayment, idDataGridViewTextBoxColumn, studentIdDataGridViewTextBoxColumn, paymentTimeDataGridViewTextBoxColumn, endDatePaymentDataGridViewTextBoxColumn });
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, studentId, paymentTime, endDateTopUp, idDataGridViewTextBoxColumn, studentIdDataGridViewTextBoxColumn, paymentTimeDataGridViewTextBoxColumn, endDateTopUpDataGridViewTextBoxColumn });
             DataGrid.DataSource = paymentBindingSource;
             DataGrid.Location = new Point(16, 29);
             DataGrid.Margin = new Padding(3, 4, 3, 4);
@@ -112,17 +112,49 @@
             paymentTime.Name = "paymentTime";
             paymentTime.Width = 125;
             // 
-            // endDatePayment
+            // endDateTopUp
             // 
-            endDatePayment.DataPropertyName = "endDatePayment";
-            endDatePayment.HeaderText = "endDatePayment";
-            endDatePayment.MinimumWidth = 6;
-            endDatePayment.Name = "endDatePayment";
-            endDatePayment.Width = 125;
+            endDateTopUp.DataPropertyName = "endDateTopUp";
+            endDateTopUp.HeaderText = "endDateTopUp";
+            endDateTopUp.MinimumWidth = 6;
+            endDateTopUp.Name = "endDateTopUp";
+            endDateTopUp.Width = 125;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // studentIdDataGridViewTextBoxColumn
+            // 
+            studentIdDataGridViewTextBoxColumn.DataPropertyName = "studentId";
+            studentIdDataGridViewTextBoxColumn.HeaderText = "studentId";
+            studentIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
+            studentIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // paymentTimeDataGridViewTextBoxColumn
+            // 
+            paymentTimeDataGridViewTextBoxColumn.DataPropertyName = "paymentTime";
+            paymentTimeDataGridViewTextBoxColumn.HeaderText = "paymentTime";
+            paymentTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            paymentTimeDataGridViewTextBoxColumn.Name = "paymentTimeDataGridViewTextBoxColumn";
+            paymentTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // endDateTopUpDataGridViewTextBoxColumn
+            // 
+            endDateTopUpDataGridViewTextBoxColumn.DataPropertyName = "endDateTopUp";
+            endDateTopUpDataGridViewTextBoxColumn.HeaderText = "endDateTopUp";
+            endDateTopUpDataGridViewTextBoxColumn.MinimumWidth = 6;
+            endDateTopUpDataGridViewTextBoxColumn.Name = "endDateTopUpDataGridViewTextBoxColumn";
+            endDateTopUpDataGridViewTextBoxColumn.Width = 125;
             // 
             // paymentBindingSource
             // 
-            paymentBindingSource.DataSource = typeof(Payment);
+            paymentBindingSource.DataSource = typeof(TopUp);
             // 
             // danceStyleBindingSource
             // 
@@ -185,8 +217,8 @@
             // bg_Create
             // 
             bg_Create.BackColor = Color.Beige;
+            bg_Create.Controls.Add(input_price);
             bg_Create.Controls.Add(list_student);
-            bg_Create.Controls.Add(date_endpayment_time);
             bg_Create.Controls.Add(date_payment_time);
             bg_Create.Controls.Add(b_add_new_rows);
             bg_Create.Controls.Add(text_login);
@@ -200,21 +232,14 @@
             // list_student
             // 
             list_student.FormattingEnabled = true;
-            list_student.Location = new Point(452, 9);
+            list_student.Location = new Point(452, 12);
             list_student.Name = "list_student";
             list_student.Size = new Size(250, 28);
             list_student.TabIndex = 20;
             // 
-            // date_endpayment_time
-            // 
-            date_endpayment_time.Location = new Point(452, 86);
-            date_endpayment_time.Name = "date_endpayment_time";
-            date_endpayment_time.Size = new Size(250, 27);
-            date_endpayment_time.TabIndex = 19;
-            // 
             // date_payment_time
             // 
-            date_payment_time.Location = new Point(452, 48);
+            date_payment_time.Location = new Point(452, 51);
             date_payment_time.Name = "date_payment_time";
             date_payment_time.Size = new Size(250, 27);
             date_payment_time.TabIndex = 19;
@@ -236,7 +261,7 @@
             text_login.AutoSize = true;
             text_login.BackColor = Color.Beige;
             text_login.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            text_login.Location = new Point(231, 9);
+            text_login.Location = new Point(287, 12);
             text_login.Name = "text_login";
             text_login.Size = new Size(71, 23);
             text_login.TabIndex = 18;
@@ -247,22 +272,22 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Beige;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(231, 89);
+            label1.Location = new Point(287, 92);
             label1.Name = "label1";
-            label1.Size = new Size(209, 23);
+            label1.Size = new Size(124, 23);
             label1.TabIndex = 14;
-            label1.Text = "Дата окончание платежа";
+            label1.Text = "Пополнено на";
             // 
             // text_password
             // 
             text_password.AutoSize = true;
             text_password.BackColor = Color.Beige;
             text_password.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            text_password.Location = new Point(231, 51);
+            text_password.Location = new Point(287, 54);
             text_password.Name = "text_password";
-            text_password.Size = new Size(109, 23);
+            text_password.Size = new Size(144, 23);
             text_password.TabIndex = 14;
-            text_password.Text = "Дата оплаты";
+            text_password.Text = "Дата зачисления";
             // 
             // text_name_data
             // 
@@ -274,39 +299,14 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Платеж";
             // 
-            // idDataGridViewTextBoxColumn
+            // input_price
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 125;
+            input_price.Location = new Point(452, 92);
+            input_price.Name = "input_price";
+            input_price.Size = new Size(250, 27);
+            input_price.TabIndex = 21;
             // 
-            // studentIdDataGridViewTextBoxColumn
-            // 
-            studentIdDataGridViewTextBoxColumn.DataPropertyName = "studentId";
-            studentIdDataGridViewTextBoxColumn.HeaderText = "studentId";
-            studentIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
-            studentIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // paymentTimeDataGridViewTextBoxColumn
-            // 
-            paymentTimeDataGridViewTextBoxColumn.DataPropertyName = "paymentTime";
-            paymentTimeDataGridViewTextBoxColumn.HeaderText = "paymentTime";
-            paymentTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            paymentTimeDataGridViewTextBoxColumn.Name = "paymentTimeDataGridViewTextBoxColumn";
-            paymentTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // endDatePaymentDataGridViewTextBoxColumn
-            // 
-            endDatePaymentDataGridViewTextBoxColumn.DataPropertyName = "endDatePayment";
-            endDatePaymentDataGridViewTextBoxColumn.HeaderText = "endDatePayment";
-            endDatePaymentDataGridViewTextBoxColumn.MinimumWidth = 6;
-            endDatePaymentDataGridViewTextBoxColumn.Name = "endDatePaymentDataGridViewTextBoxColumn";
-            endDatePaymentDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // AdminPanelPayment
+            // AdminPanelTopUp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -316,7 +316,7 @@
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelPayment";
+            Name = "AdminPanelTopUp";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
@@ -357,17 +357,17 @@
         private BindingSource danceHallBindingSource;
         private BindingSource danceStyleBindingSource;
         private Label label1;
-        private DateTimePicker date_endpayment_time;
         private DateTimePicker date_payment_time;
         private ComboBox list_student;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn studentId;
         private DataGridViewTextBoxColumn paymentTime;
-        private DataGridViewTextBoxColumn endDatePayment;
+        private DataGridViewTextBoxColumn endDateTopUp;
         private BindingSource paymentBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn studentIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn paymentTimeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn endDatePaymentDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn endDateTopUpDataGridViewTextBoxColumn;
+        private TextBox input_price;
     }
 }

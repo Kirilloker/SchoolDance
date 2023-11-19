@@ -1,7 +1,5 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
-using SchoolDance.Forms.AdminPanel;
-using SchoolDance.Util;
+
 
 namespace SchoolDance.Forms
 {
@@ -17,13 +15,25 @@ namespace SchoolDance.Forms
 
         private void b_answers_Click(object sender, EventArgs e)
         {
-            SupportMessageForUser supportMessageForUser = new(text_FIO.Text);
-            supportMessageForUser.Show();
+            SupportMessageForUser forms = new(text_FIO.Text);
+            forms.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             Student_personal_info forms = new(id);
+            forms.Show();
+        }
+
+        private void b_question_click(object sender, EventArgs e)
+        {
+            Student_question forms = new();
+            forms.Show();
+        }
+
+        private void b_signUp_lesosn_Click(object sender, EventArgs e)
+        {
+            Student_signUp_lesson forms = new(id);
             forms.Show();
         }
     }

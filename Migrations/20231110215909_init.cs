@@ -120,7 +120,7 @@ namespace SchoolDance.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     studentId = table.Column<int>(type: "int", nullable: false),
                     paymentTime = table.Column<DateTime>(type: "datetime", nullable: false),
-                    endDatePayment = table.Column<DateTime>(type: "date", nullable: false)
+                    endDateTopUp = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {

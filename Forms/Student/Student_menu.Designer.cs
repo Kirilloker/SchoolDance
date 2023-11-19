@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button8 = new Button();
+            b_personal_info = new Button();
             b_answers = new Button();
             bg1 = new Panel();
             text_role = new Label();
@@ -36,26 +36,27 @@
             text_account = new Label();
             bg2 = new Panel();
             bg3 = new Panel();
-            button4 = new Button();
+            b_signUp_lesson = new Button();
             button3 = new Button();
             button2 = new Button();
-            button1 = new Button();
+            b_pay_lesson = new Button();
+            b_questions = new Button();
             bg1.SuspendLayout();
             bg2.SuspendLayout();
             SuspendLayout();
             // 
-            // button8
+            // b_personal_info
             // 
-            button8.BackColor = Color.Silver;
-            button8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(275, 217);
-            button8.Margin = new Padding(3, 4, 3, 4);
-            button8.Name = "button8";
-            button8.Size = new Size(296, 59);
-            button8.TabIndex = 0;
-            button8.Text = "Личная информация";
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += button8_Click;
+            b_personal_info.BackColor = Color.Silver;
+            b_personal_info.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_personal_info.Location = new Point(81, 217);
+            b_personal_info.Margin = new Padding(3, 4, 3, 4);
+            b_personal_info.Name = "b_personal_info";
+            b_personal_info.Size = new Size(296, 59);
+            b_personal_info.TabIndex = 0;
+            b_personal_info.Text = "Личная информация";
+            b_personal_info.UseVisualStyleBackColor = false;
+            b_personal_info.Click += button8_Click;
             // 
             // b_answers
             // 
@@ -116,11 +117,12 @@
             // 
             bg2.BackColor = Color.LemonChiffon;
             bg2.Controls.Add(bg3);
-            bg2.Controls.Add(button4);
+            bg2.Controls.Add(b_signUp_lesson);
             bg2.Controls.Add(button3);
             bg2.Controls.Add(button2);
-            bg2.Controls.Add(button1);
-            bg2.Controls.Add(button8);
+            bg2.Controls.Add(b_pay_lesson);
+            bg2.Controls.Add(b_questions);
+            bg2.Controls.Add(b_personal_info);
             bg2.Controls.Add(b_answers);
             bg2.Location = new Point(1, 91);
             bg2.Margin = new Padding(3, 4, 3, 4);
@@ -137,17 +139,18 @@
             bg3.Size = new Size(849, 36);
             bg3.TabIndex = 0;
             // 
-            // button4
+            // b_signUp_lesson
             // 
-            button4.BackColor = Color.Silver;
-            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(438, 38);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(296, 59);
-            button4.TabIndex = 0;
-            button4.Text = "Записаться на занятие";
-            button4.UseVisualStyleBackColor = false;
+            b_signUp_lesson.BackColor = Color.Silver;
+            b_signUp_lesson.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_signUp_lesson.Location = new Point(438, 38);
+            b_signUp_lesson.Margin = new Padding(3, 4, 3, 4);
+            b_signUp_lesson.Name = "b_signUp_lesson";
+            b_signUp_lesson.Size = new Size(296, 59);
+            b_signUp_lesson.TabIndex = 0;
+            b_signUp_lesson.Text = "Записаться на занятие";
+            b_signUp_lesson.UseVisualStyleBackColor = false;
+            b_signUp_lesson.Click += b_signUp_lesosn_Click;
             // 
             // button3
             // 
@@ -173,17 +176,30 @@
             button2.Text = "Мероприятия";
             button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // b_pay_lesson
             // 
-            button1.BackColor = Color.Silver;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(438, 124);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(296, 59);
-            button1.TabIndex = 0;
-            button1.Text = "Оплатить занятия";
-            button1.UseVisualStyleBackColor = false;
+            b_pay_lesson.BackColor = Color.Silver;
+            b_pay_lesson.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_pay_lesson.Location = new Point(438, 124);
+            b_pay_lesson.Margin = new Padding(3, 4, 3, 4);
+            b_pay_lesson.Name = "b_pay_lesson";
+            b_pay_lesson.Size = new Size(296, 59);
+            b_pay_lesson.TabIndex = 0;
+            b_pay_lesson.Text = "Оплатить занятия";
+            b_pay_lesson.UseVisualStyleBackColor = false;
+            // 
+            // b_questions
+            // 
+            b_questions.BackColor = Color.Silver;
+            b_questions.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_questions.Location = new Point(438, 217);
+            b_questions.Margin = new Padding(3, 4, 3, 4);
+            b_questions.Name = "b_questions";
+            b_questions.Size = new Size(296, 59);
+            b_questions.TabIndex = 0;
+            b_questions.Text = "Вопросы";
+            b_questions.UseVisualStyleBackColor = false;
+            b_questions.Click += b_question_click;
             // 
             // Student_menu
             // 
@@ -202,7 +218,7 @@
         }
 
         #endregion
-        private Button button8;
+        private Button b_personal_info;
         private Button b_answers;
         private Panel bg1;
         private Label text_role;
@@ -210,9 +226,10 @@
         private Panel bg2;
         private Label text_FIO;
         private Panel bg3;
-        private Button button4;
+        private Button b_signUp_lesson;
         private Button button3;
         private Button button2;
-        private Button button1;
+        private Button b_pay_lesson;
+        private Button b_questions;
     }
 }

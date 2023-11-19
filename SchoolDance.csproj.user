@@ -25,6 +25,15 @@
     <Compile Update="Forms\Common\SupportMessageForUser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Student\Student_add_money.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Student\Student_pay_for_lesson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Student\Student_question.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Student\Student_signUp_lesson.cs">
       <SubType>Form</SubType>
     </Compile>

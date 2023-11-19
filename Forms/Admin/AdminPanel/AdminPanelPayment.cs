@@ -3,30 +3,29 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelPayment : Form
+    public partial class AdminPanelTopUp : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (date_payment_time.Value > date_endpayment_time.Value)
+            string name_student = (string)list_student.SelectedItem;
+            int id_student = int.Parse(name_student.Split(". ")[0]);
+            int price_ = 0;
+            if (!int.TryParse(input_price.Text, out price_))
             {
-                ToolsForm.ShowMessage("Дата окончания платежа не может быть раньше даты оплаты!");
+                ToolsForm.ShowMessage("В поле Максимальная вместимость, нужно ввести число.");
                 return;
             }
 
-            string name_student = (string)list_student.SelectedItem;
-            int id_student = int.Parse(name_student.Split(". ")[0]);
-            //name_student = name_student.Split(". ")[1];
-
-            Payment obj = new Payment
+            TopUp obj = new TopUp
             {
                 studentId = id_student,
                 paymentTime = date_payment_time.Value,
-                endDatePayment = date_endpayment_time.Value
+                price = price_
             };
 
-            if (DB_API.AddPayment(obj) == true)
+            if (DB_API.AddTopUp(obj) == true)
             {
-                add_data_row<Payment>(obj);
+                add_data_row<TopUp>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
             }
             else
@@ -34,16 +33,16 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Payment>();
-        private void changeCell(int rowIndex) => DB_API.Update<Payment>(((List<Payment>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Payment>(id);
-        private void deleteRow() => del_data_row<Payment>();
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<TopUp>();
+        private void changeCell(int rowIndex) => DB_API.Update<TopUp>(((List<TopUp>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<TopUp>(id);
+        private void deleteRow() => del_data_row<TopUp>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelPayment()
+        public AdminPanelTopUp()
         {
             InitializeComponent();
 

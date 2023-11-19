@@ -29,7 +29,7 @@ namespace SchoolDance.Forms
 
         private void b_payment_Click(object sender, EventArgs e)
         {
-            AdminPanelPayment menu = new();
+            AdminPanelTopUp menu = new();
             menu.Show();
         }
 

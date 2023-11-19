@@ -81,22 +81,35 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Свободных мест нет.", "Запись на занятие");
                 return;
             }
-
-            if (true == false)
+            Student student = DB_API.Get<Student>(studentId);
+            if (student.balance < lesson.price)
             {
                 ToolsForm.ShowMessage("У Вас недостаточно средств на балансе.", "Запись на занятие");
                 return;
             }
 
-            Array.Resize(ref elements, elements.Length + 1);
-            elements[elements.Length - 1] = studentId.ToString();
-            string result = string.Join(", ", elements);
-            if (elements.Length == 1) result = studentId.ToString();
+            string result = "";
+
+            if (elements[0] == "")
+                result = studentId.ToString();
+            else 
+            {
+                Array.Resize(ref elements, elements.Length + 1);
+                elements[elements.Length - 1] = studentId.ToString();
+                result = string.Join(", ", elements);
+            }
 
             lesson.studentId = result;
 
-            DB_API.Update<Lesson>(lesson);
-            ToolsForm.ShowMessage("Вы записались на новое занятие", "Запись на занятие", MessageBoxIcon.Asterisk);
+            var result_choice = MessageBox.Show("С вашего баланса спишется " + lesson.price.ToString() + " рублей, вы уверены?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result_choice == DialogResult.Yes)
+            {
+                student.balance -= lesson.price;
+                DB_API.Update<Lesson>(lesson);
+                DB_API.Update<Student>(student);
+                ToolsForm.ShowMessage("Вы записались на новое занятие", "Запись на занятие", MessageBoxIcon.Asterisk);
+            }
         }
 
         public bool CheckFreePlace(string input)

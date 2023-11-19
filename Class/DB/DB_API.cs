@@ -61,10 +61,16 @@ namespace SchoolDance.Class.DB
             return AddEntity<Lesson>(entity, b => b.Id == -1);
         }
 
-        public static bool AddPayment(Payment entity)
+        public static bool AddTopUp(TopUp entity)
         {
-            return AddEntity<Payment>(entity, b => b.paymentTime == entity.paymentTime);
+            return AddEntity<TopUp>(entity, b => b.paymentTime == entity.paymentTime);
         }
+
+        public static bool AddPayment(Payment entity) 
+        {
+            return AddEntity<Payment>(entity, b => (b.studentId == entity.studentId) && 
+            (b.lessonId == entity.lessonId));
+        } 
 
         public static bool AddEventDance(EventDance entity)
         {

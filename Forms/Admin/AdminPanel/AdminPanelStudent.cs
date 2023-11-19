@@ -8,10 +8,18 @@ namespace SchoolDance.Forms
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" ||
+            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" || input_balance.Text == "" ||
                 (radio_female.Checked == false && radio_male.Checked == false))
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля.");
+                return;
+            }
+
+
+            int balance = 0;
+            if (!int.TryParse(input_balance.Text, out balance))
+            {
+                ToolsForm.ShowMessage("В поле Баланс, нужно ввести число.");
                 return;
             }
 
@@ -22,7 +30,8 @@ namespace SchoolDance.Forms
                 fullName = input_first_name.Text,
                 gender = radio_male.Checked == true ? "Male" : "Female",
                 date = dateTime_birth_date.Value,
-                typePerson = TypePerson.Student
+                typePerson = TypePerson.Student,
+                balance = balance
             };
 
             if (DB_API.AddStudent(student) == true)

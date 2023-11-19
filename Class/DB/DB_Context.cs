@@ -28,7 +28,8 @@ class DB_Context : DbContext
     public DbSet<DanceHall> danceHalls { get; set; }
     public DbSet<DanceStyle> danceStyles { get; set; }
     public DbSet<Group> groups { get; set; }
-    public DbSet<Payment> payments { get; set; }
+    public DbSet<TopUp> topUp { get; set; }
+    public DbSet<Payment> payment { get; set; }
     public DbSet<Student> students { get; set; }
     public DbSet<SupportMessage> supportMessages { get; set; }
     public DbSet<EventDance> eventDances { get; set; }

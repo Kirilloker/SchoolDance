@@ -26,7 +26,7 @@ namespace SchoolDance
             bool new_data = false;
             if (new_data) ToolsDB.AddNewData();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Student_signUp_lesson(1));
+            Application.Run(new Student_pay_for_lesson(1));
         }
     }
 

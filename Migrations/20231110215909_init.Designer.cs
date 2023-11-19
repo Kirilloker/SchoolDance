@@ -176,13 +176,13 @@ namespace SchoolDance.Migrations
                     b.ToTable("groups");
                 });
 
-            modelBuilder.Entity("Payment", b =>
+            modelBuilder.Entity("TopUp", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("endDatePayment")
+                    b.Property<DateOnly>("endDateTopUp")
                         .HasColumnType("date");
 
                     b.Property<DateTime>("paymentTime")

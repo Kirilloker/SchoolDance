@@ -92,7 +92,7 @@
             // 
             // paymentBindingSource
             // 
-            paymentBindingSource.DataSource = typeof(Payment);
+            paymentBindingSource.DataSource = typeof(TopUp);
             // 
             // danceStyleBindingSource
             // 

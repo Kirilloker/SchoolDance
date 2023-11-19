@@ -50,12 +50,14 @@
             bg_Create = new Panel();
             b_add_new_rows = new Button();
             text_login = new Label();
-            text_password = new Label();
+            input_balance = new Label();
             input_password = new TextBox();
             text_first_name = new Label();
             input_login = new TextBox();
             input_first_name = new TextBox();
             text_name_data = new Label();
+            label1 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
             bg_date.SuspendLayout();
@@ -245,12 +247,14 @@
             bg_Create.Controls.Add(text_login);
             bg_Create.Controls.Add(text_birth_date);
             bg_Create.Controls.Add(radio_female);
-            bg_Create.Controls.Add(text_password);
+            bg_Create.Controls.Add(input_balance);
             bg_Create.Controls.Add(radio_male);
             bg_Create.Controls.Add(input_password);
             bg_Create.Controls.Add(text_gender);
+            bg_Create.Controls.Add(label1);
             bg_Create.Controls.Add(text_first_name);
             bg_Create.Controls.Add(input_login);
+            bg_Create.Controls.Add(textBox1);
             bg_Create.Controls.Add(input_first_name);
             bg_Create.Location = new Point(13, 69);
             bg_Create.Name = "bg_Create";
@@ -280,16 +284,16 @@
             text_login.TabIndex = 18;
             text_login.Text = "Логин";
             // 
-            // text_password
+            // input_balance
             // 
-            text_password.AutoSize = true;
-            text_password.BackColor = Color.Beige;
-            text_password.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            text_password.Location = new Point(18, 45);
-            text_password.Name = "text_password";
-            text_password.Size = new Size(69, 23);
-            text_password.TabIndex = 14;
-            text_password.Text = "Пароль";
+            input_balance.AutoSize = true;
+            input_balance.BackColor = Color.Beige;
+            input_balance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            input_balance.Location = new Point(18, 45);
+            input_balance.Name = "input_balance";
+            input_balance.Size = new Size(69, 23);
+            input_balance.TabIndex = 14;
+            input_balance.Text = "Пароль";
             // 
             // input_password
             // 
@@ -334,6 +338,25 @@
             text_name_data.Size = new Size(146, 41);
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Студенты";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Beige;
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(18, 115);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 23);
+            label1.TabIndex = 20;
+            label1.Text = "Баланс";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Window;
+            textBox1.Location = new Point(132, 114);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(239, 27);
+            textBox1.TabIndex = 25;
             // 
             // AdminPanelStudent
             // 
@@ -382,10 +405,12 @@
         private Label text_gender;
         private Label text_birth_date;
         private Label text_login;
-        private Label text_password;
+        private Label input_balance;
         private TextBox input_password;
         private Label text_first_name;
         private TextBox input_login;
         private TextBox input_first_name;
+        private Label label1;
+        private TextBox textBox1;
     }
 }
