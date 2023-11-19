@@ -9,4 +9,5 @@
     public int price { get; set; }
     public string? description { get; set; }
     public string? time_start { get; set; }
+    public string? studentId { get; set; }
 }

@@ -23,10 +23,10 @@ namespace SchoolDance
         [STAThread]
         static void Main(string[] args)
         {
-            bool new_data = true;
+            bool new_data = false;
             if (new_data) ToolsDB.AddNewData();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Coach_create_lesson(1));
+            Application.Run(new Student_signUp_lesson(1));
         }
     }
 

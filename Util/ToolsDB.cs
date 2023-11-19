@@ -411,7 +411,8 @@ namespace SchoolDance.Util
                 coachId = 3,
                 price = 2000,
                 description = "Изучайте самбу на низкой гравитации и с погружением в вакуум!",
-                time_start = "18:00"
+                time_start = "18:00",
+                studentId = "1, 2, 3, "
             };
 
             DB_API.AddLesson(obj);
@@ -425,7 +426,8 @@ namespace SchoolDance.Util
                 coachId = 4,
                 price = 1800,
                 description = "Научитесь танцевать вместе с пингвинами и ощутите их неповторимую грацию!",
-                time_start = "17:30"
+                time_start = "17:30",
+                studentId = "2, 3, 1, "
             };
 
             DB_API.AddLesson(obj);
@@ -439,7 +441,8 @@ namespace SchoolDance.Util
                 coachId = 5,
                 price = 1600,
                 description = "Танцуйте вместе с милыми котятами и получайте удовольствие от уникального дуэта!",
-                time_start = "16:45"
+                time_start = "16:45",
+                studentId = ""
             };
 
             DB_API.AddLesson(obj);
