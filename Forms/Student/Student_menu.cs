@@ -1,17 +1,20 @@
 ﻿using SchoolDance.Class.DB;
-
+using static SchoolDance.Forms.Authorization;
 
 namespace SchoolDance.Forms
 {
     public partial class Student_menu : Form
     {
         int id;
-        public Student_menu(int id)
+        private CloseMainWindow CloseMainWindowDelegate;
+        public Student_menu(int id, CloseMainWindow CloseMainWindowDelegate_)
         {
             this.id = id;
+            this.CloseMainWindowDelegate = CloseMainWindowDelegate_;
             InitializeComponent();
             text_FIO.Text = DB_API.Get<Student>(id).fullName;
         }
+
 
         private void b_answers_Click(object sender, EventArgs e)
         {
@@ -35,6 +38,17 @@ namespace SchoolDance.Forms
         {
             Student_signUp_lesson forms = new(id);
             forms.Show();
+        }
+
+        private void b_pay_lesson_Click(object sender, EventArgs e)
+        {
+            Student_pay_for_lesson forms = new(id);
+            forms.Show();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            CloseMainWindowDelegate();
         }
     }
 }

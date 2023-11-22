@@ -15,6 +15,8 @@ namespace SchoolDance.Forms
             this.id_person = id_person;
 
             coach = DB_API.Get<Coach>(id_person);
+            if (coach == null)
+                coach = new() { Id = -1};
 
             input_login.Text = coach.login;
             // input_password.Text = coach.password;
@@ -26,6 +28,8 @@ namespace SchoolDance.Forms
             else
                 radio_female.Checked = true;
             Show_hide_password();
+
+            if (coach.fullName == null) coach.fullName = "Неизвестный пользователь";
 
             string[] words = coach.fullName.Split(' ');
             if (words.Length >= 1)
@@ -39,11 +43,12 @@ namespace SchoolDance.Forms
             input_work_experience.Text = coach.workExperienceMonth.ToString();
             input_position.Text = coach.position;
 
-
             // Ставим галочки на против стилей танцев
             List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
             string[] formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             box_danceStyle.Items.AddRange(formattedNames);
+
+            if (coach.danceStylesId == null) coach.danceStylesId = "";
 
             string[] danceStylesIdArray = coach.danceStylesId.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int[] danceStylesIdIntegers = Array.ConvertAll(danceStylesIdArray, int.Parse);
@@ -88,6 +93,7 @@ namespace SchoolDance.Forms
             List<string> list_danceStyle = new();
             foreach (var item in box_danceStyle.SelectedItems)
             {
+                if (item == null) continue; 
                 str_danceStyleId += item.ToString().Split(". ")[0] + ", ";
             }
 
@@ -98,7 +104,7 @@ namespace SchoolDance.Forms
                 fullName = input_first_name.Text + " " + input_second_name.Text + " " + input_patronymic.Text,
                 gender = radio_male.Checked == true ? "Male" : "Female",
                 date = dateTime_birth_date.Value,
-                typePerson = TypePerson.Student,
+                typePerson = TypePerson.Coach,
                 Id = coach.Id,
                 danceStylesId = str_danceStyleId,
                 workExperienceMonth = coach.workExperienceMonth,

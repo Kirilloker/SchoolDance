@@ -52,12 +52,12 @@
             text_login = new Label();
             input_balance = new Label();
             input_password = new TextBox();
+            label1 = new Label();
             text_first_name = new Label();
             input_login = new TextBox();
+            input_balance_1 = new TextBox();
             input_first_name = new TextBox();
             text_name_data = new Label();
-            label1 = new Label();
-            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
             bg_date.SuspendLayout();
@@ -254,7 +254,7 @@
             bg_Create.Controls.Add(label1);
             bg_Create.Controls.Add(text_first_name);
             bg_Create.Controls.Add(input_login);
-            bg_Create.Controls.Add(textBox1);
+            bg_Create.Controls.Add(input_balance_1);
             bg_Create.Controls.Add(input_first_name);
             bg_Create.Location = new Point(13, 69);
             bg_Create.Name = "bg_Create";
@@ -302,6 +302,17 @@
             input_password.Size = new Size(239, 27);
             input_password.TabIndex = 21;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Beige;
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(18, 115);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 23);
+            label1.TabIndex = 20;
+            label1.Text = "Баланс";
+            // 
             // text_first_name
             // 
             text_first_name.AutoSize = true;
@@ -321,6 +332,14 @@
             input_login.Size = new Size(239, 27);
             input_login.TabIndex = 22;
             // 
+            // input_balance_1
+            // 
+            input_balance_1.BackColor = SystemColors.Window;
+            input_balance_1.Location = new Point(132, 114);
+            input_balance_1.Name = "input_balance_1";
+            input_balance_1.Size = new Size(239, 27);
+            input_balance_1.TabIndex = 25;
+            // 
             // input_first_name
             // 
             input_first_name.BackColor = SystemColors.Window;
@@ -338,25 +357,6 @@
             text_name_data.Size = new Size(146, 41);
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Студенты";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Beige;
-            label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(18, 115);
-            label1.Name = "label1";
-            label1.Size = new Size(65, 23);
-            label1.TabIndex = 20;
-            label1.Text = "Баланс";
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.Window;
-            textBox1.Location = new Point(132, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(239, 27);
-            textBox1.TabIndex = 25;
             // 
             // AdminPanelStudent
             // 
@@ -411,6 +411,6 @@
         private TextBox input_login;
         private TextBox input_first_name;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox input_balance_1;
     }
 }

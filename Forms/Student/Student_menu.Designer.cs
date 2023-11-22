@@ -154,7 +154,7 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Silver;
+            button3.BackColor = Color.IndianRed;
             button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             button3.Location = new Point(81, 38);
             button3.Margin = new Padding(3, 4, 3, 4);
@@ -166,7 +166,7 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.Silver;
+            button2.BackColor = Color.IndianRed;
             button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             button2.Location = new Point(81, 124);
             button2.Margin = new Padding(3, 4, 3, 4);
@@ -187,6 +187,7 @@
             b_pay_lesson.TabIndex = 0;
             b_pay_lesson.Text = "Оплатить занятия";
             b_pay_lesson.UseVisualStyleBackColor = false;
+            b_pay_lesson.Click += b_pay_lesson_Click;
             // 
             // b_questions
             // 

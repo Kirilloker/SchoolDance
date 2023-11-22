@@ -38,7 +38,6 @@
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             studentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             paymentTimeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            endDateTopUpDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             paymentBindingSource = new BindingSource(components);
             danceStyleBindingSource = new BindingSource(components);
             danceHallBindingSource = new BindingSource(components);
@@ -48,6 +47,7 @@
             label_delete = new Label();
             bg_delete = new Panel();
             bg_Create = new Panel();
+            input_price = new TextBox();
             list_student = new ComboBox();
             date_payment_time = new DateTimePicker();
             b_add_new_rows = new Button();
@@ -55,7 +55,6 @@
             label1 = new Label();
             text_password = new Label();
             text_name_data = new Label();
-            input_price = new TextBox();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)paymentBindingSource).BeginInit();
@@ -77,7 +76,7 @@
             DataGrid.AllowUserToResizeRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, studentId, paymentTime, endDateTopUp, idDataGridViewTextBoxColumn, studentIdDataGridViewTextBoxColumn, paymentTimeDataGridViewTextBoxColumn, endDateTopUpDataGridViewTextBoxColumn });
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, studentId, paymentTime, endDateTopUp, idDataGridViewTextBoxColumn, studentIdDataGridViewTextBoxColumn, paymentTimeDataGridViewTextBoxColumn });
             DataGrid.DataSource = paymentBindingSource;
             DataGrid.Location = new Point(16, 29);
             DataGrid.Margin = new Padding(3, 4, 3, 4);
@@ -143,14 +142,6 @@
             paymentTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             paymentTimeDataGridViewTextBoxColumn.Name = "paymentTimeDataGridViewTextBoxColumn";
             paymentTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // endDateTopUpDataGridViewTextBoxColumn
-            // 
-            endDateTopUpDataGridViewTextBoxColumn.DataPropertyName = "endDateTopUp";
-            endDateTopUpDataGridViewTextBoxColumn.HeaderText = "endDateTopUp";
-            endDateTopUpDataGridViewTextBoxColumn.MinimumWidth = 6;
-            endDateTopUpDataGridViewTextBoxColumn.Name = "endDateTopUpDataGridViewTextBoxColumn";
-            endDateTopUpDataGridViewTextBoxColumn.Width = 125;
             // 
             // paymentBindingSource
             // 
@@ -229,6 +220,13 @@
             bg_Create.Size = new Size(885, 174);
             bg_Create.TabIndex = 5;
             // 
+            // input_price
+            // 
+            input_price.Location = new Point(452, 92);
+            input_price.Name = "input_price";
+            input_price.Size = new Size(250, 27);
+            input_price.TabIndex = 21;
+            // 
             // list_student
             // 
             list_student.FormattingEnabled = true;
@@ -293,18 +291,11 @@
             // 
             text_name_data.AutoSize = true;
             text_name_data.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            text_name_data.Location = new Point(411, 9);
+            text_name_data.Location = new Point(371, 9);
             text_name_data.Name = "text_name_data";
-            text_name_data.Size = new Size(120, 41);
+            text_name_data.Size = new Size(191, 41);
             text_name_data.TabIndex = 6;
-            text_name_data.Text = "Платеж";
-            // 
-            // input_price
-            // 
-            input_price.Location = new Point(452, 92);
-            input_price.Name = "input_price";
-            input_price.Size = new Size(250, 27);
-            input_price.TabIndex = 21;
+            text_name_data.Text = "Пополнение";
             // 
             // AdminPanelTopUp
             // 

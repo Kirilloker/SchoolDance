@@ -70,7 +70,7 @@
             // 
             // bg_Create
             // 
-            bg_Create.BackColor = Color.Beige;
+            bg_Create.BackColor = Color.LightBlue;
             bg_Create.Controls.Add(input_description);
             bg_Create.Controls.Add(list_style);
             bg_Create.Controls.Add(label4);
@@ -110,7 +110,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.Beige;
+            label4.BackColor = Color.LightBlue;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(18, 131);
             label4.Name = "label4";
@@ -129,7 +129,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.Beige;
+            label2.BackColor = Color.LightBlue;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(18, 73);
             label2.Name = "label2";
@@ -149,7 +149,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Beige;
+            label1.BackColor = Color.LightBlue;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(469, 19);
             label1.Name = "label1";
@@ -172,7 +172,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.Beige;
+            label3.BackColor = Color.LightBlue;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(469, 178);
             label3.Name = "label3";
@@ -183,7 +183,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.Beige;
+            label6.BackColor = Color.LightBlue;
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(18, 237);
             label6.Name = "label6";
@@ -194,7 +194,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.Beige;
+            label5.BackColor = Color.LightBlue;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(18, 187);
             label5.Name = "label5";
@@ -205,7 +205,7 @@
             // text_login
             // 
             text_login.AutoSize = true;
-            text_login.BackColor = Color.Beige;
+            text_login.BackColor = Color.LightBlue;
             text_login.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             text_login.Location = new Point(18, 15);
             text_login.Name = "text_login";
@@ -258,6 +258,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkTurquoise;
             ClientSize = new Size(911, 464);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);

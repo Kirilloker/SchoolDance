@@ -19,12 +19,12 @@ namespace SchoolDance.Forms
                     return;
                 }
 
-
                 string str_danceStyleId = "";
 
                 List<string> list_danceStyle = new();
                 foreach (var item in box_danceStyle.SelectedItems)
                 {
+                    if (item == null) continue;
                     str_danceStyleId += item.ToString().Split(". ")[0] + ", ";
                 }
 
@@ -57,7 +57,6 @@ namespace SchoolDance.Forms
                     workExperienceMonth = workExp
                 };
 
-
                 if (DB_API.AddCoach(obj) == true)
                 {
                     add_data_row<Coach>(obj);
@@ -71,9 +70,7 @@ namespace SchoolDance.Forms
             catch (Exception)
             {
                 ToolsForm.ShowMessage("Что-то пошло не так");
-                throw;
             }
-
         }
 
 

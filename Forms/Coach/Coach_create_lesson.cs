@@ -36,8 +36,13 @@ namespace SchoolDance.Forms
                 }
 
                 List<string> selectedItems = new List<string>();
+                
                 foreach (var item in list_weekdays.CheckedItems)
+                {
+                    if (item == null) continue;
                     selectedItems.Add(item.ToString());
+                }
+                
                 if (selectedItems.Count == 0)
                 {
                     ToolsForm.ShowMessage("Нужно выбрать хотя бы один день недели");
@@ -122,6 +127,8 @@ namespace SchoolDance.Forms
             {
                 if (existingLesson.danceHallId == lesson.danceHallId)
                 {
+                    if (existingLesson.weekdays == null || lesson.weekdays == null)
+                        continue;
                     // Проверяем пересечение дней недели
                     string[] existingLessonWeekdays = existingLesson.weekdays.Split(',');
                     string[] newLessonWeekdays = lesson.weekdays.Split(',');
@@ -130,7 +137,12 @@ namespace SchoolDance.Forms
                     {
                         foreach (string newWeekday in newLessonWeekdays)
                         {
-                            if (existingWeekday.Trim() == newWeekday.Trim())
+                            if ((existingWeekday.Trim() == newWeekday.Trim())
+                                &&
+                                existingLesson.time_start != null 
+                                &&
+                                lesson.time_start != null
+                                ) 
                             {
                                 // Проверяем пересечение времени старта
                                 string[] existingStartTimeParts = existingLesson.time_start.Split(':');

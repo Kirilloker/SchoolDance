@@ -55,6 +55,7 @@ namespace SchoolDance.Forms
         string? GetNumberFreePlace(int? danceHallId)
         {
             DanceHall? danceHall = DB_API.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
             return
                 (lesson.studentId.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries).Length.ToString())
                 + "/" + danceHall.capacity.ToString();
@@ -62,7 +63,8 @@ namespace SchoolDance.Forms
 
         private void b_signUp_lesson_Click(object sender, EventArgs e)
         {
-            string[] elements = lesson.studentId.Split(", ");
+            string[] elements = lesson.studentId != null ? lesson.studentId.Split(", ") : new string[0];
+
 
             if (elements.Contains(studentId.ToString()) == true)
             {
@@ -70,7 +72,7 @@ namespace SchoolDance.Forms
                 return;
             }
 
-            if (CheckCorrectLesson(lesson) == false) 
+            if (CheckCorrectLesson(lesson) == false)
             {
                 ToolsForm.ShowMessage("У Вас есть пересечения с другими занятиями. К сожалению по расписанию оно вам не подходит.", "Запись на занятие");
                 return;
@@ -90,9 +92,9 @@ namespace SchoolDance.Forms
 
             string result = "";
 
-            if (elements[0] == "")
+            if (elements.Length == 0)
                 result = studentId.ToString();
-            else 
+            else
             {
                 Array.Resize(ref elements, elements.Length + 1);
                 elements[elements.Length - 1] = studentId.ToString();
@@ -106,27 +108,28 @@ namespace SchoolDance.Forms
             if (result_choice == DialogResult.Yes)
             {
                 student.balance -= lesson.price;
-                DB_API.Update<Lesson>(lesson);
-                DB_API.Update<Student>(student);
+                DB_API.Update(lesson);
+                DB_API.Update(student);
                 ToolsForm.ShowMessage("Вы записались на новое занятие", "Запись на занятие", MessageBoxIcon.Asterisk);
             }
         }
 
         public bool CheckFreePlace(string input)
         {
-            string[] parts = input.Split('/'); 
+            string[] parts = input.Split('/');
 
-            if (parts.Length != 2) 
+            if (parts.Length != 2)
                 return false;
 
             if (!int.TryParse(parts[0], out int leftNumber) || !int.TryParse(parts[1], out int rightNumber))
-                return false; 
+                return false;
 
             return leftNumber < rightNumber;
         }
 
-        private List<Lesson> GetAllStudentLesson(int studentId_) 
+        private List<Lesson> GetAllStudentLesson(int studentId_)
         {
+            if (lesson.studentId == null) return new();
             return DB_API.GetAll<Lesson>()
                 .Where(lesson => lesson.studentId.Split(new[] { ", " }, StringSplitOptions.None)
                                    .Contains(studentId_.ToString()))

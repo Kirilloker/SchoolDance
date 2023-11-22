@@ -33,6 +33,8 @@
             coachBindingSource = new BindingSource(components);
             b_del = new Button();
             bg_date = new Panel();
+            list_coach = new ComboBox();
+            label5 = new Label();
             DataGrid = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             className = new DataGridViewTextBoxColumn();
@@ -46,9 +48,6 @@
             label_delete = new Label();
             bg_delete = new Panel();
             bg_Create = new Panel();
-            list_coach = new ComboBox();
-            label5 = new Label();
-            text_name_data = new Label();
             input_description = new TextBox();
             list_style = new ComboBox();
             label4 = new Label();
@@ -64,8 +63,7 @@
             input_time = new TextBox();
             input_price = new TextBox();
             input_name = new TextBox();
-            label8 = new Label();
-            comboBox1 = new ComboBox();
+            text_name_data = new Label();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).BeginInit();
             bg_date.SuspendLayout();
@@ -98,14 +96,31 @@
             // bg_date
             // 
             bg_date.BackColor = SystemColors.ActiveCaption;
-            bg_date.Controls.Add(list_coach);
-            bg_date.Controls.Add(label5);
             bg_date.Controls.Add(DataGrid);
             bg_date.Location = new Point(12, 454);
             bg_date.Margin = new Padding(3, 4, 3, 4);
             bg_date.Name = "bg_date";
             bg_date.Size = new Size(887, 240);
             bg_date.TabIndex = 2;
+            // 
+            // list_coach
+            // 
+            list_coach.FormattingEnabled = true;
+            list_coach.Location = new Point(576, 182);
+            list_coach.Name = "list_coach";
+            list_coach.Size = new Size(278, 28);
+            list_coach.TabIndex = 34;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Beige;
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(481, 183);
+            label5.Name = "label5";
+            label5.Size = new Size(67, 23);
+            label5.TabIndex = 33;
+            label5.Text = "Тренер";
             // 
             // DataGrid
             // 
@@ -213,8 +228,8 @@
             // bg_Create
             // 
             bg_Create.BackColor = Color.Beige;
-            bg_Create.Controls.Add(comboBox1);
-            bg_Create.Controls.Add(label8);
+            bg_Create.Controls.Add(list_coach);
+            bg_Create.Controls.Add(label5);
             bg_Create.Controls.Add(input_description);
             bg_Create.Controls.Add(list_style);
             bg_Create.Controls.Add(label4);
@@ -234,35 +249,6 @@
             bg_Create.Name = "bg_Create";
             bg_Create.Size = new Size(885, 353);
             bg_Create.TabIndex = 5;
-            // 
-            // list_coach
-            // 
-            list_coach.FormattingEnabled = true;
-            list_coach.Location = new Point(557, 97);
-            list_coach.Name = "list_coach";
-            list_coach.Size = new Size(250, 28);
-            list_coach.TabIndex = 34;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Beige;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(484, 98);
-            label5.Name = "label5";
-            label5.Size = new Size(67, 23);
-            label5.TabIndex = 33;
-            label5.Text = "Тренер";
-            // 
-            // text_name_data
-            // 
-            text_name_data.AutoSize = true;
-            text_name_data.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            text_name_data.Location = new Point(405, 9);
-            text_name_data.Name = "text_name_data";
-            text_name_data.Size = new Size(126, 41);
-            text_name_data.TabIndex = 6;
-            text_name_data.Text = "Занятие";
             // 
             // input_description
             // 
@@ -409,24 +395,15 @@
             input_name.Size = new Size(231, 27);
             input_name.TabIndex = 43;
             // 
-            // label8
+            // text_name_data
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Beige;
-            label8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(483, 184);
-            label8.Name = "label8";
-            label8.Size = new Size(67, 23);
-            label8.TabIndex = 33;
-            label8.Text = "Тренер";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(576, 183);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(278, 28);
-            comboBox1.TabIndex = 34;
+            text_name_data.AutoSize = true;
+            text_name_data.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            text_name_data.Location = new Point(405, 9);
+            text_name_data.Name = "text_name_data";
+            text_name_data.Size = new Size(126, 41);
+            text_name_data.TabIndex = 6;
+            text_name_data.Text = "Занятие";
             // 
             // AdminPanelLesson
             // 
@@ -443,7 +420,6 @@
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).EndInit();
             bg_date.ResumeLayout(false);
-            bg_date.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)lessonBindingSource).EndInit();
             bg_delete.ResumeLayout(false);
@@ -476,8 +452,6 @@
         private DataGridViewTextBoxColumn coachId;
         private DataGridViewTextBoxColumn DanceStyleId;
         private BindingSource lessonBindingSource;
-        private ComboBox comboBox1;
-        private Label label8;
         private TextBox input_description;
         private ComboBox list_style;
         private Label label4;

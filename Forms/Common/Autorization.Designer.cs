@@ -1,6 +1,6 @@
 ﻿namespace SchoolDance.Forms
 {
-    partial class Autorization
+    partial class Authorization
     {
         /// <summary>
         /// Required designer variable.

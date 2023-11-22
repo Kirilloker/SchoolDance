@@ -52,6 +52,9 @@
     <Compile Update="Forms\Coach\Coach_personal_info.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Coach\Coach_my_lesson_deep.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Student\Student_personal_info.cs">
       <SubType>Form</SubType>
     </Compile>

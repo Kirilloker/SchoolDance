@@ -28,7 +28,7 @@ namespace SchoolDance.Class.Logic
         public static bool signUpNewStudent(string login, string password, string first_name,
             string second_name, string patronymic, bool isMale, DateTime birth)
         {
-            Student student = new Student { login = login, password = password, 
+            Student student = new Student { login = login, password = EncodeStringToBase64(password), 
                             fullName = first_name + " " + second_name + " " + patronymic, gender = isMale == true ? "Male" : "Female", 
                             date = birth, typePerson = TypePerson.Student };
             return DB_API.AddStudent(student);

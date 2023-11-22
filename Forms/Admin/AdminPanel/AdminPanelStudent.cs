@@ -17,7 +17,7 @@ namespace SchoolDance.Forms
 
 
             int balance = 0;
-            if (!int.TryParse(input_balance.Text, out balance))
+            if (!int.TryParse(input_balance_1.Text, out balance))
             {
                 ToolsForm.ShowMessage("В поле Баланс, нужно ввести число.");
                 return;

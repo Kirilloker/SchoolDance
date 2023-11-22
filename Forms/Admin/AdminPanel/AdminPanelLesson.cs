@@ -37,8 +37,11 @@ namespace SchoolDance.Forms
                 }
 
                 List<string> selectedItems = new List<string>();
-                foreach (var item in list_weekdays.CheckedItems)
+                foreach (var item in list_weekdays.CheckedItems) 
+                {
+                    if (item == null) continue;
                     selectedItems.Add(item.ToString());
+                }
                 string weekdays = string.Join(", ", selectedItems);
 
                 string danceHall = (string)list_danceHall.SelectedItem;
@@ -173,7 +176,7 @@ namespace SchoolDance.Forms
 
         private bool correct_time(string input)
         {
-            if (input.Length != 6)
+            if (input.Length != 5)
                 return false;
 
             if (input[2] != ':')

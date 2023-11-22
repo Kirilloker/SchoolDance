@@ -2,17 +2,32 @@
 using SchoolDance.Class.Logic;
 using SchoolDance.Forms.AdminPanel;
 using SchoolDance.Util;
+using static SchoolDance.Forms.Authorization;
 
 namespace SchoolDance.Forms
 {
     public partial class Administrator_menu : Form
     {
         int id;
-        public Administrator_menu(int id)
+        Administrator administrator;
+        private CloseMainWindow CloseMainWindowDelegate;
+        public Administrator_menu(int id, CloseMainWindow CloseMainWindowDelegate)
         {
+            this.CloseMainWindowDelegate = CloseMainWindowDelegate;
             this.id = id;
             InitializeComponent();
-            text_FIO.Text = DB_API.Get<Administrator>(id).fullName;
+
+            administrator = DB_API.Get<Administrator>(id);
+
+            if (administrator != null && administrator.fullName != null)
+            {
+                text_FIO.Text = administrator.fullName;
+            }
+            else
+            {
+                text_FIO.Text = "Неизвестный пользователь";
+                administrator = new();
+            }
         }
 
         private void b_student_Click(object sender, EventArgs e)
@@ -68,5 +83,12 @@ namespace SchoolDance.Forms
             AdminPanelSupportMesage menu = new();
             menu.Show();
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            CloseMainWindowDelegate();
+        }
     }
+
+
 }

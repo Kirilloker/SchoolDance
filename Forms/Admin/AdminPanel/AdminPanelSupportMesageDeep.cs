@@ -22,7 +22,9 @@ namespace SchoolDance.Forms.AdminPanel
             text_topic.Text = "Тема: " + supportMessage.typeMessage;
             text_status.Text = "Статус: " + (supportMessage.isSolved == true ? "Решено" : "Не решено");
             text_user_name.Text = "Пользователь: " + supportMessage.personName;
-            text_date.Text = "Дата: " + supportMessage.date.Value.ToString();
+
+            if (supportMessage.date == null) text_date.Text = DateTime.MinValue.ToString();
+            else text_date.Text = "Дата: " + supportMessage.date.Value.ToString();
 
             input_text_user.Text = supportMessage.message;
         }

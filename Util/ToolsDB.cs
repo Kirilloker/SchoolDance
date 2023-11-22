@@ -12,6 +12,7 @@ namespace SchoolDance.Util
             AddTopUp();
             AddStudent();
             AddCoach();
+            AddAdministrator();
             AddLesson();
             AddPayment();
         }
@@ -148,9 +149,9 @@ namespace SchoolDance.Util
             { 
             new Student
             {
-                login = "john123",
+                login = "quani",
                 password = SignInUpLogic.EncodeStringToBase64("password1"),
-                fullName = "John Smith",
+                fullName = "Леша Поляков Сергеевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-10),
                 typePerson = TypePerson.Student,
@@ -258,7 +259,7 @@ namespace SchoolDance.Util
             {
                 login = "alexandra",
                 password = SignInUpLogic.EncodeStringToBase64("password123"),
-                fullName = "Alexandra Smith",
+                fullName = "Иван Иванович Иванов",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-10),
                 typePerson = TypePerson.Coach,
@@ -496,6 +497,24 @@ namespace SchoolDance.Util
             };
 
             DB_API.AddPayment(obj);
+        }
+        
+        static void AddAdministrator() 
+        {
+            Administrator obj = new Administrator
+            {
+                login = "admin",
+                password = SignInUpLogic.EncodeStringToBase64("qwerty"),
+                fullName = "Корязин Егор Андреевич",
+                gender = "Female",
+                date = DateTime.Now.AddDays(-10),
+                typePerson = TypePerson.Administrator,
+                position = "Главный администратор",
+                phoneNumber = "9876543210",
+                workExperienceMonth = 24
+            };
+
+            DB_API.AddAdministrator(obj);
         }
     }
 }

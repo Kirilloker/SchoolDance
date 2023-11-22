@@ -5,7 +5,7 @@ class DB_Context : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connect = "server=192.168.0.116;database=SchoolDance;user=kirillok;password=loki5566";
+        string connect = "server=127.0.0.1;database=SchoolDance;user=kirillok;password=loki5566";
         optionsBuilder.UseMySQL(connect);
     }
 
@@ -15,6 +15,8 @@ class DB_Context : DbContext
         //    .Entity<Group>()
         //    .Property(e => e.studentId)
         //    .HasConversion(new IntListToStringConverter());
+
+
     }
 
     public DB_Context()
@@ -38,7 +40,7 @@ class DB_Context : DbContext
 
 public class IntListToStringConverter : ValueConverter<List<int>, string>
 {
-    public IntListToStringConverter(ConverterMappingHints mappingHints = null)
+    public IntListToStringConverter(ConverterMappingHints mappingHints)
         : base(
               list => ConvertListToString(list),
               str => ConvertStringToList(str),
@@ -59,7 +61,7 @@ public class IntListToStringConverter : ValueConverter<List<int>, string>
 
 public class StrListToStringConverter : ValueConverter<List<string>, string>
 {
-    public StrListToStringConverter(ConverterMappingHints mappingHints = null)
+    public StrListToStringConverter(ConverterMappingHints mappingHints)
         : base(
               list => ConvertListToString(list),
               str => ConvertStringToList(str),

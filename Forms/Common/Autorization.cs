@@ -4,14 +4,14 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class Autorization : Form
+    public partial class Authorization : Form
     {
-        public Autorization()
+        public Authorization()
         {
             InitializeComponent();
             Show_hide_password();
         }
-
+        public delegate void CloseMainWindow();
 
         private void b_SignUp_Click(object sender, EventArgs e)
         {
@@ -30,19 +30,24 @@ namespace SchoolDance.Forms
             if (SignInUpLogic.correctSignIn(input_login.Text, input_password.Text))
             {
                 Person person = DB_API.GetPerson(input_login.Text);
+                if (person == null)
+                {
+                    ToolsForm.ShowMessage("Не известный тип пользователя. Обратитесь в поддержку.", "Ошибка");
+                    return;
+                }
 
                 switch (person.typePerson)
                 {
                     case TypePerson.Student:
-                        Student_menu student_Menu = new(person.Id);
+                        Student_menu student_Menu = new(person.Id, Close_main_window);
                         student_Menu.Show();
                         break;
                     case TypePerson.Coach:
-                        Coach_menu coach_Menu = new(person.Id);
+                        Coach_menu coach_Menu = new(person.Id, Close_main_window);
                         coach_Menu.Show();
                         break;
                     case TypePerson.Administrator:
-                        Administrator_menu administrator_Menu = new(person.Id);
+                        Administrator_menu administrator_Menu = new(person.Id, Close_main_window);
                         administrator_Menu.Show();
                         break;
                     default:
@@ -69,6 +74,11 @@ namespace SchoolDance.Forms
         private void show_password_CheckedChanged_1(object sender, EventArgs e)
         {
             Show_hide_password();
+        }
+
+        private void Close_main_window() 
+        {
+            Close();
         }
     }
 }

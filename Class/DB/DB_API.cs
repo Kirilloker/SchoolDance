@@ -102,7 +102,7 @@ namespace SchoolDance.Class.DB
                         return false;
                     }
                 }
-                catch (Exception e)
+                catch 
                 {
                     return false;
                 }
@@ -122,7 +122,7 @@ namespace SchoolDance.Class.DB
                         db.SaveChanges();
                     }
                 }
-                catch (Exception e)
+                catch 
                 {
                     return;
                 }
@@ -162,7 +162,7 @@ namespace SchoolDance.Class.DB
                 }
                 catch
                 {
-                    return null;
+                    return new List<T>();
                 }
             }
         }

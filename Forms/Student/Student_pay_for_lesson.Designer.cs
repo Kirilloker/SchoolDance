@@ -33,13 +33,8 @@
             text_balance = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            panel3 = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            button1 = new Button();
+            b_refresh = new Button();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -86,51 +81,24 @@
             // 
             // panel2
             // 
+            panel2.AutoScroll = true;
             panel2.BackColor = Color.Khaki;
-            panel2.Controls.Add(panel3);
             panel2.Location = new Point(45, 191);
             panel2.Name = "panel2";
             panel2.Size = new Size(722, 247);
             panel2.TabIndex = 4;
             // 
-            // panel3
+            // b_refresh
             // 
-            panel3.BackColor = Color.Cornsilk;
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(23, 14);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(676, 72);
-            panel3.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Занятие: ";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 40);
-            label3.Name = "label3";
-            label3.Size = new Size(99, 20);
-            label3.TabIndex = 1;
-            label3.Text = "Продлен до: ";
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(448, 11);
-            button1.Name = "button1";
-            button1.Size = new Size(215, 49);
-            button1.TabIndex = 2;
-            button1.Text = "Продлить на 1 месяц";
-            button1.UseVisualStyleBackColor = true;
+            b_refresh.BackColor = Color.LemonChiffon;
+            b_refresh.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            b_refresh.Location = new Point(45, 44);
+            b_refresh.Name = "b_refresh";
+            b_refresh.Size = new Size(97, 28);
+            b_refresh.TabIndex = 1;
+            b_refresh.Text = "обновить";
+            b_refresh.UseVisualStyleBackColor = false;
+            b_refresh.Click += Refresh;
             // 
             // Student_pay_for_lesson
             // 
@@ -139,15 +107,13 @@
             BackColor = Color.DarkKhaki;
             ClientSize = new Size(800, 450);
             Controls.Add(panel2);
+            Controls.Add(b_refresh);
             Controls.Add(panel1);
             Controls.Add(label1);
             Name = "Student_pay_for_lesson";
             Text = "Student_pay_for_lesson";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,9 +125,6 @@
         private Label text_balance;
         private Panel panel1;
         private Panel panel2;
-        private Panel panel3;
-        private Button button1;
-        private Label label3;
-        private Label label2;
+        private Button b_refresh;
     }
 }

@@ -43,6 +43,7 @@
             text_account = new Label();
             bg2 = new Panel();
             bg3 = new Panel();
+            create_report = new Button();
             bg1.SuspendLayout();
             bg2.SuspendLayout();
             SuspendLayout();
@@ -82,7 +83,7 @@
             b_payment.Name = "b_payment";
             b_payment.Size = new Size(174, 59);
             b_payment.TabIndex = 0;
-            b_payment.Text = "Платеж";
+            b_payment.Text = "Пополнение";
             b_payment.UseVisualStyleBackColor = false;
             b_payment.Click += b_payment_Click;
             // 
@@ -210,6 +211,7 @@
             // 
             bg2.BackColor = Color.MistyRose;
             bg2.Controls.Add(bg3);
+            bg2.Controls.Add(create_report);
             bg2.Controls.Add(b_answers);
             bg2.Location = new Point(1, 91);
             bg2.Margin = new Padding(3, 4, 3, 4);
@@ -225,6 +227,19 @@
             bg3.Name = "bg3";
             bg3.Size = new Size(849, 36);
             bg3.TabIndex = 0;
+            // 
+            // create_report
+            // 
+            create_report.BackColor = Color.IndianRed;
+            create_report.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            create_report.Location = new Point(226, 314);
+            create_report.Margin = new Padding(3, 4, 3, 4);
+            create_report.Name = "create_report";
+            create_report.Size = new Size(370, 59);
+            create_report.TabIndex = 0;
+            create_report.Text = "Сформировать отчет";
+            create_report.UseVisualStyleBackColor = false;
+            create_report.Click += b_answers_Click;
             // 
             // Administrator_menu
             // 
@@ -267,5 +282,6 @@
         private Panel bg2;
         private Label text_FIO;
         private Panel bg3;
+        private Button create_report;
     }
 }
