@@ -52,6 +52,9 @@
     <Compile Update="Forms\Coach\CoachPanel\Coach_create_lesson.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Coach\CoachPanel\Coach_event.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Coach\Coach_menu.cs">
       <SubType>Form</SubType>
     </Compile>

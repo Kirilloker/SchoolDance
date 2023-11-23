@@ -35,7 +35,8 @@
             text_account = new Label();
             bg2 = new Panel();
             b_creare_lesson = new Button();
-            button4 = new Button();
+            b_create_event = new Button();
+            b_event = new Button();
             b_schedule = new Button();
             b_show_my_lesson = new Button();
             button8 = new Button();
@@ -103,7 +104,8 @@
             // 
             bg2.BackColor = Color.PaleTurquoise;
             bg2.Controls.Add(b_creare_lesson);
-            bg2.Controls.Add(button4);
+            bg2.Controls.Add(b_create_event);
+            bg2.Controls.Add(b_event);
             bg2.Controls.Add(b_schedule);
             bg2.Controls.Add(b_show_my_lesson);
             bg2.Controls.Add(button8);
@@ -119,7 +121,7 @@
             // 
             b_creare_lesson.BackColor = Color.Silver;
             b_creare_lesson.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_creare_lesson.Location = new Point(84, 33);
+            b_creare_lesson.Location = new Point(461, 34);
             b_creare_lesson.Margin = new Padding(3, 4, 3, 4);
             b_creare_lesson.Name = "b_creare_lesson";
             b_creare_lesson.Size = new Size(296, 59);
@@ -128,24 +130,37 @@
             b_creare_lesson.UseVisualStyleBackColor = false;
             b_creare_lesson.Click += b_create_lesson_Click;
             // 
-            // button4
+            // b_create_event
             // 
-            button4.BackColor = Color.IndianRed;
-            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(461, 113);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(296, 59);
-            button4.TabIndex = 1;
-            button4.Text = "Мероприятия";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button8_Click;
+            b_create_event.BackColor = Color.Silver;
+            b_create_event.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_create_event.Location = new Point(461, 114);
+            b_create_event.Margin = new Padding(3, 4, 3, 4);
+            b_create_event.Name = "b_create_event";
+            b_create_event.Size = new Size(296, 59);
+            b_create_event.TabIndex = 1;
+            b_create_event.Text = "Создать мероприятие";
+            b_create_event.UseVisualStyleBackColor = false;
+            b_create_event.Click += create_event_click;
+            // 
+            // b_event
+            // 
+            b_event.BackColor = Color.Silver;
+            b_event.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_event.Location = new Point(84, 114);
+            b_event.Margin = new Padding(3, 4, 3, 4);
+            b_event.Name = "b_event";
+            b_event.Size = new Size(296, 59);
+            b_event.TabIndex = 1;
+            b_event.Text = "Мероприятия";
+            b_event.UseVisualStyleBackColor = false;
+            b_event.Click += create_event;
             // 
             // b_schedule
             // 
             b_schedule.BackColor = Color.Silver;
             b_schedule.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_schedule.Location = new Point(84, 113);
+            b_schedule.Location = new Point(84, 195);
             b_schedule.Margin = new Padding(3, 4, 3, 4);
             b_schedule.Name = "b_schedule";
             b_schedule.Size = new Size(296, 59);
@@ -158,7 +173,7 @@
             // 
             b_show_my_lesson.BackColor = Color.Silver;
             b_show_my_lesson.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_show_my_lesson.Location = new Point(461, 33);
+            b_show_my_lesson.Location = new Point(84, 34);
             b_show_my_lesson.Margin = new Padding(3, 4, 3, 4);
             b_show_my_lesson.Name = "b_show_my_lesson";
             b_show_my_lesson.Size = new Size(296, 59);
@@ -171,7 +186,7 @@
             // 
             button8.BackColor = Color.Silver;
             button8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(84, 191);
+            button8.Location = new Point(461, 195);
             button8.Margin = new Padding(3, 4, 3, 4);
             button8.Name = "button8";
             button8.Size = new Size(296, 59);
@@ -215,8 +230,9 @@
         private Panel bg3;
         private Button button8;
         private Button b_creare_lesson;
-        private Button button4;
+        private Button b_event;
         private Button b_schedule;
         private Button b_show_my_lesson;
+        private Button b_create_event;
     }
 }

@@ -44,8 +44,6 @@ namespace SchoolDance.Forms
 
             return schedule;
         }
-
-
         static string GetNameRoom(int danceHallId)
         {
             DanceHall danceHall = DB_API.Get<DanceHall>(danceHallId);
@@ -53,14 +51,12 @@ namespace SchoolDance.Forms
             return danceHall.roomNumber;
         }
 
-
         static string GetNameCoach(int coachId)
         {
             Coach coach = DB_API.Get<Coach>(coachId);
             if (coach == null) return "Тренер не известен";
             return coach.fullName;
         }
-
         private void CreatePanel(Dictionary<string, List<string>> dict)
         {
             int i = 0;
@@ -79,7 +75,6 @@ namespace SchoolDance.Forms
                 i++;
             }
         }
-
         private Label CreateLabel(string week_name)
         {
             Label label = new Label();
@@ -89,7 +84,6 @@ namespace SchoolDance.Forms
             label.Size = new Size(300, 50);
             return label;
         }
-
         private TextBox CreateTextBox(List<string> date, Panel panel)
         {
             TextBox textBox_with_schedule = new TextBox();
@@ -107,24 +101,5 @@ namespace SchoolDance.Forms
 
             return textBox_with_schedule;
         }
-
-        static int CountRInString(string inputString)
-        {
-            return CountSubstringOccurrences(inputString, "/r");
-        }
-        static int CountSubstringOccurrences(string input, string substring)
-        {
-            int count = 0;
-            int index = input.IndexOf(substring, StringComparison.Ordinal);
-
-            while (index != -1)
-            {
-                count++;
-                index = input.IndexOf(substring, index + substring.Length, StringComparison.Ordinal);
-            }
-
-            return count;
-        }
-
     }
 }

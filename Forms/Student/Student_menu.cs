@@ -56,5 +56,10 @@ namespace SchoolDance.Forms
             Student_schedule forms = new(id);
             forms.Show();
         }
+        private void b_event_Click(object sender, EventArgs e)
+        {
+            Student_event forms = new();
+            forms.Show();
+        }
     }
 }

@@ -38,7 +38,7 @@
             bg3 = new Panel();
             b_signUp_lesson = new Button();
             b_my_schedule = new Button();
-            button2 = new Button();
+            b_event = new Button();
             b_pay_lesson = new Button();
             b_questions = new Button();
             bg1.SuspendLayout();
@@ -119,7 +119,7 @@
             bg2.Controls.Add(bg3);
             bg2.Controls.Add(b_signUp_lesson);
             bg2.Controls.Add(b_my_schedule);
-            bg2.Controls.Add(button2);
+            bg2.Controls.Add(b_event);
             bg2.Controls.Add(b_pay_lesson);
             bg2.Controls.Add(b_questions);
             bg2.Controls.Add(b_personal_info);
@@ -165,17 +165,17 @@
             b_my_schedule.UseVisualStyleBackColor = false;
             b_my_schedule.Click += b_my_schedule_Click;
             // 
-            // button2
+            // b_event
             // 
-            button2.BackColor = Color.IndianRed;
-            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(81, 124);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(296, 59);
-            button2.TabIndex = 0;
-            button2.Text = "Мероприятия";
-            button2.UseVisualStyleBackColor = false;
+            b_event.BackColor = Color.Silver;
+            b_event.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_event.Location = new Point(81, 124);
+            b_event.Margin = new Padding(3, 4, 3, 4);
+            b_event.Name = "b_event";
+            b_event.Size = new Size(296, 59);
+            b_event.TabIndex = 0;
+            b_event.Text = "Мероприятия";
+            b_event.UseVisualStyleBackColor = false;
             // 
             // b_pay_lesson
             // 
@@ -230,7 +230,7 @@
         private Panel bg3;
         private Button b_signUp_lesson;
         private Button b_my_schedule;
-        private Button button2;
+        private Button b_event;
         private Button b_pay_lesson;
         private Button b_questions;
     }

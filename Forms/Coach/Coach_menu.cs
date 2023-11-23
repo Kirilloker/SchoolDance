@@ -60,6 +60,18 @@ namespace SchoolDance.Forms
             forms.Show();
         }
 
+        private void create_event(object sender, EventArgs e)
+        {
+            Coach_create_event forms = new();
+            forms.Show();
+        }
+
+        private void create_event_click(object sender, EventArgs e)
+        {
+            Coach_event forms = new();
+            forms.Show();
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             CloseMainWindowDelegate();
