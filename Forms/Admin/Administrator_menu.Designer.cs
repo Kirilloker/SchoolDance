@@ -89,7 +89,7 @@
             // 
             // b_payment_2
             // 
-            b_payment_2.BackColor = Color.IndianRed;
+            b_payment_2.BackColor = Color.Silver;
             b_payment_2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             b_payment_2.Location = new Point(634, 153);
             b_payment_2.Margin = new Padding(3, 4, 3, 4);

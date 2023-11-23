@@ -4,7 +4,7 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelStudent : Form
+    public partial class Admin_Student : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
@@ -53,7 +53,7 @@ namespace SchoolDance.Forms
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelStudent()
+        public Admin_Student()
         {
             InitializeComponent();
 

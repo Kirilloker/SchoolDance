@@ -1,5 +1,4 @@
-﻿
-namespace SchoolDance.Class.DB
+﻿namespace SchoolDance.Class.DB
 {
     public static class DB_API
     {
@@ -180,5 +179,21 @@ namespace SchoolDance.Class.DB
                 }
             }
         }
+
+        //public static DataTable ExecuteQuery(string sqlQuery)
+        //{
+
+        //    using (DB_Context db = new DB_Context())
+        //    {
+        //        try
+        //        {
+        //            return db.ExecuteQuery(sqlQuery);
+        //        }
+        //        catch (Exception)
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //}
     }
 }

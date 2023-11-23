@@ -3,7 +3,7 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelTopUp : Form
+    public partial class Admin_TopUp : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace SchoolDance.Forms
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelTopUp()
+        public Admin_TopUp()
         {
             InitializeComponent();
 

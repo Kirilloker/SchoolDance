@@ -1,5 +1,5 @@
 ﻿using SchoolDance.Class.DB;
-using static SchoolDance.Forms.AdminPanel.AdminPanelSupportMesage;
+using static SchoolDance.Forms.AdminPanel.Admin_SupportMesage;
 
 namespace SchoolDance.Forms.AdminPanel
 {

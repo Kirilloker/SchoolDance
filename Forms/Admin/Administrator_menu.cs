@@ -32,55 +32,55 @@ namespace SchoolDance.Forms
 
         private void b_student_Click(object sender, EventArgs e)
         {
-            AdminPanelStudent menu = new();
+            Admin_Student menu = new();
             menu.Show();
         }
 
         private void b_coach_Click(object sender, EventArgs e)
         {
-            AdminPanelCoach menu = new();
+            Admin_Coach menu = new();
             menu.Show();
         }
 
         private void b_payment_Click(object sender, EventArgs e)
         {
-            AdminPanelTopUp menu = new();
+            Admin_TopUp menu = new();
             menu.Show();
         }
 
         private void b_hall_Click(object sender, EventArgs e)
         {
-            AdminPanelDanceHall menu = new();
+            Admin_DanceHall menu = new();
             menu.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            AdminPanelDanceStyle menu = new();
+            Admin_DanceStyle menu = new();
             menu.Show();
         }
 
         private void b_class_Click(object sender, EventArgs e)
         {
-            AdminPanelLesson menu = new();
+            Admin_Lesson menu = new();
             menu.Show();
         }
 
         private void b_group_Click(object sender, EventArgs e)
         {
-            AdminPanelGroup menu = new();
+            Admin_Payment menu = new();
             menu.Show();
         }
 
         private void b_event_Click(object sender, EventArgs e)
         {
-            AdminPanelEventDance menu = new();
+            Admin_EventDance menu = new();
             menu.Show();
         }
 
         private void b_answers_Click(object sender, EventArgs e)
         {
-            AdminPanelSupportMesage menu = new();
+            Admin_SupportMesage menu = new();
             menu.Show();
         }
 

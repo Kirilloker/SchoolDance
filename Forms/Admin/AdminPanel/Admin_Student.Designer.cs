@@ -1,6 +1,6 @@
 ﻿namespace SchoolDance.Forms
 {
-    partial class AdminPanelStudent
+    partial class Admin_Student
     {
         /// <summary>
         /// Required designer variable.

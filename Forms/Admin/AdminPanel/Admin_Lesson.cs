@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelLesson : Form
+    public partial class Admin_Lesson : Form
     {
 
         private void b_add_new_rows_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace SchoolDance.Forms
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelLesson()
+        public Admin_Lesson()
         {
             InitializeComponent();
 

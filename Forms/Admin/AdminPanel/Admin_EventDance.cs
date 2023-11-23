@@ -1,45 +1,64 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelDanceStyle : Form
+    public partial class Admin_EventDance : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_name.Text == "" || input_description.Text == "")
+            try
             {
-                ToolsForm.ShowMessage("Нужно заполнить все поля.");
-                return;
+                if (input_name.Text == "" ||
+                    input_description.Text == "")
+                {
+                    ToolsForm.ShowMessage("Нужно заполнить все поля.");
+                    return;
+                }
+
+                if (date_event.Value < (DateTime.Now.AddDays(-1)))
+                {
+                    ToolsForm.ShowMessage("Дата мероприятие не может быть задана раньше сегоднешнего дня.");
+                    return;
+                }
+
+                EventDance obj = new EventDance
+                {
+                    nameEvent = input_name.Text,
+                    description = input_description.Text,
+                    date = date_event.Value
+                };
+
+
+                if (DB_API.AddEventDance(obj) == true)
+                {
+                    add_data_row<EventDance>(obj);
+                    ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
+                }
+            }
+            catch (Exception)
+            {
+                ToolsForm.ShowMessage("Что-то пошло не так");
+                throw;
             }
 
-            DanceStyle obj = new DanceStyle
-            {
-                name = input_name.Text,
-                description = input_description.Text
-            };
-
-            if (DB_API.AddDanceStyle(obj) == true)
-            {
-                add_data_row<DanceStyle>(obj);
-                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
-            }
-            else
-            {
-                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
-            }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<DanceStyle>();
-        private void changeCell(int rowIndex) => DB_API.Update<DanceStyle>(((List<DanceStyle>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<DanceStyle>(id);
-        private void deleteRow() => del_data_row<DanceStyle>();
+
+
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<EventDance>();
+        private void changeCell(int rowIndex) => DB_API.Update<EventDance>(((List<EventDance>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<EventDance>(id);
+        private void deleteRow() => del_data_row<EventDance>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelDanceStyle()
+        public Admin_EventDance()
         {
             InitializeComponent();
 
@@ -93,5 +112,6 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage();
             }
         }
+
     }
 }

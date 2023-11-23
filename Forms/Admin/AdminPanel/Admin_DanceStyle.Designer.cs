@@ -1,6 +1,6 @@
 ﻿namespace SchoolDance.Forms
 {
-    partial class AdminPanelDanceHall
+    partial class Admin_DanceStyle
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             studentBindingSource = new BindingSource(components);
             DataGrid = new DataGridView();
+            danceHallBindingSource = new BindingSource(components);
             b_del = new Button();
             bg_date = new Panel();
             input_id_delete = new TextBox();
@@ -40,19 +41,20 @@
             b_add_new_rows = new Button();
             text_login = new Label();
             text_password = new Label();
-            input_roomNumber = new TextBox();
-            input_capacity = new TextBox();
+            input_name = new TextBox();
+            input_description = new TextBox();
             text_name_data = new Label();
-            danceHallBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roomNumber = new DataGridViewTextBoxColumn();
-            capacity = new DataGridViewTextBoxColumn();
+            danceStyleBindingSource = new BindingSource(components);
+            Column1 = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).BeginInit();
             bg_date.SuspendLayout();
             bg_delete.SuspendLayout();
             bg_Create.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).BeginInit();
             SuspendLayout();
             // 
             // studentBindingSource
@@ -66,8 +68,8 @@
             DataGrid.AllowUserToResizeRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, roomNumber, capacity });
-            DataGrid.DataSource = danceHallBindingSource;
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, name, description });
+            DataGrid.DataSource = danceStyleBindingSource;
             DataGrid.Location = new Point(16, 29);
             DataGrid.Margin = new Padding(3, 4, 3, 4);
             DataGrid.Name = "DataGrid";
@@ -76,6 +78,10 @@
             DataGrid.Size = new Size(850, 64);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // danceHallBindingSource
+            // 
+            danceHallBindingSource.DataSource = typeof(DanceHall);
             // 
             // b_del
             // 
@@ -133,8 +139,8 @@
             bg_Create.Controls.Add(b_add_new_rows);
             bg_Create.Controls.Add(text_login);
             bg_Create.Controls.Add(text_password);
-            bg_Create.Controls.Add(input_roomNumber);
-            bg_Create.Controls.Add(input_capacity);
+            bg_Create.Controls.Add(input_name);
+            bg_Create.Controls.Add(input_description);
             bg_Create.Location = new Point(13, 69);
             bg_Create.Name = "bg_Create";
             bg_Create.Size = new Size(885, 174);
@@ -144,7 +150,7 @@
             // 
             b_add_new_rows.BackColor = Color.DarkKhaki;
             b_add_new_rows.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            b_add_new_rows.Location = new Point(416, 112);
+            b_add_new_rows.Location = new Point(416, 115);
             b_add_new_rows.Name = "b_add_new_rows";
             b_add_new_rows.Size = new Size(122, 43);
             b_add_new_rows.TabIndex = 0;
@@ -157,37 +163,37 @@
             text_login.AutoSize = true;
             text_login.BackColor = Color.Beige;
             text_login.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            text_login.Location = new Point(240, 18);
+            text_login.Location = new Point(15, 18);
             text_login.Name = "text_login";
-            text_login.Size = new Size(136, 23);
+            text_login.Size = new Size(134, 23);
             text_login.TabIndex = 18;
-            text_login.Text = "Номер комнаты";
+            text_login.Text = "Названия стиля";
             // 
             // text_password
             // 
             text_password.AutoSize = true;
             text_password.BackColor = Color.Beige;
             text_password.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            text_password.Location = new Point(240, 61);
+            text_password.Location = new Point(15, 60);
             text_password.Name = "text_password";
-            text_password.Size = new Size(233, 23);
+            text_password.Size = new Size(89, 23);
             text_password.TabIndex = 14;
-            text_password.Text = "Максимальная вместимость";
+            text_password.Text = "Описание";
             // 
-            // input_roomNumber
+            // input_name
             // 
-            input_roomNumber.Location = new Point(492, 18);
-            input_roomNumber.Name = "input_roomNumber";
-            input_roomNumber.Size = new Size(239, 27);
-            input_roomNumber.TabIndex = 21;
+            input_name.Location = new Point(169, 18);
+            input_name.Name = "input_name";
+            input_name.Size = new Size(681, 27);
+            input_name.TabIndex = 21;
             // 
-            // input_capacity
+            // input_description
             // 
-            input_capacity.BackColor = SystemColors.Window;
-            input_capacity.Location = new Point(492, 60);
-            input_capacity.Name = "input_capacity";
-            input_capacity.Size = new Size(239, 27);
-            input_capacity.TabIndex = 25;
+            input_description.BackColor = SystemColors.Window;
+            input_description.Location = new Point(169, 56);
+            input_description.Name = "input_description";
+            input_description.Size = new Size(681, 27);
+            input_description.TabIndex = 25;
             // 
             // text_name_data
             // 
@@ -195,39 +201,39 @@
             text_name_data.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             text_name_data.Location = new Point(346, 9);
             text_name_data.Name = "text_name_data";
-            text_name_data.Size = new Size(269, 41);
+            text_name_data.Size = new Size(299, 41);
             text_name_data.TabIndex = 6;
-            text_name_data.Text = "Танцевальный зал";
+            text_name_data.Text = "Танцевальный стиль";
             // 
-            // danceHallBindingSource
+            // danceStyleBindingSource
             // 
-            danceHallBindingSource.DataSource = typeof(DanceHall);
+            danceStyleBindingSource.DataSource = typeof(DanceStyle);
             // 
-            // idDataGridViewTextBoxColumn
+            // Column1
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 125;
+            Column1.DataPropertyName = "Id";
+            Column1.HeaderText = "id";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
             // 
-            // roomNumber
+            // name
             // 
-            roomNumber.DataPropertyName = "roomNumber";
-            roomNumber.HeaderText = "roomNumber";
-            roomNumber.MinimumWidth = 6;
-            roomNumber.Name = "roomNumber";
-            roomNumber.Width = 125;
+            name.DataPropertyName = "name";
+            name.HeaderText = "name";
+            name.MinimumWidth = 6;
+            name.Name = "name";
+            name.Width = 125;
             // 
-            // capacity
+            // description
             // 
-            capacity.DataPropertyName = "capacity";
-            capacity.HeaderText = "capacity";
-            capacity.MinimumWidth = 6;
-            capacity.Name = "capacity";
-            capacity.Width = 125;
+            description.DataPropertyName = "description";
+            description.HeaderText = "description";
+            description.MinimumWidth = 6;
+            description.Name = "description";
+            description.Width = 125;
             // 
-            // AdminPanelDanceHall
+            // AdminPanelDanceStyle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -237,16 +243,17 @@
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelDanceHall";
+            Name = "AdminPanelDanceStyle";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).EndInit();
             bg_date.ResumeLayout(false);
             bg_delete.ResumeLayout(false);
             bg_delete.PerformLayout();
             bg_Create.ResumeLayout(false);
             bg_Create.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -271,13 +278,14 @@
         private Label text_login;
         private Label text_password;
         private TextBox input_password;
-        private TextBox input_roomNumber;
+        private TextBox input_name;
         private Label text_first_name;
         private TextBox input_login;
-        private TextBox input_capacity;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn roomNumber;
-        private DataGridViewTextBoxColumn capacity;
+        private TextBox input_description;
         private BindingSource danceHallBindingSource;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn description;
+        private BindingSource danceStyleBindingSource;
     }
 }

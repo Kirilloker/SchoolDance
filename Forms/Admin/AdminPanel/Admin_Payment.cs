@@ -3,62 +3,43 @@ using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelEventDance : Form
+    public partial class Admin_Payment : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            try
+            string name_student = (string)list_student.SelectedItem;
+            int id_student = int.Parse(name_student.Split(". ")[0]);
+
+            string name_lesson = (string)list_lesson.SelectedItem;
+            int id_lesson = int.Parse(name_lesson.Split(". ")[0]);
+
+            Payment obj = new Payment
             {
-                if (input_name.Text == "" ||
-                    input_description.Text == "")
-                {
-                    ToolsForm.ShowMessage("Нужно заполнить все поля.");
-                    return;
-                }
+                studentId = id_student,
+                lessonId = id_lesson,
+                date_end_subscription = date_end_payment.Value
+            };
 
-                if (date_event.Value < (DateTime.Now.AddDays(-1)))
-                {
-                    ToolsForm.ShowMessage("Дата мероприятие не может быть задана раньше сегоднешнего дня.");
-                    return;
-                }
-
-                EventDance obj = new EventDance
-                {
-                    nameEvent = input_name.Text,
-                    description = input_description.Text,
-                    date = date_event.Value
-                };
-
-
-                if (DB_API.AddEventDance(obj) == true)
-                {
-                    add_data_row<EventDance>(obj);
-                    ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
-                }
-                else
-                {
-                    ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
-                }
-            }
-            catch (Exception)
+            if (DB_API.AddPayment(obj) == true)
             {
-                ToolsForm.ShowMessage("Что-то пошло не так");
-                throw;
+                add_data_row<Payment>(obj);
+                ToolsForm.ShowMessage("Оплата добавлена", "Добавление новой оплаты", MessageBoxIcon.Asterisk);
             }
-
+            else
+            {
+                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+            }
         }
-
-
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<EventDance>();
-        private void changeCell(int rowIndex) => DB_API.Update<EventDance>(((List<EventDance>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<EventDance>(id);
-        private void deleteRow() => del_data_row<EventDance>();
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Payment>();
+        private void changeCell(int rowIndex) => DB_API.Update<Payment>(((List<Payment>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<Payment>(id);
+        private void deleteRow() => del_data_row<Payment>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelEventDance()
+        public Admin_Payment()
         {
             InitializeComponent();
 
@@ -66,6 +47,17 @@ namespace SchoolDance.Forms
             this.AutoSize = true;
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            list_student.DropDownStyle = ComboBoxStyle.DropDownList;
+            list_lesson.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            List<Student> students = DB_API.GetAll<Student>();
+            string[] formattedNames = students.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
+            list_student.Items.AddRange(formattedNames);
+
+            List<Lesson> lessons = DB_API.GetAll<Lesson>();
+            string[] formattedlesson = lessons.Select((ds) => $"{ds.Id}. {ds.className}").ToArray();
+            list_lesson.Items.AddRange(formattedlesson);
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -112,6 +104,7 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage();
             }
         }
+
 
     }
 }

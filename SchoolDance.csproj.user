@@ -4,19 +4,22 @@
     <Compile Update="Forms\Admin\Administrator_menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Admin\AdminPanel\AdminPanelCoach.cs">
+    <Compile Update="Forms\Admin\AdminPanel\Admin_Coach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Admin\AdminPanel\AdminPanelTopUp.cs">
+    <Compile Update="Forms\Admin\AdminPanel\Admin_Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Admin\AdminPanel\AdminPanelStudent.cs">
+    <Compile Update="Forms\Admin\AdminPanel\Admin_TopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Admin\AdminPanel\AdminPanelSupportMesage.cs">
+    <Compile Update="Forms\Admin\AdminPanel\Admin_Student.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Admin\AdminPanel\AdminPanelSupportMesageDeep.cs">
+    <Compile Update="Forms\Admin\AdminPanel\Admin_SupportMesage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\AdminPanel\Admin_SupportMesageDeep.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Coach\CoachPanel\Coach_my_lesson.cs">

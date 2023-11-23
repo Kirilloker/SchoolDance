@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Data;
+
 
 class DB_Context : DbContext
 {
@@ -15,9 +17,49 @@ class DB_Context : DbContext
         //    .Entity<Group>()
         //    .Property(e => e.studentId)
         //    .HasConversion(new IntListToStringConverter());
-
-
     }
+
+    //public DataTable ExecuteQuery(string sqlQuery)
+    //{
+    //    var result = this.Database.GetDbConnection().Query(sqlQuery);
+    //    return ConvertToDataTable(result);
+    //}
+
+    //private DataTable ConvertToDataTable(dynamic result)
+    //{
+    //    DataTable dataTable = new DataTable();
+
+    //    // Добавим колонки на основе первой строки результатов
+    //    var firstRow = result.FirstOrDefault() as IDictionary<string, object>;
+    //    if (firstRow != null)
+    //    {
+    //        foreach (var key in firstRow.Keys)
+    //        {
+    //            dataTable.Columns.Add(key, typeof(object)); // Используем typeof(object) для всех колонок
+    //        }
+
+    //        // Заполним таблицу
+    //        foreach (var row in result)
+    //        {
+    //            var dataRow = dataTable.NewRow();
+    //            var rowData = row as IDictionary<string, object>;
+    //            if (rowData != null)
+    //            {
+    //                foreach (var key in rowData.Keys)
+    //                {
+    //                    if (dataTable.Columns.Contains(key))
+    //                    {
+    //                        dataRow[key] = rowData[key];
+    //                    }
+    //                }
+    //                dataTable.Rows.Add(dataRow);
+    //            }
+    //        }
+    //    }
+
+    //    return dataTable;
+    //}
+
 
     public DB_Context()
     {
@@ -35,6 +77,8 @@ class DB_Context : DbContext
     public DbSet<Student> students { get; set; }
     public DbSet<SupportMessage> supportMessages { get; set; }
     public DbSet<EventDance> eventDances { get; set; }
+
+    
 }
 
 

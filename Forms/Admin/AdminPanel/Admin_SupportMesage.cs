@@ -2,9 +2,9 @@
 
 namespace SchoolDance.Forms.AdminPanel
 {
-    public partial class AdminPanelSupportMesage : Form
+    public partial class Admin_SupportMesage : Form
     {
-        public AdminPanelSupportMesage()
+        public Admin_SupportMesage()
         {
             InitializeComponent();
             CreateSupportButtons(DB_API.GetAll<SupportMessage>());

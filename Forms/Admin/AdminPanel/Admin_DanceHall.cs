@@ -1,68 +1,52 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Class.Logic;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
-    public partial class AdminPanelGroup : Form
+    public partial class Admin_DanceHall : Form
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_name_group.Text == "")
+            if (input_roomNumber.Text == "" || input_capacity.Text == "" )
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля.");
                 return;
             }
 
-            int number_max_student = 0;
-            if (!int.TryParse(input_number_max_student.Text, out number_max_student))
+            int capacity = 0;
+            if (!int.TryParse(input_capacity.Text, out capacity))
             {
-                ToolsForm.ShowMessage("В поле Максимальное количество студентов, нужно ввести число.");
+                ToolsForm.ShowMessage("В поле Максимальная вместимость, нужно ввести число.");
                 return;
             }
 
-            List<int> selectedIds = new List<int>();
-            foreach (int index in list_students.CheckedIndices)
+            DanceHall obj = new DanceHall
             {
-                string name = (string)list_students.Items[index];
-                int id = int.Parse(name.Split(". ")[0]);
-                selectedIds.Add(id);
-            }
-
-            if (selectedIds.Count > number_max_student)
-            {
-                ToolsForm.ShowMessage("Количество студентов, не может привышать максимального возможного количества студентов!");
-                return;
-            }
-
-            string student_id = string.Join(", ", selectedIds);
-
-            Group obj = new Group
-            {
-                nameGroup = input_name_group.Text,
-                maxNumberStudent = number_max_student,
-                studentId = student_id
+                roomNumber = input_roomNumber.Text,
+                capacity = capacity
             };
 
-            if (DB_API.AddGroup(obj) == true)
+            if (DB_API.AddDanceHall(obj) == true)
             {
-                add_data_row<Group>(obj);
+                add_data_row<DanceHall>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
             }
             else
             {
-                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Group>();
-        private void changeCell(int rowIndex) => DB_API.Update<Group>(((List<Group>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Group>(id);
-        private void deleteRow() => del_data_row<Group>();
+        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<DanceHall>();
+        private void changeCell(int rowIndex) => DB_API.Update<DanceHall>(((List<DanceHall>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_API.Delete<DanceHall>(id);
+        private void deleteRow() => del_data_row<DanceHall>();
 
 
 
         // ---------------------------
         // Наследование не корректно работает
-        public AdminPanelGroup()
+        public Admin_DanceHall()
         {
             InitializeComponent();
 
@@ -70,14 +54,6 @@ namespace SchoolDance.Forms
             this.AutoSize = true;
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            List<Student> danceStyles = DB_API.GetAll<Student>();
-
-            string[] formattedNames = danceStyles
-            .Select((ds) => $"{ds.Id}. {ds.fullName}")
-            .ToArray();
-
-            list_students.Items.AddRange(formattedNames);
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -123,11 +99,6 @@ namespace SchoolDance.Forms
             {
                 ToolsForm.ShowMessage();
             }
-        }
-
-        private void list_students_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
