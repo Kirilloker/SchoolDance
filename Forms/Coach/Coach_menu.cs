@@ -1,6 +1,4 @@
-﻿using Org.BouncyCastle.Crypto.Macs;
-using SchoolDance.Class.DB;
-using SchoolDance.Util;
+﻿using SchoolDance.Class.DB;
 using static SchoolDance.Forms.Authorization;
 
 namespace SchoolDance.Forms
@@ -12,18 +10,18 @@ namespace SchoolDance.Forms
         private CloseMainWindow CloseMainWindowDelegate;
         public Coach_menu(int coach_id, CloseMainWindow closeMainWindow)
         {
-            this.CloseMainWindowDelegate = closeMainWindow; 
+            this.CloseMainWindowDelegate = closeMainWindow;
             this.coach_id = coach_id;
 
             InitializeComponent();
-            
+
             coach = DB_API.Get<Coach>(coach_id);
 
             if (coach != null && coach.fullName != null)
             {
                 text_FIO.Text = coach.fullName;
             }
-            else 
+            else
             {
                 text_FIO.Text = "Неизвестный пользователь";
                 coach = new Coach();
@@ -53,6 +51,12 @@ namespace SchoolDance.Forms
         private void my_lesson_Click(object sender, EventArgs e)
         {
             Coach_my_lesson forms = new(coach_id);
+            forms.Show();
+        }
+
+        private void my_schedule(object sender, EventArgs e)
+        {
+            Coach_schedule forms = new(coach_id);
             forms.Show();
         }
 

@@ -50,5 +50,11 @@ namespace SchoolDance.Forms
         {
             CloseMainWindowDelegate();
         }
+
+        private void b_my_schedule_Click(object sender, EventArgs e)
+        {
+            Student_schedule forms = new(id);
+            forms.Show();
+        }
     }
 }

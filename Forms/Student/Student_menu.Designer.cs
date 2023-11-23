@@ -37,7 +37,7 @@
             bg2 = new Panel();
             bg3 = new Panel();
             b_signUp_lesson = new Button();
-            button3 = new Button();
+            b_my_schedule = new Button();
             button2 = new Button();
             b_pay_lesson = new Button();
             b_questions = new Button();
@@ -118,7 +118,7 @@
             bg2.BackColor = Color.LemonChiffon;
             bg2.Controls.Add(bg3);
             bg2.Controls.Add(b_signUp_lesson);
-            bg2.Controls.Add(button3);
+            bg2.Controls.Add(b_my_schedule);
             bg2.Controls.Add(button2);
             bg2.Controls.Add(b_pay_lesson);
             bg2.Controls.Add(b_questions);
@@ -152,17 +152,18 @@
             b_signUp_lesson.UseVisualStyleBackColor = false;
             b_signUp_lesson.Click += b_signUp_lesosn_Click;
             // 
-            // button3
+            // b_my_schedule
             // 
-            button3.BackColor = Color.IndianRed;
-            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(81, 38);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(296, 59);
-            button3.TabIndex = 0;
-            button3.Text = "Моё расписание";
-            button3.UseVisualStyleBackColor = false;
+            b_my_schedule.BackColor = Color.Silver;
+            b_my_schedule.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_my_schedule.Location = new Point(81, 38);
+            b_my_schedule.Margin = new Padding(3, 4, 3, 4);
+            b_my_schedule.Name = "b_my_schedule";
+            b_my_schedule.Size = new Size(296, 59);
+            b_my_schedule.TabIndex = 0;
+            b_my_schedule.Text = "Моё расписание";
+            b_my_schedule.UseVisualStyleBackColor = false;
+            b_my_schedule.Click += b_my_schedule_Click;
             // 
             // button2
             // 
@@ -228,7 +229,7 @@
         private Label text_FIO;
         private Panel bg3;
         private Button b_signUp_lesson;
-        private Button button3;
+        private Button b_my_schedule;
         private Button button2;
         private Button b_pay_lesson;
         private Button b_questions;

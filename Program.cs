@@ -26,7 +26,7 @@ namespace SchoolDance
             if (new_data) ToolsDB.AddNewData();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Authorization());
+            Application.Run(new Student_schedule(1));
         }
     }
 

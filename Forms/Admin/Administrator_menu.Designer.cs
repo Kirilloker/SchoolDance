@@ -31,7 +31,7 @@
             b_student = new Button();
             b_coach = new Button();
             b_payment = new Button();
-            b_group = new Button();
+            b_payment_2 = new Button();
             b_event = new Button();
             b_class = new Button();
             b_hall = new Button();
@@ -87,18 +87,18 @@
             b_payment.UseVisualStyleBackColor = false;
             b_payment.Click += b_payment_Click;
             // 
-            // b_group
+            // b_payment_2
             // 
-            b_group.BackColor = Color.Silver;
-            b_group.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            b_group.Location = new Point(634, 153);
-            b_group.Margin = new Padding(3, 4, 3, 4);
-            b_group.Name = "b_group";
-            b_group.Size = new Size(174, 59);
-            b_group.TabIndex = 0;
-            b_group.Text = "Группа";
-            b_group.UseVisualStyleBackColor = false;
-            b_group.Click += b_group_Click;
+            b_payment_2.BackColor = Color.IndianRed;
+            b_payment_2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            b_payment_2.Location = new Point(634, 153);
+            b_payment_2.Margin = new Padding(3, 4, 3, 4);
+            b_payment_2.Name = "b_payment_2";
+            b_payment_2.Size = new Size(174, 59);
+            b_payment_2.TabIndex = 0;
+            b_payment_2.Text = "Оплата";
+            b_payment_2.UseVisualStyleBackColor = false;
+            b_payment_2.Click += b_group_Click;
             // 
             // b_event
             // 
@@ -251,7 +251,7 @@
             Controls.Add(b_hall);
             Controls.Add(b_class);
             Controls.Add(b_event);
-            Controls.Add(b_group);
+            Controls.Add(b_payment_2);
             Controls.Add(b_payment);
             Controls.Add(b_coach);
             Controls.Add(b_student);
@@ -270,7 +270,7 @@
         private Button b_student;
         private Button b_coach;
         private Button b_payment;
-        private Button b_group;
+        private Button b_payment_2;
         private Button b_event;
         private Button b_class;
         private Button b_hall;
