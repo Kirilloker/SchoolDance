@@ -19,10 +19,10 @@
     <Compile Update="Forms\Admin\AdminPanel\AdminPanelSupportMesageDeep.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Coach\Coach_my_lesson.cs">
+    <Compile Update="Forms\Coach\CoachPanel\Coach_my_lesson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Coach\Coach_schedule.cs">
+    <Compile Update="Forms\Coach\CoachPanel\Coach_schedule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Common\Autorization.cs">
@@ -34,19 +34,19 @@
     <Compile Update="Forms\Common\SupportMessageForUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Student\Student_add_money.cs">
+    <Compile Update="Forms\Student\StudentPanel\Student_add_money.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Student\Student_pay_for_lesson.cs">
+    <Compile Update="Forms\Student\StudentPanel\Student_pay_for_lesson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Student\Student_question.cs">
+    <Compile Update="Forms\Student\StudentPanel\Student_question.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Student\Student_signUp_lesson.cs">
+    <Compile Update="Forms\Student\StudentPanel\Student_signUp_lesson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Student\Student_signUp_lesson_deep.cs">
+    <Compile Update="Forms\Student\StudentPanel\Student_signUp_lesson_deep.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
