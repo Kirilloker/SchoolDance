@@ -80,6 +80,7 @@
             b_create_report.TabIndex = 52;
             b_create_report.Text = "Сформировать отчет";
             b_create_report.UseVisualStyleBackColor = true;
+            b_create_report.Click += b_create_report_Click;
             // 
             // Admin_report
             // 

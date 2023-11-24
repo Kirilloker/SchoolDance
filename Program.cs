@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
 using SchoolDance.Forms;
+using SchoolDance.Forms.Admin.AdminPanel;
 using SchoolDance.Util;
 
 public class MysqlEntityFrameworkDesignTimeServices : IDesignTimeServices
@@ -26,7 +27,7 @@ namespace SchoolDance
             if (new_data) ToolsDB.AddNewData();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Coach_event());
+            Application.Run(new Admin_Report());
         }
     }
 
