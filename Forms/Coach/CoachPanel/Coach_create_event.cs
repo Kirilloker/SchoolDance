@@ -30,7 +30,6 @@ namespace SchoolDance.Forms
                 date = date_event.Value,
                 nameEvent = input_name_event.Text,
                 description = input_description.Text,
-                //studentId = ""
             };
 
 

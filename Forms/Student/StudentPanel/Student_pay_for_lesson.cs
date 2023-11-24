@@ -8,18 +8,11 @@ namespace SchoolDance.Forms
     public partial class Student_pay_for_lesson : Form
     {
         int student_id;
-        //private System.Windows.Forms.Timer labelUpdateTimer;
         public Student_pay_for_lesson(int student_id)
         {
             InitializeComponent();
             this.student_id = student_id;
             Refresh();
-
-            // Таймер который обновляет баланс каждые 3 секунды
-            //labelUpdateTimer = new System.Windows.Forms.Timer();
-            //labelUpdateTimer.Interval = 3000;
-            //labelUpdateTimer.Tick += Refresh;
-            //labelUpdateTimer.Start();
         }
 
         private void b_add_money_Click(object sender, EventArgs e)

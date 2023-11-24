@@ -1,5 +1,6 @@
 ﻿using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
+using SchoolDance.Forms.Admin.AdminPanel;
 using SchoolDance.Forms.AdminPanel;
 using SchoolDance.Util;
 using static SchoolDance.Forms.Authorization;
@@ -80,7 +81,13 @@ namespace SchoolDance.Forms
 
         private void b_answers_Click(object sender, EventArgs e)
         {
-            Admin_SupportMesage menu = new();
+            Admin_SupportMessage menu = new();
+            menu.Show();
+        }
+
+        private void b_create_report_Click(object sender, EventArgs e)
+        {
+            Admin_Report menu = new();
             menu.Show();
         }
 

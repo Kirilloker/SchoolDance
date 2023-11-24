@@ -28,8 +28,8 @@ namespace SchoolDance.Forms
                     str_danceStyleId += item.ToString().Split(". ")[0] + ", ";
                 }
 
-                Double phoneNumber = 0;
-                if (!Double.TryParse(input_phoneNumber.Text, out phoneNumber) ||
+                double phoneNumber = 0;
+                if (!double.TryParse(input_phoneNumber.Text, out phoneNumber) ||
                     input_phoneNumber.Text.Length != 11)
                 {
                     ToolsForm.ShowMessage("Номер введен не корректно. Пример: 79101351393");

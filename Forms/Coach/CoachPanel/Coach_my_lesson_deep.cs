@@ -98,51 +98,8 @@ namespace SchoolDance.Forms
                     AutoSize = true
                 };
 
-                //Label priceLabel = new Label
-                //{
-                //    Location = new Point(10, 70),
-                //    Text = "Цена: " + lesson.price,
-                //    Font = new Font("Segoe UI", 10),
-                //    AutoSize = true
-                //};
-
-                //Button extendButton = new Button
-                //{
-                //    Location = new Point(450, 25),
-                //    Text = "Продлить на 1 месяц",
-                //    Font = new Font("Segoe UI", 12),
-                //    Size = new Size(215, 50),
-                //    BackColor = Color.LightGray
-
-                //};
-
-                //extendButton.Click += (sender, e) =>
-                //{
-                //    Student student = DB_API.Get<Student>(student_id);
-                //    if (student.balance < lesson.price)
-                //    {
-                //        ToolsForm.ShowMessage("Не достаточно средств");
-                //        return;
-                //    }
-
-                //    var result_choice = MessageBox.Show("С вашего баланса спишется " + lesson.price.ToString() + " рублей, вы уверены?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                //    if (result_choice == DialogResult.Yes)
-                //    {
-                //        student.balance -= lesson.price;
-
-                //        payment.date_end_subscription = payment.date_end_subscription.AddMonths(1);
-
-                //        DB_API.Update(student);
-                //        DB_API.Update(payment);
-                //        ToolsForm.ShowMessage("Вы продлили занятие", "Продление занятия", MessageBoxIcon.Asterisk);
-                //    }
-                //};
-
                 panel.Controls.Add(lessonLabel);
                 panel.Controls.Add(endDateLabel);
-                //panel.Controls.Add(extendButton);
-                //panel.Controls.Add(priceLabel);
                 panel.Size = new Size(675, 100);
 
                 panel2.Controls.Add(panel);

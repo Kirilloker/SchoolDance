@@ -1,14 +1,4 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Forms.AdminPanel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SchoolDance.Forms
 {
@@ -63,7 +53,6 @@ namespace SchoolDance.Forms
                 detailsButton.Click += (sender, e) => {
                     Student_signUp_lesson_deep menu = new(studentId, lesson.Id);
                     menu.Show();
-                    //this.Hide();
                 };
 
                 lessonPanel.Controls.Add(nameLabel);

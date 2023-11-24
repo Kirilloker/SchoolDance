@@ -46,7 +46,7 @@
             // richTextBox1
             // 
             richTextBox1.BackColor = Color.Khaki;
-            richTextBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             richTextBox1.Location = new Point(30, 95);
             richTextBox1.Margin = new Padding(10);
             richTextBox1.Name = "richTextBox1";

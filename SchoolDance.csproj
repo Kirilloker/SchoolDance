@@ -9,10 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
     <PackageReference Include="Dapper" Version="2.1.24" />
-    <PackageReference Include="itext7" Version="8.0.2" />
-    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.20">
       <publicAssets>all</publicAssets>
@@ -24,9 +21,7 @@
     </PackageReference>
     <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="PDFsharp" Version="6.0.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
-    <PackageReference Include="Report.NET" Version="0.9.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,9 +32,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Admin\AdminPanel\Admin_Coach.cs" />
-    <Compile Update="Forms\Admin\AdminPanel\Admin_Group.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\Admin\AdminPanel\Admin_Payment.cs">
       <SubType>Form</SubType>
     </Compile>

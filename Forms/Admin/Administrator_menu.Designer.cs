@@ -230,7 +230,7 @@
             // 
             // create_report
             // 
-            create_report.BackColor = Color.IndianRed;
+            create_report.BackColor = Color.Silver;
             create_report.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             create_report.Location = new Point(226, 314);
             create_report.Margin = new Padding(3, 4, 3, 4);
@@ -239,7 +239,7 @@
             create_report.TabIndex = 0;
             create_report.Text = "Сформировать отчет";
             create_report.UseVisualStyleBackColor = false;
-            create_report.Click += b_answers_Click;
+            create_report.Click += b_create_report_Click;
             // 
             // Administrator_menu
             // 

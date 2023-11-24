@@ -7,19 +7,16 @@ namespace SchoolDance.Forms
 {
     public partial class Coach_personal_info : Form
     {
-        int id_person;
         Coach coach;
         public Coach_personal_info(int id_person)
         {
             InitializeComponent();
-            this.id_person = id_person;
 
             coach = DB_API.Get<Coach>(id_person);
             if (coach == null)
                 coach = new() { Id = -1};
 
             input_login.Text = coach.login;
-            // input_password.Text = coach.password;
 
             dateTime_birth_date.Value = coach.date;
 
@@ -43,7 +40,6 @@ namespace SchoolDance.Forms
             input_work_experience.Text = coach.workExperienceMonth.ToString();
             input_position.Text = coach.position;
 
-            // Ставим галочки на против стилей танцев
             List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
             string[] formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             box_danceStyle.Items.AddRange(formattedNames);

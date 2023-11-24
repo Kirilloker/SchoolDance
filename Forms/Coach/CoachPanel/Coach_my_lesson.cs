@@ -56,7 +56,6 @@ namespace SchoolDance.Forms
                 {
                     Coach_my_lesson_deep menu = new(lesson);
                     menu.Show();
-                    //this.Hide();
                 };
 
                 lessonPanel.Controls.Add(nameLabel);

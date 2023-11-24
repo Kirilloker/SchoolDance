@@ -4,10 +4,8 @@ namespace SchoolDance.Forms
 {
     public partial class Coach_schedule : Form
     {
-        Coach coach;
         public Coach_schedule(int coach_id)
         {
-            coach = DB_API.Get<Coach>(coach_id);
             List<Lesson> lessons = DB_API.GetAll<Lesson>().Where(b => b.coachId == coach_id).ToList();
             if (lessons.Count == 0)
                 return;
@@ -92,14 +90,7 @@ namespace SchoolDance.Forms
             foreach (var item in date)
                 textBox_with_schedule.AppendText(item);
 
-            int linesCount = textBox_with_schedule.Lines.Length;
-
             return textBox_with_schedule;
-        }
-
-        static int CountRInString(string inputString)
-        {
-            return CountSubstringOccurrences(inputString, "/r");
         }
         static int CountSubstringOccurrences(string input, string substring)
         {

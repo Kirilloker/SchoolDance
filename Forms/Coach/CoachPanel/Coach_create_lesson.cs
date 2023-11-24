@@ -1,8 +1,5 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Util;
-using System.Windows.Forms;
-
 namespace SchoolDance.Forms
 {
     public partial class Coach_create_lesson : Form

@@ -27,7 +27,7 @@ namespace SchoolDance
             if (new_data) ToolsDB.AddNewData();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Admin_Report());
+            Application.Run(new Authorization());
         }
     }
 

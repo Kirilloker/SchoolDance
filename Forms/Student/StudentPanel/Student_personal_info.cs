@@ -16,7 +16,6 @@ namespace SchoolDance.Forms
             student = DB_API.Get<Student>(id_person);
 
             input_login.Text = student.login;
-            // input_password.Text = student.password;
 
             dateTime_birth_date.Value = student.date;
 

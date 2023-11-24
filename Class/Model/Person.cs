@@ -9,10 +9,3 @@
     public string? password { get; set; }
 }
 
-public enum TypePerson
-{
-    None,
-    Student,
-    Coach,
-    Administrator
-}
