@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
+using SchoolDance.Class.DB;
+using SchoolDance.Class.Logic;
 using SchoolDance.Forms;
 using SchoolDance.Forms.Admin.AdminPanel;
 using SchoolDance.Util;
@@ -23,9 +25,6 @@ namespace SchoolDance
         [STAThread]
         static void Main(string[] args)
         {
-            bool new_data = false;
-            if (new_data) ToolsDB.AddNewData();
-
             ApplicationConfiguration.Initialize();
             Application.Run(new Authorization());
         }

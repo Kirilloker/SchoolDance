@@ -37,9 +37,10 @@
             input_password = new TextBox();
             b_SignIn = new Button();
             background = new Panel();
+            b_help = new Button();
             show_password = new CheckBox();
             b_SignUp = new Button();
-            b_help = new Button();
+            b_add_test_date = new Button();
             background.SuspendLayout();
             SuspendLayout();
             // 
@@ -134,6 +135,17 @@
             background.Size = new Size(439, 352);
             background.TabIndex = 5;
             // 
+            // b_help
+            // 
+            b_help.BackColor = SystemColors.GradientActiveCaption;
+            b_help.Location = new Point(358, 297);
+            b_help.Name = "b_help";
+            b_help.Size = new Size(78, 37);
+            b_help.TabIndex = 6;
+            b_help.Text = "Помощь";
+            b_help.UseVisualStyleBackColor = false;
+            b_help.Click += b_help_Click;
+            // 
             // show_password
             // 
             show_password.AutoSize = true;
@@ -156,28 +168,29 @@
             b_SignUp.UseVisualStyleBackColor = false;
             b_SignUp.Click += b_SignUp_Click;
             // 
-            // b_help
+            // b_add_test_date
             // 
-            b_help.BackColor = SystemColors.GradientActiveCaption;
-            b_help.Location = new Point(358, 297);
-            b_help.Name = "b_help";
-            b_help.Size = new Size(78, 37);
-            b_help.TabIndex = 6;
-            b_help.Text = "Помощь";
-            b_help.UseVisualStyleBackColor = false;
-            b_help.Click += b_help_Click;
+            b_add_test_date.Font = new Font("Segoe UI", 4.20000029F, FontStyle.Regular, GraphicsUnit.Point);
+            b_add_test_date.Location = new Point(-5, 494);
+            b_add_test_date.Name = "b_add_test_date";
+            b_add_test_date.Size = new Size(68, 49);
+            b_add_test_date.TabIndex = 6;
+            b_add_test_date.Text = "Тестовые данные";
+            b_add_test_date.UseVisualStyleBackColor = true;
+            b_add_test_date.Click += b_add_test_date_Click;
             // 
-            // Autorization
+            // Authorization
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(553, 539);
+            Controls.Add(b_add_test_date);
             Controls.Add(label2);
             Controls.Add(Password_text);
             Controls.Add(text_autorization);
             Controls.Add(background);
-            Name = "Autorization";
+            Name = "Authorization";
             Text = "Школа танцев";
             background.ResumeLayout(false);
             background.PerformLayout();
@@ -199,5 +212,6 @@
         private Button b_help;
         private Button b_SignUp;
         private CheckBox show_password;
+        private Button b_add_test_date;
     }
 }

@@ -151,7 +151,7 @@ namespace SchoolDance.Util
             {
                 login = "quani",
                 password = SignInUpLogic.EncodeStringToBase64("password1"),
-                fullName = "Леша Поляков Сергеевич",
+                fullName = "Поляков Леша Сергеевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-10),
                 typePerson = TypePerson.Student,
@@ -161,7 +161,7 @@ namespace SchoolDance.Util
             {
                 login = "emma789",
                 password = SignInUpLogic.EncodeStringToBase64("password2"),
-                fullName = "Emma Johnson",
+                fullName = "Коврикова Алена Викторовна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-20),
                 typePerson = TypePerson.Student,
@@ -171,7 +171,7 @@ namespace SchoolDance.Util
             {
                 login = "alexander321",
                 password = SignInUpLogic.EncodeStringToBase64("password3"),
-                fullName = "Alexander Brown",
+                fullName = "Синицин Олег Вячеславович",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-30),
                 typePerson = TypePerson.Student,
@@ -181,7 +181,7 @@ namespace SchoolDance.Util
             {
                 login = "sophia456",
                 password = SignInUpLogic.EncodeStringToBase64("password4"),
-                fullName = "Sophia Davis",
+                fullName = "Токарева Ирина Игоревна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-40),
                 typePerson = TypePerson.Student,
@@ -191,7 +191,7 @@ namespace SchoolDance.Util
             {
                 login = "william987",
                 password = SignInUpLogic.EncodeStringToBase64("password5"),
-                fullName = "William Wilson",
+                fullName = "Пиратов Сергей Анатольевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-50),
                 typePerson = TypePerson.Student,
@@ -201,7 +201,7 @@ namespace SchoolDance.Util
             {
                 login = "olivia654",
                 password = SignInUpLogic.EncodeStringToBase64("password6"),
-                fullName = "Olivia Taylor",
+                fullName = "Русакова Ольга Викторовна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-60),
                 typePerson = TypePerson.Student,
@@ -211,7 +211,7 @@ namespace SchoolDance.Util
             {
                 login = "james789",
                 password = SignInUpLogic.EncodeStringToBase64("password7"),
-                fullName = "James Anderson",
+                fullName = "Токарев Леонид Сергеевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-70),
                 typePerson = TypePerson.Student,
@@ -221,7 +221,7 @@ namespace SchoolDance.Util
             {
                 login = "isabella123",
                 password = SignInUpLogic.EncodeStringToBase64("password8"),
-                fullName = "Isabella Thomas",
+                fullName = "Кадочникова Елена Андреевна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-80),
                 typePerson = TypePerson.Student,
@@ -231,7 +231,7 @@ namespace SchoolDance.Util
             {
                 login = "michael456",
                 password = SignInUpLogic.EncodeStringToBase64("password9"),
-                fullName = "Michael Johnson",
+                fullName = "Калин Данил Вячеславович",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-90),
                 typePerson = TypePerson.Student,
@@ -241,7 +241,7 @@ namespace SchoolDance.Util
             {
                 login = "sophia987",
                 password = SignInUpLogic.EncodeStringToBase64("password10"),
-                fullName = "Sophia Jackson",
+                fullName = "Волкова Соня Владимировна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-100),
                 typePerson = TypePerson.Student,
@@ -259,7 +259,7 @@ namespace SchoolDance.Util
             {
                 login = "alexandra",
                 password = SignInUpLogic.EncodeStringToBase64("password123"),
-                fullName = "Иван Иванович Иванов",
+                fullName = "Нестерова Милана Улебовна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-10),
                 typePerson = TypePerson.Coach,
@@ -275,7 +275,7 @@ namespace SchoolDance.Util
             {
                 login = "johndoe",
                 password = SignInUpLogic.EncodeStringToBase64("securepass"),
-                fullName = "John Doe",
+                fullName = "Савин Донат Никитевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-20),
                 typePerson = TypePerson.Coach,
@@ -291,7 +291,7 @@ namespace SchoolDance.Util
             {
                 login = "emilyb",
                 password = SignInUpLogic.EncodeStringToBase64("mypassword"),
-                fullName = "Emily Baker",
+                fullName = "Евсеева Валерия Парфеньевна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-5),
                 typePerson = TypePerson.Coach,
@@ -307,7 +307,7 @@ namespace SchoolDance.Util
             {
                 login = "michaels",
                 password = SignInUpLogic.EncodeStringToBase64("mypass123"),
-                fullName = "Michael Stevens",
+                fullName = "Григорьев Тимофей Мартынович",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-15),
                 typePerson = TypePerson.Coach,
@@ -323,7 +323,7 @@ namespace SchoolDance.Util
             {
                 login = "sophiep",
                 password = SignInUpLogic.EncodeStringToBase64("secure123"),
-                fullName = "Sophie Peterson",
+                fullName = "Савельева Владлена Филипповна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-8),
                 typePerson = TypePerson.Coach,
@@ -339,7 +339,7 @@ namespace SchoolDance.Util
             {
                 login = "davidm",
                 password = SignInUpLogic.EncodeStringToBase64("pass1234"),
-                fullName = "David Miller",
+                fullName = "Поляков Сергей Лукьевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-12),
                 typePerson = TypePerson.Coach,
@@ -355,7 +355,7 @@ namespace SchoolDance.Util
             {
                 login = "olivial",
                 password = SignInUpLogic.EncodeStringToBase64("mypassword123"),
-                fullName = "Olivia Lee",
+                fullName = "Афанасьева Зара Федоровна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-6),
                 typePerson = TypePerson.Coach,
@@ -371,7 +371,7 @@ namespace SchoolDance.Util
             {
                 login = "matthewt",
                 password = SignInUpLogic.EncodeStringToBase64("password1234"),
-                fullName = "Matthew Thompson",
+                fullName = "Рогов Роберт Геннадьевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-18),
                 typePerson = TypePerson.Coach,
@@ -387,7 +387,7 @@ namespace SchoolDance.Util
             {
                 login = "hannahm",
                 password = SignInUpLogic.EncodeStringToBase64("pass12345"),
-                fullName = "Hannah Mitchell",
+                fullName = "Блохина Эстелла Максовна",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-9),
                 typePerson = TypePerson.Coach,
@@ -403,7 +403,7 @@ namespace SchoolDance.Util
             {
                 login = "williamh",
                 password = SignInUpLogic.EncodeStringToBase64("securepass123"),
-                fullName = "William Harris",
+                fullName = "Мартынов Сергей Дмитриевич",
                 gender = "Male",
                 date = DateTime.Now.AddDays(-14),
             };
@@ -505,7 +505,7 @@ namespace SchoolDance.Util
             {
                 login = "admin",
                 password = SignInUpLogic.EncodeStringToBase64("qwerty"),
-                fullName = "Корязин Егор Андреевич",
+                fullName = "Груздев Владимир Владимирович",
                 gender = "Female",
                 date = DateTime.Now.AddDays(-10),
                 typePerson = TypePerson.Administrator,

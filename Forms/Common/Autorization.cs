@@ -76,9 +76,14 @@ namespace SchoolDance.Forms
             Show_hide_password();
         }
 
-        private void Close_main_window() 
+        private void Close_main_window()
         {
             Close();
+        }
+
+        private void b_add_test_date_Click(object sender, EventArgs e)
+        {
+            ToolsDB.AddNewData();
         }
     }
 }
