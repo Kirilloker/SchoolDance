@@ -50,7 +50,8 @@ namespace SchoolDance.Forms
                 detailsButton.BackColor = Color.White;
                 detailsButton.Font = new Font("Segoe UI", 16);
 
-                detailsButton.Click += (sender, e) => {
+                detailsButton.Click += (sender, e) =>
+                {
                     Student_signUp_lesson_deep menu = new(studentId, lesson.Id);
                     menu.Show();
                 };

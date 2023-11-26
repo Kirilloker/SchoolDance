@@ -1,8 +1,6 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Forms.Admin.AdminPanel;
 using SchoolDance.Forms.AdminPanel;
-using SchoolDance.Util;
 using static SchoolDance.Forms.Authorization;
 
 namespace SchoolDance.Forms

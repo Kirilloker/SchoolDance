@@ -1,4 +1,4 @@
-﻿public class Student : Person 
+﻿public class Student : Person
 {
     public int balance { get; set; }
 }

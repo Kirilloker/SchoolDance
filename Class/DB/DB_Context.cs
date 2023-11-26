@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System.Data;
 
 class DB_Context : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connect = "server=127.0.0.1;database=SchoolDance;user=kirillok;password=loki5566";
+        string connect = "server=127.0.0.1;database=SchoolDance;user=taya;password=user123456";
         optionsBuilder.UseMySQL(connect);
     }
 

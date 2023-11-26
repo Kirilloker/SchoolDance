@@ -46,7 +46,7 @@
             // 
             panel11.AutoScroll = true;
             panel11.BackColor = Color.PowderBlue;
-            panel11.Location = new Point(36, 94);
+            panel11.Location = new Point(46, 94);
             panel11.Name = "panel11";
             panel11.Size = new Size(778, 344);
             panel11.TabIndex = 1;

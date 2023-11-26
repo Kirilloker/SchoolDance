@@ -1,5 +1,4 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms

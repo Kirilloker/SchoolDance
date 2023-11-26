@@ -1,6 +1,6 @@
-﻿using System.Text;
-using SchoolDance.Class.DB;
+﻿using SchoolDance.Class.DB;
 using SchoolDance.Util;
+using System.Text;
 
 namespace SchoolDance.Forms.Admin.AdminPanel
 {
@@ -39,12 +39,12 @@ namespace SchoolDance.Forms.Admin.AdminPanel
 
                 string students = "";
                 var student_array = lesson.studentId.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var item in student_array) 
+                foreach (var item in student_array)
                 {
                     string name_student = "";
 
                     int student_id;
-                    if (int.TryParse(item, out student_id)) 
+                    if (int.TryParse(item, out student_id))
                     {
                         if (DB_API.Get<Student>(student_id).fullName != null)
                             name_student = DB_API.Get<Student>(student_id).fullName;
@@ -143,7 +143,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                 if (danceStyle.name == null) danceStyle.name = "Не известно";
 
                 reportBuilder.AppendLine($"Название стиля танца: {danceStyle.name}");
-                reportBuilder.AppendLine($"Описание: {danceStyle.description ?? "Отсутствует"}"); 
+                reportBuilder.AppendLine($"Описание: {danceStyle.description ?? "Отсутствует"}");
 
                 reportBuilder.AppendLine();
             }
@@ -170,7 +170,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                 if (eventDance.nameEvent == null) eventDance.nameEvent = "Не известно";
 
                 reportBuilder.AppendLine($"Название мероприятия: {eventDance.nameEvent}");
-                reportBuilder.AppendLine($"Описание: {eventDance.description ?? "Отсутствует"}"); 
+                reportBuilder.AppendLine($"Описание: {eventDance.description ?? "Отсутствует"}");
                 reportBuilder.AppendLine($"Дата: {eventDance.date.ToString("dd.MM.yyyy")}");
 
                 reportBuilder.AppendLine();
@@ -200,7 +200,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                 Student student = DB_API.Get<Student>(payment.studentId.Value);
                 if (student.fullName != null)
                     studentName = student.fullName;
-                
+
 
                 reportBuilder.AppendLine($"Студент: {studentName}");
                 reportBuilder.AppendLine($"Идентификатор занятия: {payment.lessonId}");
@@ -277,7 +277,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                 {
                     string name_dance_style = "";
 
-                    int  dance_id;
+                    int dance_id;
                     if (int.TryParse(item, out dance_id))
                     {
                         if (DB_API.Get<DanceStyle>(dance_id).name != null)
@@ -319,13 +319,13 @@ namespace SchoolDance.Forms.Admin.AdminPanel
 
         private void b_create_report_Click(object sender, EventArgs e)
         {
-            if (list_table.SelectedIndex < 0) 
+            if (list_table.SelectedIndex < 0)
             {
                 ToolsForm.ShowMessage("Нужно выбрать таблицу, для которого сформируется отчет");
                 return;
             }
 
-            switch ((string)list_table.SelectedItem) 
+            switch ((string)list_table.SelectedItem)
             {
                 case "Занятия":
                     generateReportLesson();
@@ -353,7 +353,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                     break;
                 default:
                     ToolsForm.ShowMessage("Что-то пошло не так");
-                    Console.WriteLine(); 
+                    Console.WriteLine();
                     break;
             }
         }

@@ -176,6 +176,7 @@
             b_event.TabIndex = 0;
             b_event.Text = "Мероприятия";
             b_event.UseVisualStyleBackColor = false;
+            b_event.Click += b_event_Click_1;
             // 
             // b_pay_lesson
             // 

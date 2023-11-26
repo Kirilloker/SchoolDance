@@ -1,5 +1,4 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -8,7 +7,7 @@ namespace SchoolDance.Forms
     {
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_roomNumber.Text == "" || input_capacity.Text == "" )
+            if (input_roomNumber.Text == "" || input_capacity.Text == "")
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля.");
                 return;

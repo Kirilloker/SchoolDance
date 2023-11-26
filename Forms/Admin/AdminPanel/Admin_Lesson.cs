@@ -1,7 +1,5 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Util;
-using System.Windows.Forms;
 
 namespace SchoolDance.Forms
 {
@@ -37,7 +35,7 @@ namespace SchoolDance.Forms
                 }
 
                 List<string> selectedItems = new List<string>();
-                foreach (var item in list_weekdays.CheckedItems) 
+                foreach (var item in list_weekdays.CheckedItems)
                 {
                     if (item == null) continue;
                     selectedItems.Add(item.ToString());

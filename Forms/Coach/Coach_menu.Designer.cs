@@ -139,7 +139,7 @@
             b_create_event.Name = "b_create_event";
             b_create_event.Size = new Size(296, 59);
             b_create_event.TabIndex = 1;
-            b_create_event.Text = "Создать мероприятие";
+            b_create_event.Text = "Мероприятия";
             b_create_event.UseVisualStyleBackColor = false;
             b_create_event.Click += create_event_click;
             // 
@@ -152,7 +152,7 @@
             b_event.Name = "b_event";
             b_event.Size = new Size(296, 59);
             b_event.TabIndex = 1;
-            b_event.Text = "Мероприятия";
+            b_event.Text = "Создать мероприятие";
             b_event.UseVisualStyleBackColor = false;
             b_event.Click += create_event;
             // 
@@ -178,7 +178,7 @@
             b_show_my_lesson.Name = "b_show_my_lesson";
             b_show_my_lesson.Size = new Size(296, 59);
             b_show_my_lesson.TabIndex = 1;
-            b_show_my_lesson.Text = "Моя занятия";
+            b_show_my_lesson.Text = "Мои занятия";
             b_show_my_lesson.UseVisualStyleBackColor = false;
             b_show_my_lesson.Click += my_lesson_Click;
             // 

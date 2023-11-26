@@ -13,7 +13,7 @@ namespace SchoolDance.Forms
 
         private void b_create_event_Click(object sender, EventArgs e)
         {
-            if (input_description.Text == "" || input_description.Text == "")
+            if (input_name_event.Text == "" || input_description.Text == "")
             {
                 ToolsForm.ShowMessage("Нужно заполнить все поля");
                 return;

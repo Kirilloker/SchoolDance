@@ -1,5 +1,4 @@
-﻿using MySqlX.XDevAPI;
-using SchoolDance.Class.DB;
+﻿using SchoolDance.Class.DB;
 using System.Data;
 
 namespace SchoolDance.Forms
@@ -36,7 +35,7 @@ namespace SchoolDance.Forms
                 nameLabel.Location = new Point(10, 10);
 
                 var styleLabel = new Label();
-                styleLabel.Text = "Количество мест^: " + GetNumberFreePlace(lesson, lesson.danceStylesId);
+                styleLabel.Text = "Количество мест: " + GetNumberFreePlace(lesson, lesson.danceStylesId);
                 styleLabel.Location = new Point(10, 40);
                 styleLabel.Size = new Size(500, 20);
 
@@ -72,8 +71,8 @@ namespace SchoolDance.Forms
         string? GetNumberFreePlace(Lesson lesson, int? danceHallId)
         {
             DanceHall? danceHall = DB_API.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
-            if (danceHall == null) return "?/?"; 
-            if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString(); 
+            if (danceHall == null) return "?/?";
+            if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
 
             return
                 (lesson.studentId.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries).Length.ToString())

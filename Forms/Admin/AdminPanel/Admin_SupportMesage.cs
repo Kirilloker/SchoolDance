@@ -30,13 +30,14 @@ namespace SchoolDance.Forms.AdminPanel
                 else
                     button.BackColor = Color.Gray;
 
-                button.Click += (sender, e) => {
+                button.Click += (sender, e) =>
+                {
                     AdminPanelSupportMessageDeep menu = new(message.Id, ShowOn);
                     menu.Show();
                     this.Hide();
                 };
 
-                panel1.Controls.Add(button); 
+                panel1.Controls.Add(button);
                 y += 90;
             }
         }
@@ -59,7 +60,7 @@ namespace SchoolDance.Forms.AdminPanel
         void ShowOn(int index, bool isColorGreen)
         {
             ChangeButtonColor(index, isColorGreen);
-            this.Show(); 
+            this.Show();
         }
     }
 }

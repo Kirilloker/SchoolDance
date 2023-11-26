@@ -1,11 +1,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
-using SchoolDance.Class.DB;
-using SchoolDance.Class.Logic;
 using SchoolDance.Forms;
-using SchoolDance.Forms.Admin.AdminPanel;
-using SchoolDance.Util;
 
 public class MysqlEntityFrameworkDesignTimeServices : IDesignTimeServices
 {
@@ -33,7 +29,7 @@ namespace SchoolDance
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
-            => services.AddDbContext<DB_Context>();  
+            => services.AddDbContext<DB_Context>();
     }
 
 }

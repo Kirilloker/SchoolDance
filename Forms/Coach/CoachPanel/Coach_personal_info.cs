@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Crypto.Macs;
-using SchoolDance.Class.DB;
+﻿using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
 using SchoolDance.Util;
 
@@ -14,7 +13,7 @@ namespace SchoolDance.Forms
 
             coach = DB_API.Get<Coach>(id_person);
             if (coach == null)
-                coach = new() { Id = -1};
+                coach = new() { Id = -1 };
 
             input_login.Text = coach.login;
 
@@ -89,7 +88,7 @@ namespace SchoolDance.Forms
             List<string> list_danceStyle = new();
             foreach (var item in box_danceStyle.SelectedItems)
             {
-                if (item == null) continue; 
+                if (item == null) continue;
                 str_danceStyleId += item.ToString().Split(". ")[0] + ", ";
             }
 

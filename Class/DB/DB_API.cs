@@ -10,7 +10,7 @@
                 {
                     bool isEntityExisting = db.Set<T>().Any(predicate);
 
-                    if (!isEntityExisting)
+                    if (isEntityExisting == false)
                     {
                         db.Set<T>().Add(entity);
                         db.SaveChanges();
@@ -21,7 +21,7 @@
                         return false;
                     }
                 }
-                catch 
+                catch
                 {
                     return false;
                 }
@@ -40,7 +40,7 @@
                         db.SaveChanges();
                     }
                 }
-                catch 
+                catch
                 {
                     return;
                 }
@@ -68,7 +68,7 @@
                 }
             }
         }
-        public static List<T> GetAll<T>() where T : class
+        public static List<T> GetAll<T>() where T : class//возвращение всей таблицы
         {
             using (DB_Context db = new DB_Context())
             {
@@ -128,7 +128,7 @@
         public static bool AddCoach(Coach entity) => AddEntity(entity, b => b.login == entity.login);
         public static bool AddAdministrator(Administrator entity) => AddEntity(entity, b => b.login == entity.login);
         public static bool AddLesson(Lesson entity) => AddEntity(entity, b => b.Id == -1);
-        public static bool AddTopUp(TopUp entity) => AddEntity(entity, b => b.paymentTime == entity.paymentTime);
+        public static bool AddTopUp(TopUp entity) => AddEntity(entity, b => b.Id == -1);
         public static bool AddPayment(Payment entity) => AddEntity(entity, b => b.Id == -1);
         public static bool AddEventDance(EventDance entity) => AddEntity(entity, b => b.Id == -1);
         public static bool AddSupportMessage(SupportMessage entity) => AddEntity(entity, b => b.personName == entity.personName

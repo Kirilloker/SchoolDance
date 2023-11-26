@@ -5,7 +5,7 @@ namespace SchoolDance.Util
 {
     public static class ToolsDB
     {
-        public static void AddNewData() 
+        public static void AddNewData()
         {
             AddDanceHall();
             AddDanceStyle();
@@ -24,7 +24,7 @@ namespace SchoolDance.Util
                 DanceHall obj = new DanceHall
                 {
                     roomNumber = $"Room{i}",
-                    capacity = i * 5  
+                    capacity = i * 5
                 };
 
                 DB_API.AddDanceHall(obj);
@@ -50,7 +50,7 @@ namespace SchoolDance.Util
                 DB_API.AddDanceStyle(item);
         }
 
-        static void AddTopUp() 
+        static void AddTopUp()
         {
             TopUp obj = new TopUp
             {
@@ -137,16 +137,16 @@ namespace SchoolDance.Util
             {
                 studentId = 10,
                 paymentTime = DateTime.Now.AddHours(9),
-                price = 100 
+                price = 100
             };
 
             DB_API.AddTopUp(obj);
         }
 
-        static void AddStudent() 
+        static void AddStudent()
         {
-            List<Student> students = new List<Student> 
-            { 
+            List<Student> students = new List<Student>
+            {
             new Student
             {
                 login = "quani",
@@ -410,8 +410,8 @@ namespace SchoolDance.Util
 
             DB_API.AddCoach(obj);
         }
-        
-        static void AddLesson() 
+
+        static void AddLesson()
         {
 
             Lesson obj = new Lesson
@@ -498,8 +498,8 @@ namespace SchoolDance.Util
 
             DB_API.AddPayment(obj);
         }
-        
-        static void AddAdministrator() 
+
+        static void AddAdministrator()
         {
             Administrator obj = new Administrator
             {

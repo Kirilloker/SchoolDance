@@ -1,7 +1,5 @@
-﻿using MySqlX.XDevAPI;
-using SchoolDance.Class.DB;
+﻿using SchoolDance.Class.DB;
 using SchoolDance.Util;
-using System.Windows.Forms;
 
 namespace SchoolDance.Forms
 {
