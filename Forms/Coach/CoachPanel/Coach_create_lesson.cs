@@ -1,9 +1,14 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 namespace SchoolDance.Forms
 {
     public partial class Coach_create_lesson : Form
     {
+        MainController<Lesson> controller = new();
+        MainController<DanceHall> controllerDanceHall = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
+
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
             try
@@ -72,10 +77,7 @@ namespace SchoolDance.Forms
                     return;
                 }
 
-                if (DB_Controller.Add(obj) == true)
-                    ToolsForm.ShowMessage("Новое занятие создалось успешно", "Добавление нового занятия", MessageBoxIcon.Asterisk);
-                else
-                    ToolsForm.ShowMessage("Что-то пошло не так");
+                Add(obj);
             }
             catch (Exception)
             {
@@ -85,22 +87,36 @@ namespace SchoolDance.Forms
 
         }
 
+
+        private void PreparingAddView()
+        {
+            list_style.DropDownStyle = ComboBoxStyle.DropDownList;
+            list_danceHall.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            List<DanceHall> danceHalls = controllerDanceHall.GetDateFromDB();
+            string[] formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
+            list_danceHall.Items.AddRange(formattedNames);
+
+            List<DanceStyle> danceStyles = controllerDanceStyle.GetDateFromDB();
+            formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
+            list_style.Items.AddRange(formattedNames);
+        }
+
+        private void Add(Lesson entity)
+        {
+            if (controller.Add(entity) == true)
+                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
+            else
+                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+        }
+
         int coach_id;
         public Coach_create_lesson(int coach_id)
         {
             this.coach_id = coach_id;
             InitializeComponent();
 
-            list_style.DropDownStyle = ComboBoxStyle.DropDownList;
-            list_danceHall.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            List<DanceHall> danceHalls = DB_Controller.GetAll<DanceHall>();
-            string[] formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
-            list_danceHall.Items.AddRange(formattedNames);
-
-            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
-            formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
-            list_style.Items.AddRange(formattedNames);
+            PreparingAddView();
         }
 
         private bool correct_time(string input)
@@ -119,7 +135,7 @@ namespace SchoolDance.Forms
 
         private bool CheckCorrectLesson(Lesson lesson)
         {
-            List<Lesson> lessons = DB_Controller.GetAll<Lesson>();
+            List<Lesson> lessons = controller.GetDateFromDB();
 
             foreach (Lesson existingLesson in lessons)
             {

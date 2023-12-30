@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Forms.Admin.AdminPanel;
 using SchoolDance.Forms.AdminPanel;
 using static SchoolDance.Forms.Authorization;
@@ -10,13 +11,14 @@ namespace SchoolDance.Forms
         int id;
         Administrator administrator;
         private CloseMainWindow CloseMainWindowDelegate;
+        MainController<Administrator> controller = new();
         public Administrator_menu(int id, CloseMainWindow CloseMainWindowDelegate)
         {
             this.CloseMainWindowDelegate = CloseMainWindowDelegate;
             this.id = id;
             InitializeComponent();
 
-            administrator = DB_Controller.Get<Administrator>(id);
+            administrator = controller.GetEntityByID(id);
 
             if (administrator != null && administrator.fullName != null)
             {

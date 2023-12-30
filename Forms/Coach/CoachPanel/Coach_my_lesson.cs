@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using System.Data;
 
 namespace SchoolDance.Forms
@@ -6,11 +7,13 @@ namespace SchoolDance.Forms
     public partial class Coach_my_lesson : Form
     {
         int coach_id;
+        MainController<Lesson> controllerLesson = new();
+        MainController<DanceHall> controllerDanceHall = new();
         public Coach_my_lesson(int coach_id_)
         {
             coach_id = coach_id_;
             InitializeComponent();
-            CreateLessonPanels(DB_Controller.GetAll<Lesson>().Where(p => p.coachId == coach_id).ToList());
+            CreateLessonPanels(controllerLesson.GetDateFromDB().Where(p => p.coachId == coach_id).ToList());
         }
 
         void CreateLessonPanels(List<Lesson> lessons)
@@ -70,7 +73,7 @@ namespace SchoolDance.Forms
 
         string? GetNumberFreePlace(Lesson lesson, int? danceHallId)
         {
-            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            DanceHall? danceHall = controllerDanceHall.GetDateFromDB().FirstOrDefault(style => style.Id == danceHallId);
             if (danceHall == null) return "?/?";
             if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
 

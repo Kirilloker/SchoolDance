@@ -1,14 +1,17 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 
 namespace SchoolDance.Forms
 {
     public partial class Student_event : Form
     {
+        MainController<EventDance> controllerEventDance = new();
+
         public Student_event()
         {
             InitializeComponent();
 
-            List<EventDance> all_event = DB_Controller.GetAll<EventDance>();
+            List<EventDance> all_event = controllerEventDance.GetDateFromDB();
             CreatePanel(all_event);
         }
 

@@ -1,10 +1,13 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
     public partial class SupportMessageForUser : Form
     {
+        MainController<SupportMessage> controller = new();
+
         string personName = "";
         public SupportMessageForUser(string personName_)
         {
@@ -30,7 +33,12 @@ namespace SchoolDance.Forms
                 personName = personName
             };
 
-            if (DB_Controller.Add(supportMessage) == true)
+            Add(supportMessage);
+        }
+
+        private void Add(SupportMessage entity) 
+        {
+            if (controller.AddFromDB(entity) == true) 
                 ToolsForm.ShowMessage("Сообщение доставлено", "Сообщение об ошибке", MessageBoxIcon.Asterisk);
             else
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно вы уже отсылали такое сообщение.");

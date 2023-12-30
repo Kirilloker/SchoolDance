@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 
 namespace SchoolDance.Forms
 {
@@ -6,13 +7,16 @@ namespace SchoolDance.Forms
     {
         List<DanceStyle> danceStyles = new();
         int studentId;
+        MainController<Lesson> controllerLesson = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
+
 
         public Student_signUp_lesson(int studentId)
         {
             InitializeComponent();
-            danceStyles = DB_Controller.GetAll<DanceStyle>();
+            danceStyles = controllerDanceStyle.GetDateFromDB();
             this.studentId = studentId;
-            CreateLessonPanels(DB_Controller.GetAll<Lesson>());
+            CreateLessonPanels(controllerLesson.GetDateFromDB());
         }
 
         void CreateLessonPanels(List<Lesson> lessons)

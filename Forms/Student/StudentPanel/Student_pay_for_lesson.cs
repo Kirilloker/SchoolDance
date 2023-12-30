@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -6,6 +7,10 @@ namespace SchoolDance.Forms
     public partial class Student_pay_for_lesson : Form
     {
         int student_id;
+        MainController<Student> controllerStudent = new();
+        MainController<Payment> controllerPayment = new();
+        MainController<Lesson> controllerLesson = new();
+
         public Student_pay_for_lesson(int student_id)
         {
             InitializeComponent();
@@ -21,7 +26,7 @@ namespace SchoolDance.Forms
 
         private void UpdateBalance()
         {
-            Student student = DB_Controller.Get<Student>(student_id);
+            Student student = controllerStudent.GetEntityByID(student_id);
             text_balance.Text = "Баланс: " + student.balance.ToString() + " рублей";
         }
 
@@ -38,7 +43,7 @@ namespace SchoolDance.Forms
 
         private void create_payments()
         {
-            List<Payment> payments = DB_Controller.GetAll<Payment>();
+            List<Payment> payments = controllerPayment.GetDateFromDB();
             List<Payment> filteredPayments = payments.Where(p => p.studentId == student_id).ToList();
 
 
@@ -47,7 +52,7 @@ namespace SchoolDance.Forms
 
             foreach (Payment payment in filteredPayments)
             {
-                Lesson lesson = DB_Controller.Get<Lesson>(payment.lessonId);
+                Lesson lesson = controllerLesson.GetEntityByID(payment.lessonId);
 
                 TimeSpan difference = DateTime.Now.Subtract(payment.date_end_subscription);
                 int differenceInDays = Math.Abs((int)difference.TotalDays);
@@ -101,7 +106,7 @@ namespace SchoolDance.Forms
 
                 extendButton.Click += (sender, e) =>
                 {
-                    Student student = DB_Controller.Get<Student>(student_id);
+                    Student student = controllerStudent.GetEntityByID(student_id);
                     if (student.balance < lesson.price)
                     {
                         ToolsForm.ShowMessage("Не достаточно средств");
@@ -116,8 +121,9 @@ namespace SchoolDance.Forms
 
                         payment.date_end_subscription = payment.date_end_subscription.AddMonths(1);
 
-                        DB_Controller.Update(student);
-                        DB_Controller.Update(payment);
+                        controllerStudent.ChangeFromDB(student);
+                        controllerPayment.ChangeFromDB(payment);
+
                         ToolsForm.ShowMessage("Вы продлили занятие", "Продление занятия", MessageBoxIcon.Asterisk);
                     }
                 };

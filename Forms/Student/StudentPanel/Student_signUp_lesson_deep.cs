@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -7,12 +8,19 @@ namespace SchoolDance.Forms
     {
         int studentId;
         Lesson lesson;
+
+        MainController<Student> controllerStudent = new();
+        MainController<Lesson> controllerLesson = new();
+        MainController<Coach> controllerCoach = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
+        MainController<DanceHall> controllerDanceHall = new();
+
         public Student_signUp_lesson_deep(int studentId, int lessonId)
         {
             this.studentId = studentId;
             InitializeComponent();
 
-            lesson = DB_Controller.Get<Lesson>(lessonId);
+            lesson = controllerLesson.GetEntityByID(lessonId);
 
             text_name_lesson.Text += lesson.className;
             text_dance_style_lesson.Text += GetDanceStyleName(lesson.danceStylesId);
@@ -23,7 +31,7 @@ namespace SchoolDance.Forms
             text_dancehall.Text += GetDanceHallName(lesson.danceHallId);
             text_number_free_place.Text += GetNumberFreePlace(lesson.danceHallId);
 
-            Coach coach = DB_Controller.Get<Coach>(lesson.coachId);
+            Coach coach = controllerCoach.GetEntityByID(lesson.coachId);
 
             text_name_coach.Text += coach.fullName;
             text_work_experience.Text += coach.workExperienceMonth.ToString();
@@ -42,19 +50,19 @@ namespace SchoolDance.Forms
 
         string? GetDanceStyleName(int? danceStyleId)
         {
-            DanceStyle? danceStyle = DB_Controller.GetAll<DanceStyle>().FirstOrDefault(style => style.Id == danceStyleId);
+            DanceStyle? danceStyle = controllerDanceStyle.GetDateFromDB().FirstOrDefault(style => style.Id == danceStyleId);
             return danceStyle != null ? danceStyle.name : "Неизвестный стиль";
         }
 
         string? GetDanceHallName(int? danceHallId)
         {
-            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            DanceHall? danceHall = controllerDanceHall.GetDateFromDB().FirstOrDefault(style => style.Id == danceHallId);
             return danceHall != null ? danceHall.roomNumber : "Неизвестный стиль";
         }
 
         string? GetNumberFreePlace(int? danceHallId)
         {
-            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            DanceHall? danceHall = controllerDanceHall.GetDateFromDB().FirstOrDefault(style => style.Id == danceHallId);
             if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
             return
                 (lesson.studentId.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries).Length.ToString())
@@ -83,7 +91,7 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Свободных мест нет.", "Запись на занятие");
                 return;
             }
-            Student student = DB_Controller.Get<Student>(studentId);
+            Student student = controllerStudent.GetEntityByID(studentId);
             if (student.balance < lesson.price)
             {
                 ToolsForm.ShowMessage("У Вас недостаточно средств на балансе.", "Запись на занятие");
@@ -108,8 +116,8 @@ namespace SchoolDance.Forms
             if (result_choice == DialogResult.Yes)
             {
                 student.balance -= lesson.price;
-                DB_Controller.Update(lesson);
-                DB_Controller.Update(student);
+                controllerStudent.ChangeFromDB(student);
+                controllerLesson.ChangeFromDB(lesson);
                 ToolsForm.ShowMessage("Вы записались на новое занятие", "Запись на занятие", MessageBoxIcon.Asterisk);
             }
         }
@@ -130,7 +138,7 @@ namespace SchoolDance.Forms
         private List<Lesson> GetAllStudentLesson(int studentId_)
         {
             if (lesson.studentId == null) return new();
-            return DB_Controller.GetAll<Lesson>()
+            return controllerLesson.GetDateFromDB()
                 .Where(lesson => lesson.studentId.Split(new[] { ", " }, StringSplitOptions.None)
                                    .Contains(studentId_.ToString()))
                 .ToList();

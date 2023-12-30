@@ -1,12 +1,15 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 
 namespace SchoolDance.Forms
 {
     public partial class Student_schedule : Form
     {
+        MainController<Lesson> controllerLesson = new();
+
         public Student_schedule(int student_id)
         {
-            List<Lesson> allLessons = DB_Controller.GetAll<Lesson>();
+            List<Lesson> allLessons = controllerLesson.GetDateFromDB();
 
             List<Lesson> lessons = allLessons
                 .Where(lesson => lesson.studentId != null &&
@@ -46,14 +49,16 @@ namespace SchoolDance.Forms
         }
         static string GetNameRoom(int danceHallId)
         {
-            DanceHall danceHall = DB_Controller.Get<DanceHall>(danceHallId);
+            MainController<DanceHall> controller = new();
+            DanceHall danceHall = controller.GetEntityByID(danceHallId);
             if (danceHall == null) return "Комната не известна";
             return danceHall.roomNumber;
         }
 
         static string GetNameCoach(int coachId)
         {
-            Coach coach = DB_Controller.Get<Coach>(coachId);
+            MainController<Coach> controller = new();
+            Coach coach = controller.GetEntityByID(coachId);
             if (coach == null) return "Тренер не известен";
             return coach.fullName;
         }

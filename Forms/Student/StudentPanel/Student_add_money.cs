@@ -1,10 +1,14 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
+using static Dapper.SqlMapper;
 
 namespace SchoolDance.Forms
 {
     public partial class Student_add_money : Form
     {
+        MainController<TopUp> controllerTop = new();
+        MainController<Student> controllerStudent= new();
         int student_id;
         public Student_add_money(int student_id)
         {
@@ -27,13 +31,13 @@ namespace SchoolDance.Forms
                 return;
             }
 
-            Student student = DB_Controller.Get<Student>(student_id);
+            Student student = controllerStudent.GetEntityByID(student_id);
             student.balance += balance;
 
             ToolsForm.ShowMessage("Пополнение баланса прошло успешно, теперь ваш баланс составляет: " + student.balance.ToString() + " рублей",
                 "Пополнение баланса", MessageBoxIcon.Asterisk);
 
-            DB_Controller.Update(student);
+            controllerStudent.ChangeFromDB(student);
 
             TopUp payment = new TopUp
             {
@@ -42,7 +46,7 @@ namespace SchoolDance.Forms
                 paymentTime = DateTime.Now
             };
 
-            DB_Controller.Add(payment);
+            controllerTop.AddFromDB(payment);
         }
     }
 }

@@ -38,7 +38,8 @@ namespace SchoolDance.Class.Logic
                 typePerson = TypePerson.Student
             };
 
-            return DB_Controller.Add(student);
+            MainController<Student> controller = new();
+            return controller.AddFromDB(student);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 
@@ -6,6 +7,8 @@ namespace SchoolDance.Forms
 {
     public partial class Coach_create_event : Form
     {
+        MainController<EventDance> controller = new();
+
         public Coach_create_event()
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace SchoolDance.Forms
             };
 
 
-            if (DB_Controller.Add(eventDance) == true)
+            if (controller.AddFromDB(eventDance) == true)
             {
                 ToolsForm.ShowMessage("Мероприятие создано", "Создание мероприятия", MessageBoxIcon.Asterisk);
             }

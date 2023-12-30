@@ -1,5 +1,7 @@
-﻿using SchoolDance.Class.DB;
+﻿using Org.BouncyCastle.Crypto.Macs;
+using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -8,12 +10,13 @@ namespace SchoolDance.Forms
     {
         int id_person;
         Student student;
+        MainController<Student> controller = new();
         public Student_personal_info(int id_person)
         {
             InitializeComponent();
             this.id_person = id_person;
 
-            student = DB_Controller.Get<Student>(id_person);
+            student = controller.GetEntityByID(id_person);
 
             input_login.Text = student.login;
 
@@ -34,7 +37,6 @@ namespace SchoolDance.Forms
                 input_second_name.Text = words[1];
             if (words.Length >= 3)
                 input_patronymic.Text = words[2];
-
         }
 
         private void Show_hide_password()
@@ -71,16 +73,22 @@ namespace SchoolDance.Forms
             if (input_password.Text != "")
                 student_new_info.password = SignInUpLogic.EncodeStringToBase64(input_password.Text);
 
-            DB_Controller.Delete<Student>(student.Id);
-            if (DB_Controller.Add(student_new_info) == true)
+            Change(student_new_info);
+        }
+
+        private void Change(Student entity)
+        {
+            controller.DeleteFromDB(student.Id);
+
+            if (controller.AddFromDB(entity) == true)
             {
                 ToolsForm.ShowMessage("Данные успешно изменены!", "Изменение данных", MessageBoxIcon.Asterisk);
-                student = student_new_info;
+                student = entity;
             }
             else
             {
                 ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
-                DB_Controller.Add(student);
+                controller.AddFromDB(student);
             }
         }
 

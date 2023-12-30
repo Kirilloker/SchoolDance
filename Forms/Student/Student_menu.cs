@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using static SchoolDance.Forms.Authorization;
 
 namespace SchoolDance.Forms
@@ -7,12 +8,14 @@ namespace SchoolDance.Forms
     {
         int id;
         private CloseMainWindow CloseMainWindowDelegate;
+        MainController<Student> controller = new();
+
         public Student_menu(int id, CloseMainWindow CloseMainWindowDelegate_)
         {
             this.id = id;
             this.CloseMainWindowDelegate = CloseMainWindowDelegate_;
             InitializeComponent();
-            text_FIO.Text = DB_Controller.Get<Student>(id).fullName;
+            text_FIO.Text = controller.GetEntityByID(id).fullName;
         }
 
 

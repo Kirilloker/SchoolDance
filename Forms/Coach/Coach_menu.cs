@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using static SchoolDance.Forms.Authorization;
 
 namespace SchoolDance.Forms
@@ -8,6 +9,8 @@ namespace SchoolDance.Forms
         int coach_id;
         Coach coach;
         private CloseMainWindow CloseMainWindowDelegate;
+        MainController<Coach> controller = new();
+
         public Coach_menu(int coach_id, CloseMainWindow closeMainWindow)
         {
             this.CloseMainWindowDelegate = closeMainWindow;
@@ -15,7 +18,7 @@ namespace SchoolDance.Forms
 
             InitializeComponent();
 
-            coach = DB_Controller.Get<Coach>(coach_id);
+            coach = controller.GetEntityByID(coach_id);
 
             if (coach != null && coach.fullName != null)
             {

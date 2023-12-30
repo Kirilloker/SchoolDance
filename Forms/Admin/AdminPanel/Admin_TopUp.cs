@@ -7,6 +7,7 @@ namespace SchoolDance.Forms
     public partial class Admin_TopUp : Form
     {
         MainController<TopUp> controller = new();
+        MainController<Student> controllerStudent = new();
 
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
@@ -39,7 +40,7 @@ namespace SchoolDance.Forms
         {
             list_student.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<Student> students = DB_Controller.GetAll<Student>();
+            List<Student> students = controllerStudent.GetDateFromDB();
             string[] formattedNames = students.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
             list_student.Items.AddRange(formattedNames);
         }

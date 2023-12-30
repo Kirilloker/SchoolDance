@@ -1,10 +1,4 @@
 ﻿using SchoolDance.Class.DB;
-using SchoolDance.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using static Dapper.SqlMapper;
 
 namespace SchoolDance.Controller
 {
@@ -90,24 +84,29 @@ namespace SchoolDance.Controller
                 return false;
         }
 
-        private bool AddFromDB(DataType entity) 
+        public bool AddFromDB(DataType entity) 
         {
             return DB_Controller.Add(entity);
         }
 
-        private bool DeleteFromDB(int id)
+        public bool DeleteFromDB(int id)
         {
             return DB_Controller.Delete<DataType>(id);
         }
 
-        private bool ChangeFromDB(DataType entity) 
+        public bool ChangeFromDB(DataType entity) 
         {
             return DB_Controller.Update(entity);
         }
 
-        private List<DataType> GetDateFromDB()
+        public List<DataType> GetDateFromDB()
         {
             return DB_Controller.GetAll<DataType>();
+        }
+
+        public DataType GetEntityByID(int id) 
+        {
+            return DB_Controller.Get<DataType>(id);
         }
     }
 }

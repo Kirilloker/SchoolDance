@@ -1,10 +1,15 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 
 namespace SchoolDance.Forms
 {
     public partial class Coach_my_lesson_deep : Form
     {
         Lesson lesson;
+        MainController<Student> controllerStudent = new();
+        MainController<Payment> controllerPayment = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
+        MainController<DanceHall> controllerDanceHall = new();
         public Coach_my_lesson_deep(Lesson lesson)
         {
             InitializeComponent();
@@ -24,19 +29,19 @@ namespace SchoolDance.Forms
 
         string? GetDanceStyleName(int? danceStyleId)
         {
-            DanceStyle? danceStyle = DB_Controller.GetAll<DanceStyle>().FirstOrDefault(style => style.Id == danceStyleId);
+            DanceStyle? danceStyle = controllerDanceStyle.GetDateFromDB().FirstOrDefault(style => style.Id == danceStyleId);
             return danceStyle != null ? danceStyle.name : "Неизвестный стиль";
         }
 
         string? GetDanceHallName(int? danceHallId)
         {
-            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            DanceHall? danceHall = controllerDanceHall.GetDateFromDB().FirstOrDefault(style => style.Id == danceHallId);
             return danceHall != null ? danceHall.roomNumber : "Неизвестный стиль";
         }
 
         string? GetNumberFreePlace(Lesson lesson)
         {
-            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == lesson.danceHallId);
+            DanceHall? danceHall = controllerDanceHall.GetDateFromDB().FirstOrDefault(style => style.Id == lesson.danceHallId);
             if (danceHall == null) return "?/?";
             if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
 
@@ -47,7 +52,7 @@ namespace SchoolDance.Forms
 
         private string? GetNameStudent(int studentId)
         {
-            Student student = DB_Controller.Get<Student>(studentId);
+            Student student = controllerStudent.GetEntityByID(studentId);
             if (student == null || student.fullName == null) return "Неизвестный студент";
             return student.fullName;
         }
@@ -55,7 +60,7 @@ namespace SchoolDance.Forms
 
         private void create_payments()
         {
-            List<Payment> payments = DB_Controller.GetAll<Payment>().Where(p => p.lessonId == lesson.Id).ToList();
+            List<Payment> payments = controllerPayment.GetDateFromDB().Where(p => p.lessonId == lesson.Id).ToList();
 
             int panelX = 20;
             int panelY = 10;

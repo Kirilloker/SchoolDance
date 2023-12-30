@@ -7,6 +7,9 @@ namespace SchoolDance.Forms
     public partial class Admin_Lesson : Form
     {
         MainController<Lesson> controller = new();
+        MainController<DanceHall> controllerDanceHall = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
+        MainController<Coach> controllerCoach = new();
         private void b_add_new_rows_Click_1(object sender, EventArgs e)
         {
             try
@@ -84,15 +87,15 @@ namespace SchoolDance.Forms
             list_style.DropDownStyle = ComboBoxStyle.DropDownList;
             list_danceHall.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<DanceHall> danceHalls = DB_Controller.GetAll<DanceHall>();
+            List<DanceHall> danceHalls = controllerDanceHall.GetDateFromDB();
             string[] formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
             list_danceHall.Items.AddRange(formattedNames);
 
-            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = controllerDanceStyle.GetDateFromDB();
             formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             list_style.Items.AddRange(formattedNames);
 
-            List<Coach> coaches = DB_Controller.GetAll<Coach>();
+            List<Coach> coaches = controllerCoach.GetDateFromDB();
             formattedNames = coaches.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
             list_coach.Items.AddRange(formattedNames);
         }

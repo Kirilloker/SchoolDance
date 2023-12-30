@@ -9,6 +9,7 @@ namespace SchoolDance.Forms
     public partial class Admin_Coach : Form
     {
         MainController<Coach> controller = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
 
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
@@ -71,7 +72,7 @@ namespace SchoolDance.Forms
 
         private void PreparingAddView()
         {
-            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = controllerDanceStyle.GetDateFromDB();
             string[] formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             box_danceStyle.Items.AddRange(formattedNames);
         }

@@ -1,13 +1,16 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 
 namespace SchoolDance.Forms.AdminPanel
 {
     public partial class Admin_SupportMessage : Form
     {
+        MainController<SupportMessage> controllerSupportMessage = new();
+
         public Admin_SupportMessage()
         {
             InitializeComponent();
-            CreateSupportButtons(DB_Controller.GetAll<SupportMessage>());
+            CreateSupportButtons(controllerSupportMessage.GetDateFromDB());
         }
 
         public delegate void ShowOnDelegate(int index, bool isColorGreen);

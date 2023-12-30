@@ -1,5 +1,6 @@
 ﻿using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
@@ -7,11 +8,13 @@ namespace SchoolDance.Forms
     public partial class Coach_personal_info : Form
     {
         Coach coach;
+        MainController<Coach> controller = new();
+        MainController<DanceStyle> controllerDanceStyle = new();
         public Coach_personal_info(int id_person)
         {
             InitializeComponent();
 
-            coach = DB_Controller.Get<Coach>(id_person);
+            coach = controller.GetEntityByID(id_person);
             if (coach == null)
                 coach = new() { Id = -1 };
 
@@ -39,7 +42,7 @@ namespace SchoolDance.Forms
             input_work_experience.Text = coach.workExperienceMonth.ToString();
             input_position.Text = coach.position;
 
-            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = controllerDanceStyle.GetDateFromDB();
             string[] formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             box_danceStyle.Items.AddRange(formattedNames);
 
@@ -110,22 +113,28 @@ namespace SchoolDance.Forms
             if (input_password.Text != "")
                 coach_new_info.password = SignInUpLogic.EncodeStringToBase64(input_password.Text);
 
-            DB_Controller.Delete<Coach>(coach.Id);
-            if (DB_Controller.Add(coach_new_info) == true)
-            {
-                ToolsForm.ShowMessage("Данные успешно изменены!", "Изменение данных", MessageBoxIcon.Asterisk);
-                coach = coach_new_info;
-            }
-            else
-            {
-                ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
-                DB_Controller.Add(coach);
-            }
+            Change(coach_new_info);
         }
 
         private void show_password_CheckedChanged(object sender, EventArgs e)
         {
             Show_hide_password();
+        }
+
+        private void Change(Coach entity)
+        {
+            controller.DeleteFromDB(coach.Id);
+
+            if (controller.AddFromDB(entity) == true)
+            {
+                ToolsForm.ShowMessage("Данные успешно изменены!", "Изменение данных", MessageBoxIcon.Asterisk);
+                coach = entity;
+            }
+            else
+            {
+                ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
+                controller.AddFromDB(coach);
+            }
         }
     }
 }

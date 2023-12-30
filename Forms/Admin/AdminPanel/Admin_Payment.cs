@@ -7,6 +7,8 @@ namespace SchoolDance.Forms
     public partial class Admin_Payment : Form
     {
         MainController<Payment> controller = new();
+        MainController<Student> controllerStudent = new();
+        MainController<Lesson> controllerLesson = new();
 
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
@@ -30,11 +32,11 @@ namespace SchoolDance.Forms
             list_student.DropDownStyle = ComboBoxStyle.DropDownList;
             list_lesson.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<Student> students = DB_Controller.GetAll<Student>();
+            List<Student> students = controllerStudent.GetDateFromDB();
             string[] formattedNames = students.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
             list_student.Items.AddRange(formattedNames);
 
-            List<Lesson> lessons = DB_Controller.GetAll<Lesson>();
+            List<Lesson> lessons = controllerLesson.GetDateFromDB();
             string[] formattedlesson = lessons.Select((ds) => $"{ds.Id}. {ds.className}").ToArray();
             list_lesson.Items.AddRange(formattedlesson);
         }

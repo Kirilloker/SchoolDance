@@ -1,4 +1,5 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using static SchoolDance.Forms.AdminPanel.Admin_SupportMessage;
 
 namespace SchoolDance.Forms.AdminPanel
@@ -8,6 +9,7 @@ namespace SchoolDance.Forms.AdminPanel
         int idMessage;
         SupportMessage? supportMessage;
         private ShowOnDelegate showOnDelegate;
+        MainController<SupportMessage> controller = new();
 
 
         public AdminPanelSupportMessageDeep(int _idMessage, ShowOnDelegate showOnDelegate)
@@ -17,7 +19,7 @@ namespace SchoolDance.Forms.AdminPanel
             idMessage = _idMessage;
 
 
-            supportMessage = DB_Controller.Get<SupportMessage>(idMessage);
+            supportMessage = controller.GetEntityByID(idMessage);
 
             text_topic.Text = "Тема: " + supportMessage.typeMessage;
             text_status.Text = "Статус: " + (supportMessage.isSolved == true ? "Решено" : "Не решено");
@@ -32,7 +34,7 @@ namespace SchoolDance.Forms.AdminPanel
         private void b_solved_Click(object sender, EventArgs e)
         {
             supportMessage.isSolved = true;
-            DB_Controller.Update(supportMessage);
+            controller.ChangeFromDB(supportMessage);
             showOnDelegate(idMessage - 1, true);
             this.Close();
         }
@@ -40,7 +42,7 @@ namespace SchoolDance.Forms.AdminPanel
         private void b_no_solved_Click(object sender, EventArgs e)
         {
             supportMessage.isSolved = false;
-            DB_Controller.Update(supportMessage);
+            controller.ChangeFromDB(supportMessage);
             showOnDelegate(idMessage - 1, false);
             this.Close();
         }
