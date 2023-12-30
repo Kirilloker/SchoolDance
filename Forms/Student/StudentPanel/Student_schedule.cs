@@ -6,7 +6,7 @@ namespace SchoolDance.Forms
     {
         public Student_schedule(int student_id)
         {
-            List<Lesson> allLessons = DB_API.GetAll<Lesson>();
+            List<Lesson> allLessons = DB_Controller.GetAll<Lesson>();
 
             List<Lesson> lessons = allLessons
                 .Where(lesson => lesson.studentId != null &&
@@ -46,14 +46,14 @@ namespace SchoolDance.Forms
         }
         static string GetNameRoom(int danceHallId)
         {
-            DanceHall danceHall = DB_API.Get<DanceHall>(danceHallId);
+            DanceHall danceHall = DB_Controller.Get<DanceHall>(danceHallId);
             if (danceHall == null) return "Комната не известна";
             return danceHall.roomNumber;
         }
 
         static string GetNameCoach(int coachId)
         {
-            Coach coach = DB_API.Get<Coach>(coachId);
+            Coach coach = DB_Controller.Get<Coach>(coachId);
             if (coach == null) return "Тренер не известен";
             return coach.fullName;
         }

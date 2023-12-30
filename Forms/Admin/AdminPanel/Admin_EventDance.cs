@@ -30,7 +30,7 @@ namespace SchoolDance.Forms
                 };
 
 
-                if (DB_API.AddEventDance(obj) == true)
+                if (DB_Controller.AddEventDance(obj) == true)
                 {
                     add_data_row<EventDance>(obj);
                     ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
@@ -49,9 +49,9 @@ namespace SchoolDance.Forms
         }
 
 
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<EventDance>();
-        private void changeCell(int rowIndex) => DB_API.Update<EventDance>(((List<EventDance>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<EventDance>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<EventDance>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<EventDance>(((List<EventDance>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<EventDance>(id);
         private void deleteRow() => del_data_row<EventDance>();
 
 

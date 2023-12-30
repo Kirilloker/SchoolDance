@@ -33,7 +33,7 @@ namespace SchoolDance.Forms
             };
 
 
-            if (DB_API.AddEventDance(eventDance) == true)
+            if (DB_Controller.AddEventDance(eventDance) == true)
             {
                 ToolsForm.ShowMessage("Мероприятие создано", "Создание мероприятия", MessageBoxIcon.Asterisk);
             }

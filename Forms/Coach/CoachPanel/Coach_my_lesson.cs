@@ -10,7 +10,7 @@ namespace SchoolDance.Forms
         {
             coach_id = coach_id_;
             InitializeComponent();
-            CreateLessonPanels(DB_API.GetAll<Lesson>().Where(p => p.coachId == coach_id).ToList());
+            CreateLessonPanels(DB_Controller.GetAll<Lesson>().Where(p => p.coachId == coach_id).ToList());
         }
 
         void CreateLessonPanels(List<Lesson> lessons)
@@ -70,7 +70,7 @@ namespace SchoolDance.Forms
 
         string? GetNumberFreePlace(Lesson lesson, int? danceHallId)
         {
-            DanceHall? danceHall = DB_API.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
             if (danceHall == null) return "?/?";
             if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
 

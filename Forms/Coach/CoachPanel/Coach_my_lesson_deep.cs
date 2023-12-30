@@ -24,19 +24,19 @@ namespace SchoolDance.Forms
 
         string? GetDanceStyleName(int? danceStyleId)
         {
-            DanceStyle? danceStyle = DB_API.GetAll<DanceStyle>().FirstOrDefault(style => style.Id == danceStyleId);
+            DanceStyle? danceStyle = DB_Controller.GetAll<DanceStyle>().FirstOrDefault(style => style.Id == danceStyleId);
             return danceStyle != null ? danceStyle.name : "Неизвестный стиль";
         }
 
         string? GetDanceHallName(int? danceHallId)
         {
-            DanceHall? danceHall = DB_API.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
+            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == danceHallId);
             return danceHall != null ? danceHall.roomNumber : "Неизвестный стиль";
         }
 
         string? GetNumberFreePlace(Lesson lesson)
         {
-            DanceHall? danceHall = DB_API.GetAll<DanceHall>().FirstOrDefault(style => style.Id == lesson.danceHallId);
+            DanceHall? danceHall = DB_Controller.GetAll<DanceHall>().FirstOrDefault(style => style.Id == lesson.danceHallId);
             if (danceHall == null) return "?/?";
             if (lesson.studentId == null) return "0/" + danceHall.capacity.ToString();
 
@@ -47,7 +47,7 @@ namespace SchoolDance.Forms
 
         private string? GetNameStudent(int studentId)
         {
-            Student student = DB_API.Get<Student>(studentId);
+            Student student = DB_Controller.Get<Student>(studentId);
             if (student == null || student.fullName == null) return "Неизвестный студент";
             return student.fullName;
         }
@@ -55,7 +55,7 @@ namespace SchoolDance.Forms
 
         private void create_payments()
         {
-            List<Payment> payments = DB_API.GetAll<Payment>().Where(p => p.lessonId == lesson.Id).ToList();
+            List<Payment> payments = DB_Controller.GetAll<Payment>().Where(p => p.lessonId == lesson.Id).ToList();
 
             int panelX = 20;
             int panelY = 10;

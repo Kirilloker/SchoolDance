@@ -21,7 +21,7 @@ namespace SchoolDance.Forms
 
         private void UpdateBalance()
         {
-            Student student = DB_API.Get<Student>(student_id);
+            Student student = DB_Controller.Get<Student>(student_id);
             text_balance.Text = "Баланс: " + student.balance.ToString() + " рублей";
         }
 
@@ -38,7 +38,7 @@ namespace SchoolDance.Forms
 
         private void create_payments()
         {
-            List<Payment> payments = DB_API.GetAll<Payment>();
+            List<Payment> payments = DB_Controller.GetAll<Payment>();
             List<Payment> filteredPayments = payments.Where(p => p.studentId == student_id).ToList();
 
 
@@ -47,7 +47,7 @@ namespace SchoolDance.Forms
 
             foreach (Payment payment in filteredPayments)
             {
-                Lesson lesson = DB_API.Get<Lesson>(payment.lessonId);
+                Lesson lesson = DB_Controller.Get<Lesson>(payment.lessonId);
 
                 TimeSpan difference = DateTime.Now.Subtract(payment.date_end_subscription);
                 int differenceInDays = Math.Abs((int)difference.TotalDays);
@@ -101,7 +101,7 @@ namespace SchoolDance.Forms
 
                 extendButton.Click += (sender, e) =>
                 {
-                    Student student = DB_API.Get<Student>(student_id);
+                    Student student = DB_Controller.Get<Student>(student_id);
                     if (student.balance < lesson.price)
                     {
                         ToolsForm.ShowMessage("Не достаточно средств");
@@ -116,8 +116,8 @@ namespace SchoolDance.Forms
 
                         payment.date_end_subscription = payment.date_end_subscription.AddMonths(1);
 
-                        DB_API.Update(student);
-                        DB_API.Update(payment);
+                        DB_Controller.Update(student);
+                        DB_Controller.Update(payment);
                         ToolsForm.ShowMessage("Вы продлили занятие", "Продление занятия", MessageBoxIcon.Asterisk);
                     }
                 };

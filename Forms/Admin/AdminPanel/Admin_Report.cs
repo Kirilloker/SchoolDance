@@ -15,7 +15,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
 
         private void generateReportLesson()
         {
-            List<Lesson> lessons = DB_API.GetAll<Lesson>();
+            List<Lesson> lessons = DB_Controller.GetAll<Lesson>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по занятиям:");
 
@@ -30,9 +30,9 @@ namespace SchoolDance.Forms.Admin.AdminPanel
 
                 reportBuilder.AppendLine($"Название класса: {lesson.className}");
                 reportBuilder.AppendLine($"Дни недели: {lesson.weekdays}");
-                reportBuilder.AppendLine($"Зал: {DB_API.Get<DanceHall>(lesson.danceHallId).roomNumber}");
-                reportBuilder.AppendLine($"Тренер: {DB_API.Get<Coach>(lesson.coachId).fullName}");
-                reportBuilder.AppendLine($"Стиль танца: {DB_API.Get<DanceStyle>(lesson.danceStylesId).name}");
+                reportBuilder.AppendLine($"Зал: {DB_Controller.Get<DanceHall>(lesson.danceHallId).roomNumber}");
+                reportBuilder.AppendLine($"Тренер: {DB_Controller.Get<Coach>(lesson.coachId).fullName}");
+                reportBuilder.AppendLine($"Стиль танца: {DB_Controller.Get<DanceStyle>(lesson.danceStylesId).name}");
                 reportBuilder.AppendLine($"Цена: {lesson.price}");
                 reportBuilder.AppendLine($"Описание: {lesson.description}");
                 reportBuilder.AppendLine($"Время начала: {lesson.time_start}");
@@ -46,8 +46,8 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                     int student_id;
                     if (int.TryParse(item, out student_id))
                     {
-                        if (DB_API.Get<Student>(student_id).fullName != null)
-                            name_student = DB_API.Get<Student>(student_id).fullName;
+                        if (DB_Controller.Get<Student>(student_id).fullName != null)
+                            name_student = DB_Controller.Get<Student>(student_id).fullName;
                         else
                             name_student = "Не известно";
                     }
@@ -73,7 +73,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportStudent()
         {
-            List<Student> students = DB_API.GetAll<Student>();
+            List<Student> students = DB_Controller.GetAll<Student>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по студентам:");
 
@@ -107,7 +107,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportDanceHall()
         {
-            List<DanceHall> danceHalls = DB_API.GetAll<DanceHall>();
+            List<DanceHall> danceHalls = DB_Controller.GetAll<DanceHall>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по залам для танцев:");
 
@@ -134,7 +134,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportDanceStyle()
         {
-            List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по стилям танцев:");
 
@@ -161,7 +161,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportEventDance()
         {
-            List<EventDance> events = DB_API.GetAll<EventDance>();
+            List<EventDance> events = DB_Controller.GetAll<EventDance>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по мероприятиям:");
 
@@ -189,7 +189,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportPayment()
         {
-            List<Payment> payments = DB_API.GetAll<Payment>();
+            List<Payment> payments = DB_Controller.GetAll<Payment>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по платежам:");
 
@@ -197,7 +197,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
             {
                 string studentName = "Не известно";
 
-                Student student = DB_API.Get<Student>(payment.studentId.Value);
+                Student student = DB_Controller.Get<Student>(payment.studentId.Value);
                 if (student.fullName != null)
                     studentName = student.fullName;
 
@@ -222,7 +222,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportTopUp()
         {
-            List<TopUp> topUps = DB_API.GetAll<TopUp>();
+            List<TopUp> topUps = DB_Controller.GetAll<TopUp>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по пополнениям баланса студентов:");
 
@@ -230,7 +230,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
             {
                 string studentName = "Не известно";
 
-                Student student = DB_API.Get<Student>(topUp.studentId);
+                Student student = DB_Controller.Get<Student>(topUp.studentId);
                 if (student != null && student.fullName != null)
                     studentName = student.fullName;
 
@@ -254,7 +254,7 @@ namespace SchoolDance.Forms.Admin.AdminPanel
         }
         private void generateReportCoach()
         {
-            List<Coach> coaches = DB_API.GetAll<Coach>();
+            List<Coach> coaches = DB_Controller.GetAll<Coach>();
             StringBuilder reportBuilder = new StringBuilder();
             reportBuilder.AppendLine("Отчет по тренерам:");
 
@@ -280,8 +280,8 @@ namespace SchoolDance.Forms.Admin.AdminPanel
                     int dance_id;
                     if (int.TryParse(item, out dance_id))
                     {
-                        if (DB_API.Get<DanceStyle>(dance_id).name != null)
-                            name_dance_style = DB_API.Get<DanceStyle>(dance_id).name;
+                        if (DB_Controller.Get<DanceStyle>(dance_id).name != null)
+                            name_dance_style = DB_Controller.Get<DanceStyle>(dance_id).name;
                         else
                             name_dance_style = "Не известно";
                     }

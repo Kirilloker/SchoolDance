@@ -8,7 +8,7 @@ namespace SchoolDance.Forms
         {
             InitializeComponent();
 
-            List<EventDance> all_event = DB_API.GetAll<EventDance>();
+            List<EventDance> all_event = DB_Controller.GetAll<EventDance>();
             CreatePanel(all_event);
         }
 

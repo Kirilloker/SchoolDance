@@ -1,6 +1,6 @@
 ﻿namespace SchoolDance.Class.DB
 {
-    public static class DB_API
+    public static class DB_Controller
     {
         public static bool AddEntity<T>(T entity, Func<T, bool> predicate) where T : class
         {
@@ -27,7 +27,7 @@
                 }
             }
         }
-        public static void Update<T>(T entity) where T : class, IId
+        public static bool Update<T>(T entity) where T : class, IId
         {
             using (DB_Context db = new DB_Context())
             {
@@ -39,10 +39,12 @@
                         db.Entry(existingEntity).CurrentValues.SetValues(entity);
                         db.SaveChanges();
                     }
+
+                    return true;
                 }
                 catch
                 {
-                    return;
+                    return false;
                 }
             }
         }
@@ -133,5 +135,29 @@
         public static bool AddEventDance(EventDance entity) => AddEntity(entity, b => b.Id == -1);
         public static bool AddSupportMessage(SupportMessage entity) => AddEntity(entity, b => b.personName == entity.personName
                                             && b.message == entity.message);
+
+
+        public static bool Add<T>(T entity) where T : class
+        {
+            if (addFunctions.TryGetValue(typeof(T), out var addFunction))
+                return (bool)addFunction.DynamicInvoke(entity);
+            else
+                throw new ArgumentException("Такой объект не поддерживается");
+        }
+
+        private static readonly Dictionary<Type, Delegate> addFunctions = new Dictionary<Type, Delegate>
+        {
+            { typeof(DanceStyle), new Func<DanceStyle, bool>(e => AddEntity(e, b => b.name == e.name)) },
+            { typeof(DanceHall), new Func<DanceHall, bool>(e => AddEntity(e, b => b.roomNumber == e.roomNumber)) },
+            { typeof(Student), new Func<Student, bool>(e => AddEntity(e, b => b.login == e.login)) },
+            { typeof(Coach), new Func<Coach, bool>(e => AddEntity(e, b => b.login == e.login)) },
+            { typeof(Administrator), new Func<Administrator, bool>(e => AddEntity(e, b => b.login == e.login)) },
+            { typeof(Lesson), new Func<Lesson, bool>(e => AddEntity(e, b => b.Id == -1)) },
+            { typeof(TopUp), new Func<TopUp, bool>(e => AddEntity(e, b => b.Id == -1)) },
+            { typeof(Payment), new Func<Payment, bool>(e => AddEntity(e, b => b.Id == -1)) },
+            { typeof(EventDance), new Func<EventDance, bool>(e => AddEntity(e, b => b.Id == -1)) },
+            { typeof(SupportMessage), new Func<SupportMessage, bool>(e => AddEntity(e, b => b.personName == e.personName && b.message == e.message)) }
+        };
+
     }
 }

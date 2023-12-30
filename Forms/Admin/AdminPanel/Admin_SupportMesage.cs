@@ -7,7 +7,7 @@ namespace SchoolDance.Forms.AdminPanel
         public Admin_SupportMessage()
         {
             InitializeComponent();
-            CreateSupportButtons(DB_API.GetAll<SupportMessage>());
+            CreateSupportButtons(DB_Controller.GetAll<SupportMessage>());
         }
 
         public delegate void ShowOnDelegate(int index, bool isColorGreen);

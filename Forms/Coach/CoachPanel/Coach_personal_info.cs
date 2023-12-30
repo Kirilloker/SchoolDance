@@ -11,7 +11,7 @@ namespace SchoolDance.Forms
         {
             InitializeComponent();
 
-            coach = DB_API.Get<Coach>(id_person);
+            coach = DB_Controller.Get<Coach>(id_person);
             if (coach == null)
                 coach = new() { Id = -1 };
 
@@ -39,7 +39,7 @@ namespace SchoolDance.Forms
             input_work_experience.Text = coach.workExperienceMonth.ToString();
             input_position.Text = coach.position;
 
-            List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
             string[] formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             box_danceStyle.Items.AddRange(formattedNames);
 
@@ -110,8 +110,8 @@ namespace SchoolDance.Forms
             if (input_password.Text != "")
                 coach_new_info.password = SignInUpLogic.EncodeStringToBase64(input_password.Text);
 
-            DB_API.Delete<Coach>(coach.Id);
-            if (DB_API.AddCoach(coach_new_info) == true)
+            DB_Controller.Delete<Coach>(coach.Id);
+            if (DB_Controller.AddCoach(coach_new_info) == true)
             {
                 ToolsForm.ShowMessage("Данные успешно изменены!", "Изменение данных", MessageBoxIcon.Asterisk);
                 coach = coach_new_info;
@@ -119,7 +119,7 @@ namespace SchoolDance.Forms
             else
             {
                 ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
-                DB_API.AddCoach(coach);
+                DB_Controller.AddCoach(coach);
             }
         }
 

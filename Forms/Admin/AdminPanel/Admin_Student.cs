@@ -34,7 +34,7 @@ namespace SchoolDance.Forms
                 balance = balance
             };
 
-            if (DB_API.AddStudent(student) == true)
+            if (DB_Controller.AddStudent(student) == true)
             {
                 add_data_row<Student>(student);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
@@ -44,9 +44,9 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Student>();
-        private void changeCell(int rowIndex) => DB_API.Update<Student>(((List<Student>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Student>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<Student>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<Student>(((List<Student>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<Student>(id);
         private void deleteRow() => del_data_row<Student>();
 
 

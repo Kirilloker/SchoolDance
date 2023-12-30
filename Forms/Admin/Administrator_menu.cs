@@ -16,7 +16,7 @@ namespace SchoolDance.Forms
             this.id = id;
             InitializeComponent();
 
-            administrator = DB_API.Get<Administrator>(id);
+            administrator = DB_Controller.Get<Administrator>(id);
 
             if (administrator != null && administrator.fullName != null)
             {

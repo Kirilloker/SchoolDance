@@ -26,7 +26,7 @@ namespace SchoolDance.Forms
                 capacity = capacity
             };
 
-            if (DB_API.AddDanceHall(obj) == true)
+            if (DB_Controller.AddDanceHall(obj) == true)
             {
                 add_data_row<DanceHall>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
@@ -36,9 +36,9 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<DanceHall>();
-        private void changeCell(int rowIndex) => DB_API.Update<DanceHall>(((List<DanceHall>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<DanceHall>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<DanceHall>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<DanceHall>(((List<DanceHall>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<DanceHall>(id);
         private void deleteRow() => del_data_row<DanceHall>();
 
 

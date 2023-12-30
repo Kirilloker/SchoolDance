@@ -15,7 +15,7 @@ namespace SchoolDance.Class.Logic
         // Возвращает True, если такой пользователь существует в БД
         public static bool correctSignIn(string login, string password)
         {
-            Person? person = DB_API.GetPerson(login);
+            Person? person = DB_Controller.GetPerson(login);
 
             if (person != null && person.password == EncodeStringToBase64(password)) return true;
             else return false;
@@ -35,7 +35,7 @@ namespace SchoolDance.Class.Logic
                 date = birth,
                 typePerson = TypePerson.Student
             };
-            return DB_API.AddStudent(student);
+            return DB_Controller.AddStudent(student);
         }
     }
 }

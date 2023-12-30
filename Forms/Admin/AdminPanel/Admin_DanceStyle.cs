@@ -19,7 +19,7 @@ namespace SchoolDance.Forms
                 description = input_description.Text
             };
 
-            if (DB_API.AddDanceStyle(obj) == true)
+            if (DB_Controller.AddDanceStyle(obj) == true)
             {
                 add_data_row<DanceStyle>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
@@ -29,9 +29,9 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<DanceStyle>();
-        private void changeCell(int rowIndex) => DB_API.Update<DanceStyle>(((List<DanceStyle>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<DanceStyle>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<DanceStyle>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<DanceStyle>(((List<DanceStyle>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<DanceStyle>(id);
         private void deleteRow() => del_data_row<DanceStyle>();
 
 

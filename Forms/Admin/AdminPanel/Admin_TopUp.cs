@@ -23,7 +23,7 @@ namespace SchoolDance.Forms
                 price = price_
             };
 
-            if (DB_API.AddTopUp(obj) == true)
+            if (DB_Controller.AddTopUp(obj) == true)
             {
                 add_data_row<TopUp>(obj);
                 ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
@@ -33,9 +33,9 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<TopUp>();
-        private void changeCell(int rowIndex) => DB_API.Update<TopUp>(((List<TopUp>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<TopUp>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<TopUp>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<TopUp>(((List<TopUp>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<TopUp>(id);
         private void deleteRow() => del_data_row<TopUp>();
 
 
@@ -53,7 +53,7 @@ namespace SchoolDance.Forms
 
             list_student.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<Student> students = DB_API.GetAll<Student>();
+            List<Student> students = DB_Controller.GetAll<Student>();
             string[] formattedNames = students.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
             list_student.Items.AddRange(formattedNames);
         }

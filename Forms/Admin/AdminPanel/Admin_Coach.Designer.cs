@@ -34,6 +34,16 @@
             b_del = new Button();
             bg_date = new Panel();
             DataGrid = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            loginDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            workExperienceMonthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            positionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            typePersonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateTime_birth_date = new DateTimePicker();
             radio_female = new RadioButton();
             radio_male = new RadioButton();
@@ -59,17 +69,6 @@
             input_workExperience = new TextBox();
             input_first_name = new TextBox();
             text_name_data = new Label();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            loginDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            workExperienceMonthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            positionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            danceStylesNamesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            typePersonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).BeginInit();
             bg_date.SuspendLayout();
@@ -113,15 +112,96 @@
             DataGrid.AllowUserToAddRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, loginDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, dateDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, workExperienceMonthDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, positionDataGridViewTextBoxColumn, danceStylesNamesDataGridViewTextBoxColumn, typePersonDataGridViewTextBoxColumn });
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, loginDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, dateDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, workExperienceMonthDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, positionDataGridViewTextBoxColumn, typePersonDataGridViewTextBoxColumn });
             DataGrid.DataSource = coachBindingSource;
-            DataGrid.Location = new Point(19, 22);
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersWidth = 51;
             DataGrid.RowTemplate.Height = 29;
-            DataGrid.Size = new Size(851, 188);
+            DataGrid.Size = new Size(887, 357);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // loginDataGridViewTextBoxColumn
+            // 
+            loginDataGridViewTextBoxColumn.DataPropertyName = "login";
+            loginDataGridViewTextBoxColumn.HeaderText = "login";
+            loginDataGridViewTextBoxColumn.MinimumWidth = 6;
+            loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            loginDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            passwordDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "fullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "fullName";
+            fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            dateDataGridViewTextBoxColumn.HeaderText = "date";
+            dateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            dateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
+            genderDataGridViewTextBoxColumn.HeaderText = "gender";
+            genderDataGridViewTextBoxColumn.MinimumWidth = 6;
+            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            genderDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // workExperienceMonthDataGridViewTextBoxColumn
+            // 
+            workExperienceMonthDataGridViewTextBoxColumn.DataPropertyName = "workExperienceMonth";
+            workExperienceMonthDataGridViewTextBoxColumn.HeaderText = "workExperienceMonth";
+            workExperienceMonthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            workExperienceMonthDataGridViewTextBoxColumn.Name = "workExperienceMonthDataGridViewTextBoxColumn";
+            workExperienceMonthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "phoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "phoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            positionDataGridViewTextBoxColumn.DataPropertyName = "position";
+            positionDataGridViewTextBoxColumn.HeaderText = "position";
+            positionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            positionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // typePersonDataGridViewTextBoxColumn
+            // 
+            typePersonDataGridViewTextBoxColumn.DataPropertyName = "typePerson";
+            typePersonDataGridViewTextBoxColumn.HeaderText = "typePerson";
+            typePersonDataGridViewTextBoxColumn.MinimumWidth = 6;
+            typePersonDataGridViewTextBoxColumn.Name = "typePersonDataGridViewTextBoxColumn";
+            typePersonDataGridViewTextBoxColumn.Width = 125;
             // 
             // dateTime_birth_date
             // 
@@ -389,105 +469,18 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Тренер";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            loginDataGridViewTextBoxColumn.DataPropertyName = "login";
-            loginDataGridViewTextBoxColumn.HeaderText = "login";
-            loginDataGridViewTextBoxColumn.MinimumWidth = 6;
-            loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            loginDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
-            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            passwordDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "fullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "fullName";
-            fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            dateDataGridViewTextBoxColumn.HeaderText = "date";
-            dateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            dateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            genderDataGridViewTextBoxColumn.HeaderText = "gender";
-            genderDataGridViewTextBoxColumn.MinimumWidth = 6;
-            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            genderDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // workExperienceMonthDataGridViewTextBoxColumn
-            // 
-            workExperienceMonthDataGridViewTextBoxColumn.DataPropertyName = "workExperienceMonth";
-            workExperienceMonthDataGridViewTextBoxColumn.HeaderText = "workExperienceMonth";
-            workExperienceMonthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            workExperienceMonthDataGridViewTextBoxColumn.Name = "workExperienceMonthDataGridViewTextBoxColumn";
-            workExperienceMonthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "phoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "phoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            phoneNumberDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            positionDataGridViewTextBoxColumn.DataPropertyName = "position";
-            positionDataGridViewTextBoxColumn.HeaderText = "position";
-            positionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            positionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // danceStylesNamesDataGridViewTextBoxColumn
-            // 
-            danceStylesNamesDataGridViewTextBoxColumn.DataPropertyName = "danceStylesNames";
-            danceStylesNamesDataGridViewTextBoxColumn.HeaderText = "danceStylesNames";
-            danceStylesNamesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            danceStylesNamesDataGridViewTextBoxColumn.Name = "danceStylesNamesDataGridViewTextBoxColumn";
-            danceStylesNamesDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // typePersonDataGridViewTextBoxColumn
-            // 
-            typePersonDataGridViewTextBoxColumn.DataPropertyName = "typePerson";
-            typePersonDataGridViewTextBoxColumn.HeaderText = "typePerson";
-            typePersonDataGridViewTextBoxColumn.MinimumWidth = 6;
-            typePersonDataGridViewTextBoxColumn.Name = "typePersonDataGridViewTextBoxColumn";
-            typePersonDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // AdminPanelCoach
+            // Admin_Coach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelCoach";
+            Name = "Admin_Coach";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).EndInit();

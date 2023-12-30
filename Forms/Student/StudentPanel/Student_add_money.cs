@@ -27,13 +27,13 @@ namespace SchoolDance.Forms
                 return;
             }
 
-            Student student = DB_API.Get<Student>(student_id);
+            Student student = DB_Controller.Get<Student>(student_id);
             student.balance += balance;
 
             ToolsForm.ShowMessage("Пополнение баланса прошло успешно, теперь ваш баланс составляет: " + student.balance.ToString() + " рублей",
                 "Пополнение баланса", MessageBoxIcon.Asterisk);
 
-            DB_API.Update(student);
+            DB_Controller.Update(student);
 
             TopUp payment = new TopUp
             {
@@ -42,7 +42,7 @@ namespace SchoolDance.Forms
                 paymentTime = DateTime.Now
             };
 
-            DB_API.AddTopUp(payment);
+            DB_Controller.AddTopUp(payment);
         }
     }
 }

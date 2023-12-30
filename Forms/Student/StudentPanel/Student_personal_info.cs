@@ -13,7 +13,7 @@ namespace SchoolDance.Forms
             InitializeComponent();
             this.id_person = id_person;
 
-            student = DB_API.Get<Student>(id_person);
+            student = DB_Controller.Get<Student>(id_person);
 
             input_login.Text = student.login;
 
@@ -71,8 +71,8 @@ namespace SchoolDance.Forms
             if (input_password.Text != "")
                 student_new_info.password = SignInUpLogic.EncodeStringToBase64(input_password.Text);
 
-            DB_API.Delete<Student>(student.Id);
-            if (DB_API.AddStudent(student_new_info) == true)
+            DB_Controller.Delete<Student>(student.Id);
+            if (DB_Controller.AddStudent(student_new_info) == true)
             {
                 ToolsForm.ShowMessage("Данные успешно изменены!", "Изменение данных", MessageBoxIcon.Asterisk);
                 student = student_new_info;
@@ -80,7 +80,7 @@ namespace SchoolDance.Forms
             else
             {
                 ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
-                DB_API.AddStudent(student);
+                DB_Controller.AddStudent(student);
             }
         }
 

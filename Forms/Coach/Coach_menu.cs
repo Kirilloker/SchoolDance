@@ -15,7 +15,7 @@ namespace SchoolDance.Forms
 
             InitializeComponent();
 
-            coach = DB_API.Get<Coach>(coach_id);
+            coach = DB_Controller.Get<Coach>(coach_id);
 
             if (coach != null && coach.fullName != null)
             {

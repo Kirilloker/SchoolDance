@@ -12,7 +12,7 @@ namespace SchoolDance.Forms
             this.id = id;
             this.CloseMainWindowDelegate = CloseMainWindowDelegate_;
             InitializeComponent();
-            text_FIO.Text = DB_API.Get<Student>(id).fullName;
+            text_FIO.Text = DB_Controller.Get<Student>(id).fullName;
         }
 
 

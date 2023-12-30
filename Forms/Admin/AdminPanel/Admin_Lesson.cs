@@ -66,7 +66,7 @@ namespace SchoolDance.Forms
                 };
 
 
-                if (DB_API.AddLesson(obj) == true)
+                if (DB_Controller.AddLesson(obj) == true)
                 {
                     add_data_row<Lesson>(obj);
                     ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
@@ -87,9 +87,9 @@ namespace SchoolDance.Forms
 
         // -------
 
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Lesson>();
-        private void changeCell(int rowIndex) => DB_API.Update<Lesson>(((List<Lesson>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Lesson>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<Lesson>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<Lesson>(((List<Lesson>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<Lesson>(id);
         private void deleteRow() => del_data_row<Lesson>();
 
 
@@ -109,15 +109,15 @@ namespace SchoolDance.Forms
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            List<DanceHall> danceHalls = DB_API.GetAll<DanceHall>();
+            List<DanceHall> danceHalls = DB_Controller.GetAll<DanceHall>();
             string[] formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
             list_danceHall.Items.AddRange(formattedNames);
 
-            List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
             formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             list_style.Items.AddRange(formattedNames);
 
-            List<Coach> coaches = DB_API.GetAll<Coach>();
+            List<Coach> coaches = DB_Controller.GetAll<Coach>();
             formattedNames = coaches.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
             list_coach.Items.AddRange(formattedNames);
         }

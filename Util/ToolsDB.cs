@@ -27,7 +27,7 @@ namespace SchoolDance.Util
                     capacity = i * 5
                 };
 
-                DB_API.AddDanceHall(obj);
+                DB_Controller.AddDanceHall(obj);
             }
         }
 
@@ -47,7 +47,7 @@ namespace SchoolDance.Util
             danceStyles.Add(new DanceStyle { name = "Шахтинская", description = "Шахтинская - это народный танец, символизирующий труд и единство." });
 
             foreach (var item in danceStyles)
-                DB_API.AddDanceStyle(item);
+                DB_Controller.AddDanceStyle(item);
         }
 
         static void AddTopUp()
@@ -59,7 +59,7 @@ namespace SchoolDance.Util
                 price = 100
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -68,7 +68,7 @@ namespace SchoolDance.Util
                 price = 1200
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -77,7 +77,7 @@ namespace SchoolDance.Util
                 price = 140
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -86,7 +86,7 @@ namespace SchoolDance.Util
                 price = 10
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -95,7 +95,7 @@ namespace SchoolDance.Util
                 price = 500
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -104,7 +104,7 @@ namespace SchoolDance.Util
                 price = 11100
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -113,7 +113,7 @@ namespace SchoolDance.Util
                 price = 1200
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -122,7 +122,7 @@ namespace SchoolDance.Util
                 price = 100
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -131,7 +131,7 @@ namespace SchoolDance.Util
                 price = 1400
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
 
             obj = new TopUp
             {
@@ -140,7 +140,7 @@ namespace SchoolDance.Util
                 price = 100
             };
 
-            DB_API.AddTopUp(obj);
+            DB_Controller.AddTopUp(obj);
         }
 
         static void AddStudent()
@@ -250,7 +250,7 @@ namespace SchoolDance.Util
         };
 
             foreach (var item in students)
-                DB_API.AddStudent(item);
+                DB_Controller.AddStudent(item);
         }
 
         static void AddCoach()
@@ -269,7 +269,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 24
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -285,7 +285,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 36
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -301,7 +301,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 48
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -317,7 +317,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 60
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -333,7 +333,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 12
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -349,7 +349,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 18
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -365,7 +365,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 30
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -381,7 +381,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 42
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -397,7 +397,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 54
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
 
             obj = new Coach
             {
@@ -408,7 +408,7 @@ namespace SchoolDance.Util
                 date = DateTime.Now.AddDays(-14),
             };
 
-            DB_API.AddCoach(obj);
+            DB_Controller.AddCoach(obj);
         }
 
         static void AddLesson()
@@ -427,7 +427,7 @@ namespace SchoolDance.Util
                 studentId = "1, 2, 3"
             };
 
-            DB_API.AddLesson(obj);
+            DB_Controller.AddLesson(obj);
 
             obj = new Lesson
             {
@@ -442,7 +442,7 @@ namespace SchoolDance.Util
                 studentId = "2, 3, 1"
             };
 
-            DB_API.AddLesson(obj);
+            DB_Controller.AddLesson(obj);
 
             obj = new Lesson
             {
@@ -457,7 +457,7 @@ namespace SchoolDance.Util
                 studentId = ""
             };
 
-            DB_API.AddLesson(obj);
+            DB_Controller.AddLesson(obj);
         }
 
         static void AddPayment()
@@ -469,7 +469,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_API.AddPayment(obj);
+            DB_Controller.AddPayment(obj);
 
             obj = new Payment
             {
@@ -478,7 +478,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_API.AddPayment(obj);
+            DB_Controller.AddPayment(obj);
 
             obj = new Payment
             {
@@ -487,7 +487,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_API.AddPayment(obj);
+            DB_Controller.AddPayment(obj);
 
             obj = new Payment
             {
@@ -496,7 +496,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_API.AddPayment(obj);
+            DB_Controller.AddPayment(obj);
         }
 
         static void AddAdministrator()
@@ -514,7 +514,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 24
             };
 
-            DB_API.AddAdministrator(obj);
+            DB_Controller.AddAdministrator(obj);
         }
     }
 }

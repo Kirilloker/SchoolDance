@@ -10,9 +10,9 @@ namespace SchoolDance.Forms
         public Student_signUp_lesson(int studentId)
         {
             InitializeComponent();
-            danceStyles = DB_API.GetAll<DanceStyle>();
+            danceStyles = DB_Controller.GetAll<DanceStyle>();
             this.studentId = studentId;
-            CreateLessonPanels(DB_API.GetAll<Lesson>());
+            CreateLessonPanels(DB_Controller.GetAll<Lesson>());
         }
 
         void CreateLessonPanels(List<Lesson> lessons)

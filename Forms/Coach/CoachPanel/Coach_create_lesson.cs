@@ -72,7 +72,7 @@ namespace SchoolDance.Forms
                     return;
                 }
 
-                if (DB_API.AddLesson(obj) == true)
+                if (DB_Controller.AddLesson(obj) == true)
                     ToolsForm.ShowMessage("Новое занятие создалось успешно", "Добавление нового занятия", MessageBoxIcon.Asterisk);
                 else
                     ToolsForm.ShowMessage("Что-то пошло не так");
@@ -94,11 +94,11 @@ namespace SchoolDance.Forms
             list_style.DropDownStyle = ComboBoxStyle.DropDownList;
             list_danceHall.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<DanceHall> danceHalls = DB_API.GetAll<DanceHall>();
+            List<DanceHall> danceHalls = DB_Controller.GetAll<DanceHall>();
             string[] formattedNames = danceHalls.Select((ds) => $"{ds.Id}. {ds.roomNumber}").ToArray();
             list_danceHall.Items.AddRange(formattedNames);
 
-            List<DanceStyle> danceStyles = DB_API.GetAll<DanceStyle>();
+            List<DanceStyle> danceStyles = DB_Controller.GetAll<DanceStyle>();
             formattedNames = danceStyles.Select((ds) => $"{ds.Id}. {ds.name}").ToArray();
             list_style.Items.AddRange(formattedNames);
         }
@@ -119,7 +119,7 @@ namespace SchoolDance.Forms
 
         private bool CheckCorrectLesson(Lesson lesson)
         {
-            List<Lesson> lessons = DB_API.GetAll<Lesson>();
+            List<Lesson> lessons = DB_Controller.GetAll<Lesson>();
 
             foreach (Lesson existingLesson in lessons)
             {

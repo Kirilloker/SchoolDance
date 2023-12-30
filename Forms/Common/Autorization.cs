@@ -29,7 +29,7 @@ namespace SchoolDance.Forms
 
             if (SignInUpLogic.correctSignIn(input_login.Text, input_password.Text))
             {
-                Person person = DB_API.GetPerson(input_login.Text);
+                Person person = DB_Controller.GetPerson(input_login.Text);
                 if (person == null)
                 {
                     ToolsForm.ShowMessage("Не известный тип пользователя. Обратитесь в поддержку.", "Ошибка");

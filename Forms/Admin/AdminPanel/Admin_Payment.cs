@@ -20,7 +20,7 @@ namespace SchoolDance.Forms
                 date_end_subscription = date_end_payment.Value
             };
 
-            if (DB_API.AddPayment(obj) == true)
+            if (DB_Controller.AddPayment(obj) == true)
             {
                 add_data_row<Payment>(obj);
                 ToolsForm.ShowMessage("Оплата добавлена", "Добавление новой оплаты", MessageBoxIcon.Asterisk);
@@ -30,9 +30,9 @@ namespace SchoolDance.Forms
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_API.GetAll<Payment>();
-        private void changeCell(int rowIndex) => DB_API.Update<Payment>(((List<Payment>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_API.Delete<Payment>(id);
+        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<Payment>();
+        private void changeCell(int rowIndex) => DB_Controller.Update<Payment>(((List<Payment>)DataGrid.DataSource)[rowIndex]);
+        private bool deleteRow(int id) => DB_Controller.Delete<Payment>(id);
         private void deleteRow() => del_data_row<Payment>();
 
 
@@ -51,11 +51,11 @@ namespace SchoolDance.Forms
             list_student.DropDownStyle = ComboBoxStyle.DropDownList;
             list_lesson.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            List<Student> students = DB_API.GetAll<Student>();
+            List<Student> students = DB_Controller.GetAll<Student>();
             string[] formattedNames = students.Select((ds) => $"{ds.Id}. {ds.fullName}").ToArray();
             list_student.Items.AddRange(formattedNames);
 
-            List<Lesson> lessons = DB_API.GetAll<Lesson>();
+            List<Lesson> lessons = DB_Controller.GetAll<Lesson>();
             string[] formattedlesson = lessons.Select((ds) => $"{ds.Id}. {ds.className}").ToArray();
             list_lesson.Items.AddRange(formattedlesson);
         }
