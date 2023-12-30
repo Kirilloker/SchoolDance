@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             studentBindingSource = new BindingSource(components);
             DataGrid = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            danceStyleBindingSource = new BindingSource(components);
             danceHallBindingSource = new BindingSource(components);
             b_del = new Button();
             bg_date = new Panel();
@@ -44,17 +48,16 @@
             input_name = new TextBox();
             input_description = new TextBox();
             text_name_data = new Label();
-            danceStyleBindingSource = new BindingSource(components);
-            Column1 = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            description = new DataGridViewTextBoxColumn();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).BeginInit();
             bg_date.SuspendLayout();
             bg_delete.SuspendLayout();
             bg_Create.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).BeginInit();
             SuspendLayout();
             // 
             // studentBindingSource
@@ -68,16 +71,45 @@
             DataGrid.AllowUserToResizeRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, name, description });
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, name, description, idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn });
             DataGrid.DataSource = danceStyleBindingSource;
-            DataGrid.Location = new Point(16, 29);
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
             DataGrid.Margin = new Padding(3, 4, 3, 4);
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersWidth = 51;
             DataGrid.RowTemplate.Height = 25;
-            DataGrid.Size = new Size(850, 64);
+            DataGrid.Size = new Size(887, 357);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "Id";
+            Column1.HeaderText = "id";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
+            // 
+            // name
+            // 
+            name.DataPropertyName = "name";
+            name.HeaderText = "name";
+            name.MinimumWidth = 6;
+            name.Name = "name";
+            name.Width = 125;
+            // 
+            // description
+            // 
+            description.DataPropertyName = "description";
+            description.HeaderText = "description";
+            description.MinimumWidth = 6;
+            description.Name = "description";
+            description.Width = 125;
+            // 
+            // danceStyleBindingSource
+            // 
+            danceStyleBindingSource.DataSource = typeof(DanceStyle);
             // 
             // danceHallBindingSource
             // 
@@ -205,55 +237,52 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Танцевальный стиль";
             // 
-            // danceStyleBindingSource
+            // idDataGridViewTextBoxColumn
             // 
-            danceStyleBindingSource.DataSource = typeof(DanceStyle);
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 125;
             // 
-            // Column1
+            // nameDataGridViewTextBoxColumn
             // 
-            Column1.DataPropertyName = "Id";
-            Column1.HeaderText = "id";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
+            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            nameDataGridViewTextBoxColumn.HeaderText = "name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 125;
             // 
-            // name
+            // descriptionDataGridViewTextBoxColumn
             // 
-            name.DataPropertyName = "name";
-            name.HeaderText = "name";
-            name.MinimumWidth = 6;
-            name.Name = "name";
-            name.Width = 125;
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.Width = 125;
             // 
-            // description
-            // 
-            description.DataPropertyName = "description";
-            description.HeaderText = "description";
-            description.MinimumWidth = 6;
-            description.Name = "description";
-            description.Width = 125;
-            // 
-            // AdminPanelDanceStyle
+            // Admin_DanceStyle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelDanceStyle";
+            Name = "Admin_DanceStyle";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).EndInit();
             bg_date.ResumeLayout(false);
             bg_delete.ResumeLayout(false);
             bg_delete.PerformLayout();
             bg_Create.ResumeLayout(false);
             bg_Create.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -287,5 +316,8 @@
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn description;
         private BindingSource danceStyleBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
     }
 }

@@ -72,7 +72,7 @@ namespace SchoolDance.Forms
                     return;
                 }
 
-                if (DB_Controller.AddLesson(obj) == true)
+                if (DB_Controller.Add(obj) == true)
                     ToolsForm.ShowMessage("Новое занятие создалось успешно", "Добавление нового занятия", MessageBoxIcon.Asterisk);
                 else
                     ToolsForm.ShowMessage("Что-то пошло не так");

@@ -33,8 +33,6 @@
             coachBindingSource = new BindingSource(components);
             b_del = new Button();
             bg_date = new Panel();
-            list_coach = new ComboBox();
-            label5 = new Label();
             DataGrid = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             className = new DataGridViewTextBoxColumn();
@@ -44,6 +42,8 @@
             coachId = new DataGridViewTextBoxColumn();
             DanceStyleId = new DataGridViewTextBoxColumn();
             lessonBindingSource = new BindingSource(components);
+            list_coach = new ComboBox();
+            label5 = new Label();
             input_id_delete = new TextBox();
             label_delete = new Label();
             bg_delete = new Panel();
@@ -103,25 +103,6 @@
             bg_date.Size = new Size(887, 240);
             bg_date.TabIndex = 2;
             // 
-            // list_coach
-            // 
-            list_coach.FormattingEnabled = true;
-            list_coach.Location = new Point(576, 182);
-            list_coach.Name = "list_coach";
-            list_coach.Size = new Size(278, 28);
-            list_coach.TabIndex = 34;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Beige;
-            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(481, 183);
-            label5.Name = "label5";
-            label5.Size = new Size(67, 23);
-            label5.TabIndex = 33;
-            label5.Text = "Тренер";
-            // 
             // DataGrid
             // 
             DataGrid.AllowUserToAddRows = false;
@@ -129,11 +110,12 @@
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, className, weekdays, danceHallId, groupId, coachId, DanceStyleId });
             DataGrid.DataSource = lessonBindingSource;
-            DataGrid.Location = new Point(20, 20);
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersWidth = 51;
             DataGrid.RowTemplate.Height = 29;
-            DataGrid.Size = new Size(851, 188);
+            DataGrid.Size = new Size(887, 240);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
             // 
@@ -196,6 +178,25 @@
             // lessonBindingSource
             // 
             lessonBindingSource.DataSource = typeof(Lesson);
+            // 
+            // list_coach
+            // 
+            list_coach.FormattingEnabled = true;
+            list_coach.Location = new Point(576, 182);
+            list_coach.Name = "list_coach";
+            list_coach.Size = new Size(278, 28);
+            list_coach.TabIndex = 34;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Beige;
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(481, 183);
+            label5.Name = "label5";
+            label5.Size = new Size(67, 23);
+            label5.TabIndex = 33;
+            label5.Text = "Тренер";
             // 
             // input_id_delete
             // 
@@ -405,17 +406,18 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Занятие";
             // 
-            // AdminPanelLesson
+            // Admin_Lesson
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelLesson";
+            Name = "Admin_Lesson";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).EndInit();

@@ -31,6 +31,11 @@
             components = new System.ComponentModel.Container();
             studentBindingSource = new BindingSource(components);
             DataGrid = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            studentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lessonIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateendsubscriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            paymentBindingSource2 = new BindingSource(components);
             paymentBindingSource = new BindingSource(components);
             danceStyleBindingSource = new BindingSource(components);
             danceHallBindingSource = new BindingSource(components);
@@ -50,13 +55,9 @@
             text_name_data = new Label();
             eventDanceBindingSource = new BindingSource(components);
             paymentBindingSource1 = new BindingSource(components);
-            paymentBindingSource2 = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            studentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lessonIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateendsubscriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)paymentBindingSource2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)paymentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).BeginInit();
@@ -65,7 +66,6 @@
             bg_Create.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)eventDanceBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)paymentBindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)paymentBindingSource2).BeginInit();
             SuspendLayout();
             // 
             // studentBindingSource
@@ -90,6 +90,42 @@
             DataGrid.Size = new Size(887, 357);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // studentIdDataGridViewTextBoxColumn
+            // 
+            studentIdDataGridViewTextBoxColumn.DataPropertyName = "studentId";
+            studentIdDataGridViewTextBoxColumn.HeaderText = "studentId";
+            studentIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
+            studentIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lessonIdDataGridViewTextBoxColumn
+            // 
+            lessonIdDataGridViewTextBoxColumn.DataPropertyName = "lessonId";
+            lessonIdDataGridViewTextBoxColumn.HeaderText = "lessonId";
+            lessonIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            lessonIdDataGridViewTextBoxColumn.Name = "lessonIdDataGridViewTextBoxColumn";
+            lessonIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateendsubscriptionDataGridViewTextBoxColumn
+            // 
+            dateendsubscriptionDataGridViewTextBoxColumn.DataPropertyName = "date_end_subscription";
+            dateendsubscriptionDataGridViewTextBoxColumn.HeaderText = "date_end_subscription";
+            dateendsubscriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            dateendsubscriptionDataGridViewTextBoxColumn.Name = "dateendsubscriptionDataGridViewTextBoxColumn";
+            dateendsubscriptionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // paymentBindingSource2
+            // 
+            paymentBindingSource2.DataSource = typeof(Payment);
             // 
             // paymentBindingSource
             // 
@@ -254,46 +290,11 @@
             // 
             paymentBindingSource1.DataSource = typeof(Payment);
             // 
-            // paymentBindingSource2
-            // 
-            paymentBindingSource2.DataSource = typeof(Payment);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // studentIdDataGridViewTextBoxColumn
-            // 
-            studentIdDataGridViewTextBoxColumn.DataPropertyName = "studentId";
-            studentIdDataGridViewTextBoxColumn.HeaderText = "studentId";
-            studentIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
-            studentIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lessonIdDataGridViewTextBoxColumn
-            // 
-            lessonIdDataGridViewTextBoxColumn.DataPropertyName = "lessonId";
-            lessonIdDataGridViewTextBoxColumn.HeaderText = "lessonId";
-            lessonIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            lessonIdDataGridViewTextBoxColumn.Name = "lessonIdDataGridViewTextBoxColumn";
-            lessonIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateendsubscriptionDataGridViewTextBoxColumn
-            // 
-            dateendsubscriptionDataGridViewTextBoxColumn.DataPropertyName = "date_end_subscription";
-            dateendsubscriptionDataGridViewTextBoxColumn.HeaderText = "date_end_subscription";
-            dateendsubscriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            dateendsubscriptionDataGridViewTextBoxColumn.Name = "dateendsubscriptionDataGridViewTextBoxColumn";
-            dateendsubscriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
             // Admin_Payment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
@@ -304,6 +305,7 @@
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)paymentBindingSource2).EndInit();
             ((System.ComponentModel.ISupportInitialize)paymentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)danceStyleBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).EndInit();
@@ -314,7 +316,6 @@
             bg_Create.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)eventDanceBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)paymentBindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)paymentBindingSource2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

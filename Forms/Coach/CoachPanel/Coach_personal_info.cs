@@ -111,7 +111,7 @@ namespace SchoolDance.Forms
                 coach_new_info.password = SignInUpLogic.EncodeStringToBase64(input_password.Text);
 
             DB_Controller.Delete<Coach>(coach.Id);
-            if (DB_Controller.AddCoach(coach_new_info) == true)
+            if (DB_Controller.Add(coach_new_info) == true)
             {
                 ToolsForm.ShowMessage("Данные успешно изменены!", "Изменение данных", MessageBoxIcon.Asterisk);
                 coach = coach_new_info;
@@ -119,7 +119,7 @@ namespace SchoolDance.Forms
             else
             {
                 ToolsForm.ShowMessage("Пользователь с таким логином уже существует.");
-                DB_Controller.AddCoach(coach);
+                DB_Controller.Add(coach);
             }
         }
 

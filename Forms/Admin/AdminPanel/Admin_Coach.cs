@@ -61,11 +61,7 @@ namespace SchoolDance.Forms
                     workExperienceMonth = workExp
                 };
 
-                if (controller.Add(obj) == true) 
-                    ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
-                else 
-                    ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
-            
+                Add(obj);
             }
             catch (Exception)
             {
@@ -80,12 +76,26 @@ namespace SchoolDance.Forms
             box_danceStyle.Items.AddRange(formattedNames);
         }
 
-        // ------
+        private void Add(Coach entity) 
+        {
+            if (controller.Add(entity) == true)
+                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
+            else
+                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+        }
+
+
+
+        // ---------------------------
 
         public Admin_Coach()
         {
             InitializeComponent();
+            InitClass();
+        }
 
+        private void InitClass() 
+        {
             controller.Update += Update;
             controller.GetDate += GetDate;
             controller.FillDate();

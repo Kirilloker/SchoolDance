@@ -73,9 +73,7 @@ namespace SchoolDance.Controller
                 return true;
             }
             else
-            {
                 return false;
-            }
         }
 
         private bool AddView(ref object DataSource, DataType entity) 

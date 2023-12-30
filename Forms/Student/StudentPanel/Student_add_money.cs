@@ -42,7 +42,7 @@ namespace SchoolDance.Forms
                 paymentTime = DateTime.Now
             };
 
-            DB_Controller.AddTopUp(payment);
+            DB_Controller.Add(payment);
         }
     }
 }

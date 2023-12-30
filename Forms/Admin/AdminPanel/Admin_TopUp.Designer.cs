@@ -78,12 +78,13 @@
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.Columns.AddRange(new DataGridViewColumn[] { Column1, studentId, paymentTime, endDateTopUp, idDataGridViewTextBoxColumn, studentIdDataGridViewTextBoxColumn, paymentTimeDataGridViewTextBoxColumn });
             DataGrid.DataSource = paymentBindingSource;
-            DataGrid.Location = new Point(16, 29);
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
             DataGrid.Margin = new Padding(3, 4, 3, 4);
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersWidth = 51;
             DataGrid.RowTemplate.Height = 25;
-            DataGrid.Size = new Size(850, 64);
+            DataGrid.Size = new Size(887, 357);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
             // 
@@ -297,17 +298,18 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Пополнение";
             // 
-            // AdminPanelTopUp
+            // Admin_TopUp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelTopUp";
+            Name = "Admin_TopUp";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();

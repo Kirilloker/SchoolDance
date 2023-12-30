@@ -1,9 +1,11 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 
 namespace SchoolDance.Class.Logic
 {
     public static class SignInUpLogic
     {
+
         // Зашифровывает строку в base64
         public static string EncodeStringToBase64(string text)
         {
@@ -35,7 +37,8 @@ namespace SchoolDance.Class.Logic
                 date = birth,
                 typePerson = TypePerson.Student
             };
-            return DB_Controller.AddStudent(student);
+
+            return DB_Controller.Add(student);
         }
     }
 }

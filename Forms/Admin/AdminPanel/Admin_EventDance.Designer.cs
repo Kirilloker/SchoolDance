@@ -34,6 +34,11 @@
             b_del = new Button();
             bg_date = new Panel();
             DataGrid = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            nameEventDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            eventDanceBindingSource1 = new BindingSource(components);
             EventDanceBindingSource = new BindingSource(components);
             input_id_delete = new TextBox();
             label_delete = new Label();
@@ -47,20 +52,14 @@
             input_description = new TextBox();
             input_name = new TextBox();
             text_name_data = new Label();
-            eventDanceBindingSource1 = new BindingSource(components);
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            nameEventDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            studentIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).BeginInit();
             bg_date.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)eventDanceBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EventDanceBindingSource).BeginInit();
             bg_delete.SuspendLayout();
             bg_Create.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)eventDanceBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // studentBindingSource
@@ -98,15 +97,52 @@
             DataGrid.AllowUserToAddRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, nameEventDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, dateDataGridViewTextBoxColumn, studentIdDataGridViewTextBoxColumn });
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, nameEventDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, dateDataGridViewTextBoxColumn });
             DataGrid.DataSource = eventDanceBindingSource1;
-            DataGrid.Location = new Point(19, 22);
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersWidth = 51;
             DataGrid.RowTemplate.Height = 29;
-            DataGrid.Size = new Size(851, 188);
+            DataGrid.Size = new Size(887, 357);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            dataGridViewTextBoxColumn1.HeaderText = "Id";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // nameEventDataGridViewTextBoxColumn
+            // 
+            nameEventDataGridViewTextBoxColumn.DataPropertyName = "nameEvent";
+            nameEventDataGridViewTextBoxColumn.HeaderText = "nameEvent";
+            nameEventDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameEventDataGridViewTextBoxColumn.Name = "nameEventDataGridViewTextBoxColumn";
+            nameEventDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            dateDataGridViewTextBoxColumn.HeaderText = "date";
+            dateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            dateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // eventDanceBindingSource1
+            // 
+            eventDanceBindingSource1.DataSource = typeof(EventDance);
             // 
             // input_id_delete
             // 
@@ -229,72 +265,29 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Мероприятие";
             // 
-            // eventDanceBindingSource1
-            // 
-            eventDanceBindingSource1.DataSource = typeof(EventDance);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            dataGridViewTextBoxColumn1.HeaderText = "Id";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // nameEventDataGridViewTextBoxColumn
-            // 
-            nameEventDataGridViewTextBoxColumn.DataPropertyName = "nameEvent";
-            nameEventDataGridViewTextBoxColumn.HeaderText = "nameEvent";
-            nameEventDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nameEventDataGridViewTextBoxColumn.Name = "nameEventDataGridViewTextBoxColumn";
-            nameEventDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            descriptionDataGridViewTextBoxColumn.HeaderText = "description";
-            descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            descriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            dateDataGridViewTextBoxColumn.HeaderText = "date";
-            dateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            dateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // studentIdDataGridViewTextBoxColumn
-            // 
-            studentIdDataGridViewTextBoxColumn.DataPropertyName = "studentId";
-            studentIdDataGridViewTextBoxColumn.HeaderText = "studentId";
-            studentIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
-            studentIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // AdminPanelEventDance
+            // Admin_EventDance
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelEventDance";
+            Name = "Admin_EventDance";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)coachBindingSource).EndInit();
             bg_date.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)eventDanceBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)EventDanceBindingSource).EndInit();
             bg_delete.ResumeLayout(false);
             bg_delete.PerformLayout();
             bg_Create.ResumeLayout(false);
             bg_Create.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)eventDanceBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

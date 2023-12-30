@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             studentBindingSource = new BindingSource(components);
             DataGrid = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roomNumber = new DataGridViewTextBoxColumn();
+            capacity = new DataGridViewTextBoxColumn();
+            danceHallBindingSource = new BindingSource(components);
             b_del = new Button();
             bg_date = new Panel();
             input_id_delete = new TextBox();
@@ -43,16 +47,12 @@
             input_roomNumber = new TextBox();
             input_capacity = new TextBox();
             text_name_data = new Label();
-            danceHallBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roomNumber = new DataGridViewTextBoxColumn();
-            capacity = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).BeginInit();
             bg_date.SuspendLayout();
             bg_delete.SuspendLayout();
             bg_Create.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).BeginInit();
             SuspendLayout();
             // 
             // studentBindingSource
@@ -68,14 +68,43 @@
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, roomNumber, capacity });
             DataGrid.DataSource = danceHallBindingSource;
-            DataGrid.Location = new Point(16, 29);
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
             DataGrid.Margin = new Padding(3, 4, 3, 4);
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersWidth = 51;
             DataGrid.RowTemplate.Height = 25;
-            DataGrid.Size = new Size(850, 64);
+            DataGrid.Size = new Size(887, 357);
             DataGrid.TabIndex = 0;
             DataGrid.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // roomNumber
+            // 
+            roomNumber.DataPropertyName = "roomNumber";
+            roomNumber.HeaderText = "roomNumber";
+            roomNumber.MinimumWidth = 6;
+            roomNumber.Name = "roomNumber";
+            roomNumber.Width = 125;
+            // 
+            // capacity
+            // 
+            capacity.DataPropertyName = "capacity";
+            capacity.HeaderText = "capacity";
+            capacity.MinimumWidth = 6;
+            capacity.Name = "capacity";
+            capacity.Width = 125;
+            // 
+            // danceHallBindingSource
+            // 
+            danceHallBindingSource.DataSource = typeof(DanceHall);
             // 
             // b_del
             // 
@@ -199,54 +228,27 @@
             text_name_data.TabIndex = 6;
             text_name_data.Text = "Танцевальный зал";
             // 
-            // danceHallBindingSource
-            // 
-            danceHallBindingSource.DataSource = typeof(DanceHall);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // roomNumber
-            // 
-            roomNumber.DataPropertyName = "roomNumber";
-            roomNumber.HeaderText = "roomNumber";
-            roomNumber.MinimumWidth = 6;
-            roomNumber.Name = "roomNumber";
-            roomNumber.Width = 125;
-            // 
-            // capacity
-            // 
-            capacity.DataPropertyName = "capacity";
-            capacity.HeaderText = "capacity";
-            capacity.MinimumWidth = 6;
-            capacity.Name = "capacity";
-            capacity.Width = 125;
-            // 
-            // AdminPanelDanceHall
+            // Admin_DanceHall
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(911, 686);
             Controls.Add(text_name_data);
             Controls.Add(bg_Create);
             Controls.Add(bg_delete);
             Controls.Add(bg_date);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminPanelDanceHall";
+            Name = "Admin_DanceHall";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).EndInit();
             bg_date.ResumeLayout(false);
             bg_delete.ResumeLayout(false);
             bg_delete.PerformLayout();
             bg_Create.ResumeLayout(false);
             bg_Create.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)danceHallBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

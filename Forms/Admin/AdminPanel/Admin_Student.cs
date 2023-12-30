@@ -1,134 +1,107 @@
 ﻿using SchoolDance.Class.DB;
 using SchoolDance.Class.Logic;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
     public partial class Admin_Student : Form
     {
+        MainController<Student> controller = new();
+
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" || input_balance.Text == "" ||
-                (radio_female.Checked == false && radio_male.Checked == false))
+            try
             {
-                ToolsForm.ShowMessage("Нужно заполнить все поля.");
-                return;
-            }
+                if (input_login.Text == "" || input_password.Text == "" || input_first_name.Text == "" || input_balance.Text == "" ||
+                    (radio_female.Checked == false && radio_male.Checked == false))
+                {
+                    ToolsForm.ShowMessage("Нужно заполнить все поля.");
+                    return;
+                }
 
 
-            int balance = 0;
-            if (!int.TryParse(input_balance_1.Text, out balance))
+                int balance = 0;
+                if (!int.TryParse(input_balance_1.Text, out balance))
+                {
+                    ToolsForm.ShowMessage("В поле Баланс, нужно ввести число.");
+                    return;
+                }
+
+                Student obj = new Student
+                {
+                    login = input_login.Text,
+                    password = SignInUpLogic.EncodeStringToBase64(input_password.Text),
+                    fullName = input_first_name.Text,
+                    gender = radio_male.Checked == true ? "Male" : "Female",
+                    date = dateTime_birth_date.Value,
+                    typePerson = TypePerson.Student,
+                    balance = balance
+                };
+
+                Add(obj);
+            }
+            catch (Exception)
             {
-                ToolsForm.ShowMessage("В поле Баланс, нужно ввести число.");
-                return;
+                ToolsForm.ShowMessage("Что-то пошло не так");
             }
 
-            Student student = new Student
-            {
-                login = input_login.Text,
-                password = SignInUpLogic.EncodeStringToBase64(input_password.Text),
-                fullName = input_first_name.Text,
-                gender = radio_male.Checked == true ? "Male" : "Female",
-                date = dateTime_birth_date.Value,
-                typePerson = TypePerson.Student,
-                balance = balance
-            };
-
-            if (DB_Controller.AddStudent(student) == true)
-            {
-                add_data_row<Student>(student);
-                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
-            }
-            else
-            {
-                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занят.");
-            }
         }
-        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<Student>();
-        private void changeCell(int rowIndex) => DB_Controller.Update<Student>(((List<Student>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_Controller.Delete<Student>(id);
-        private void deleteRow() => del_data_row<Student>();
+        private void PreparingAddView()
+        {
 
+        }
+
+        private void Add(Student entity)
+        {
+            if (controller.Add(entity) == true)
+                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
+            else
+                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+        }
 
 
         // ---------------------------
-        // Наследование не корректно работает
         public Admin_Student()
         {
             InitializeComponent();
+            InitClass();
+        }
 
-            fillDate();
-            this.AutoSize = true;
-            DataGrid.Dock = DockStyle.Fill;
-            DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        private void InitClass()
+        {
+            controller.Update += Update;
+            controller.GetDate += GetDate;
+            controller.FillDate();
+
+            PreparingAddView();
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                changeCell(e.RowIndex);
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            controller.Change(e.RowIndex);
         }
-
-        private void del_data_row<template>() where template : class
-        {
-            var listData = (List<template>)DataGrid.DataSource;
-            var objectToRemove = listData?.FirstOrDefault(s => s?.GetType().GetProperty("Id")?.GetValue(s).Equals(int.Parse(input_id_delete.Text)) ?? false);
-
-            if (objectToRemove != null)
-            {
-                listData.Remove(objectToRemove);
-                DataGrid.DataSource = null;
-                DataGrid.DataSource = listData;
-            }
-        }
-
-        private void add_data_row<template>(template obj) where template : class
-        {
-            var listData = (List<template>)DataGrid.DataSource;
-
-            if (obj != null)
-            {
-                listData.Add(obj);
-                DataGrid.DataSource = null;
-                DataGrid.DataSource = listData;
-            }
-        }
-
         private void b_del_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (deleteRow(int.Parse(input_id_delete.Text)) == true)
-                    deleteRow();
-                else ToolsForm.ShowMessage("Ошибка. Такого ID нет", "Удаление строки");
-            }
-            catch
-            {
-                ToolsForm.ShowMessage();
-            }
+            if (controller.Delete(input_id_delete.Text) == true)
+                ToolsForm.ShowMessage("Строка успешно удалена", "Удаление строки", MessageBoxIcon.Asterisk);
+            else
+                ToolsForm.ShowMessage("Ошибка при удалении из таблицы", "Удаление строки");
+        }
+
+        private void Update(object newDataSource)
+        {
+            DataGrid.DataSource = null;
+            DataGrid.DataSource = newDataSource;
+        }
+
+        private object GetDate()
+        {
+            return DataGrid.DataSource;
         }
     }
 }
 
-
-//// Фильтрация (работает с багами)
-//private void FilterDataGridByColumn(int columnIndex)
-//{
-//    if (DataGrid.Columns[columnIndex].SortMode != DataGridViewColumnSortMode.NotSortable)
-//    {
-//        // Получаем текущий столбец
-//        DataGridViewColumn newColumn = DataGrid.Columns[columnIndex];
-//        // Получаем направление сортировки
-//        ListSortDirection direction = (newColumn.HeaderCell.SortGlyphDirection == SortOrder.Ascending) ? ListSortDirection.Descending : ListSortDirection.Ascending;
-
-//        // Сбрасываем сортировку для остальных столбцов
-//        foreach (DataGridViewColumn column in DataGrid.Columns)
-//            column.HeaderCell.SortGlyphDirection = SortOrder.None;
-
-//        // Применяем сортировку к выбранному столбцу
-//        newColumn.HeaderCell.SortGlyphDirection = (direction == ListSortDirection.Ascending) ? SortOrder.Ascending : SortOrder.Descending;
-
-//        // Применяем сортировку к DataGrid
-//        DataGrid.Sort(DataGrid.Columns[4], ListSortDirection.Ascending);
-//    }
-//}

@@ -1,56 +1,42 @@
 ﻿using SchoolDance.Class.DB;
+using SchoolDance.Controller;
 using SchoolDance.Util;
 
 namespace SchoolDance.Forms
 {
     public partial class Admin_TopUp : Form
     {
+        MainController<TopUp> controller = new();
+
         private void b_add_new_rows_Click(object sender, EventArgs e)
         {
-            string name_student = (string)list_student.SelectedItem;
-            int id_student = int.Parse(name_student.Split(". ")[0]);
-            int price_ = 0;
-            if (!int.TryParse(input_price.Text, out price_))
+            try
             {
-                ToolsForm.ShowMessage("В поле Максимальная вместимость, нужно ввести число.");
-                return;
-            }
+                string name_student = (string)list_student.SelectedItem;
+                int id_student = int.Parse(name_student.Split(". ")[0]);
+                int price_ = 0;
+                if (!int.TryParse(input_price.Text, out price_))
+                {
+                    ToolsForm.ShowMessage("В поле Максимальная вместимость, нужно ввести число.");
+                    return;
+                }
 
-            TopUp obj = new TopUp
-            {
-                studentId = id_student,
-                paymentTime = date_payment_time.Value,
-                price = price_
-            };
+                TopUp obj = new TopUp
+                {
+                    studentId = id_student,
+                    paymentTime = date_payment_time.Value,
+                    price = price_
+                };
 
-            if (DB_Controller.AddTopUp(obj) == true)
-            {
-                add_data_row<TopUp>(obj);
-                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
+                Add(obj);
             }
-            else
+            catch (Exception)
             {
-                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+                ToolsForm.ShowMessage("Что-то пошло не так");
             }
         }
-        private void fillDate() => DataGrid.DataSource = DB_Controller.GetAll<TopUp>();
-        private void changeCell(int rowIndex) => DB_Controller.Update<TopUp>(((List<TopUp>)DataGrid.DataSource)[rowIndex]);
-        private bool deleteRow(int id) => DB_Controller.Delete<TopUp>(id);
-        private void deleteRow() => del_data_row<TopUp>();
-
-
-
-        // ---------------------------
-        // Наследование не корректно работает
-        public Admin_TopUp()
+        private void PreparingAddView()
         {
-            InitializeComponent();
-
-            fillDate();
-            this.AutoSize = true;
-            DataGrid.Dock = DockStyle.Fill;
-            DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             list_student.DropDownStyle = ComboBoxStyle.DropDownList;
 
             List<Student> students = DB_Controller.GetAll<Student>();
@@ -58,51 +44,57 @@ namespace SchoolDance.Forms
             list_student.Items.AddRange(formattedNames);
         }
 
+        private void Add(TopUp entity)
+        {
+            if (controller.Add(entity) == true)
+                ToolsForm.ShowMessage("Запись добавлена", "Добавление новой записи", MessageBoxIcon.Asterisk);
+            else
+                ToolsForm.ShowMessage("Что-то пошло не так. Возможно такое значение уже занято.");
+        }
+
+
+
+        // ---------------------------
+        public Admin_TopUp()
+        {
+            InitializeComponent();
+            InitClass();
+        }
+
+        private void InitClass()
+        {
+            controller.Update += Update;
+            controller.GetDate += GetDate;
+            controller.FillDate();
+
+            PreparingAddView();
+        }
+
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                changeCell(e.RowIndex);
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            controller.Change(e.RowIndex);
         }
-
-        private void del_data_row<template>() where template : class
-        {
-            var listData = (List<template>)DataGrid.DataSource;
-            var objectToRemove = listData?.FirstOrDefault(s => s?.GetType().GetProperty("Id")?.GetValue(s).Equals(int.Parse(input_id_delete.Text)) ?? false);
-
-            if (objectToRemove != null)
-            {
-                listData.Remove(objectToRemove);
-                DataGrid.DataSource = null;
-                DataGrid.DataSource = listData;
-            }
-        }
-
-        private void add_data_row<template>(template obj) where template : class
-        {
-            var listData = (List<template>)DataGrid.DataSource;
-
-            if (obj != null)
-            {
-                listData.Add(obj);
-                DataGrid.DataSource = null;
-                DataGrid.DataSource = listData;
-            }
-        }
-
         private void b_del_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (deleteRow(int.Parse(input_id_delete.Text)) == true)
-                    deleteRow();
-                else ToolsForm.ShowMessage("Ошибка. Такого ID нет", "Удаление строки");
-            }
-            catch
-            {
-                ToolsForm.ShowMessage();
-            }
+            if (controller.Delete(input_id_delete.Text) == true)
+                ToolsForm.ShowMessage("Строка успешно удалена", "Удаление строки", MessageBoxIcon.Asterisk);
+            else
+                ToolsForm.ShowMessage("Ошибка при удалении из таблицы", "Удаление строки");
         }
 
+        private void Update(object newDataSource)
+        {
+            DataGrid.DataSource = null;
+            DataGrid.DataSource = newDataSource;
+        }
+
+        private object GetDate()
+        {
+            return DataGrid.DataSource;
+        }
 
     }
 }

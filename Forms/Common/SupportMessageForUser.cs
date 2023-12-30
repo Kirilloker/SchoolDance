@@ -30,7 +30,7 @@ namespace SchoolDance.Forms
                 personName = personName
             };
 
-            if (DB_Controller.AddSupportMessage(supportMessage) == true)
+            if (DB_Controller.Add(supportMessage) == true)
                 ToolsForm.ShowMessage("Сообщение доставлено", "Сообщение об ошибке", MessageBoxIcon.Asterisk);
             else
                 ToolsForm.ShowMessage("Что-то пошло не так. Возможно вы уже отсылали такое сообщение.");

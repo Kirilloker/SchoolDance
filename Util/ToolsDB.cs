@@ -27,27 +27,28 @@ namespace SchoolDance.Util
                     capacity = i * 5
                 };
 
-                DB_Controller.AddDanceHall(obj);
+                DB_Controller.Add(obj);
             }
         }
 
         static void AddDanceStyle()
         {
-            List<DanceStyle> danceStyles = new List<DanceStyle>();
-
-            danceStyles.Add(new DanceStyle { name = "Вальс", description = "Вальс - это не только танец, но и способ самовыражения." });
-            danceStyles.Add(new DanceStyle { name = "Сальса", description = "Сальса - это энергичный и яркий латиноамериканский танец." });
-            danceStyles.Add(new DanceStyle { name = "Фламенко", description = "Фламенко - это горячий испанский танец с гитарой и кастаньетами." });
-            danceStyles.Add(new DanceStyle { name = "Танго", description = "Танго - это страстный аргентинский танец, полный эмоций." });
-            danceStyles.Add(new DanceStyle { name = "Брейк-данс", description = "Брейк-данс - это энергичный и акробатический уличный танец." });
-            danceStyles.Add(new DanceStyle { name = "Балет", description = "Балет - это изящное и классическое искусство танца." });
-            danceStyles.Add(new DanceStyle { name = "Хип-хоп", description = "Хип-хоп - это современный и стильный уличный танец." });
-            danceStyles.Add(new DanceStyle { name = "Самба", description = "Самба - это праздничный и живой бразильский танец." });
-            danceStyles.Add(new DanceStyle { name = "Кизомба", description = "Кизомба - это сенсуальный и романтичный африканский танец." });
-            danceStyles.Add(new DanceStyle { name = "Шахтинская", description = "Шахтинская - это народный танец, символизирующий труд и единство." });
+            List<DanceStyle> danceStyles = new List<DanceStyle>
+            {
+                new DanceStyle { name = "Вальс", description = "Вальс - это не только танец, но и способ самовыражения." },
+                new DanceStyle { name = "Сальса", description = "Сальса - это энергичный и яркий латиноамериканский танец." },
+                new DanceStyle { name = "Фламенко", description = "Фламенко - это горячий испанский танец с гитарой и кастаньетами." },
+                new DanceStyle { name = "Танго", description = "Танго - это страстный аргентинский танец, полный эмоций." },
+                new DanceStyle { name = "Брейк-данс", description = "Брейк-данс - это энергичный и акробатический уличный танец." },
+                new DanceStyle { name = "Балет", description = "Балет - это изящное и классическое искусство танца." },
+                new DanceStyle { name = "Хип-хоп", description = "Хип-хоп - это современный и стильный уличный танец." },
+                new DanceStyle { name = "Самба", description = "Самба - это праздничный и живой бразильский танец." },
+                new DanceStyle { name = "Кизомба", description = "Кизомба - это сенсуальный и романтичный африканский танец." },
+                new DanceStyle { name = "Шахтинская", description = "Шахтинская - это народный танец, символизирующий труд и единство." }
+            };
 
             foreach (var item in danceStyles)
-                DB_Controller.AddDanceStyle(item);
+                DB_Controller.Add(item);
         }
 
         static void AddTopUp()
@@ -59,7 +60,7 @@ namespace SchoolDance.Util
                 price = 100
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -68,7 +69,7 @@ namespace SchoolDance.Util
                 price = 1200
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -77,7 +78,7 @@ namespace SchoolDance.Util
                 price = 140
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -86,7 +87,7 @@ namespace SchoolDance.Util
                 price = 10
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -95,7 +96,7 @@ namespace SchoolDance.Util
                 price = 500
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -104,7 +105,7 @@ namespace SchoolDance.Util
                 price = 11100
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -113,7 +114,7 @@ namespace SchoolDance.Util
                 price = 1200
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -122,7 +123,7 @@ namespace SchoolDance.Util
                 price = 100
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -131,7 +132,7 @@ namespace SchoolDance.Util
                 price = 1400
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
 
             obj = new TopUp
             {
@@ -140,7 +141,7 @@ namespace SchoolDance.Util
                 price = 100
             };
 
-            DB_Controller.AddTopUp(obj);
+            DB_Controller.Add(obj);
         }
 
         static void AddStudent()
@@ -250,7 +251,7 @@ namespace SchoolDance.Util
         };
 
             foreach (var item in students)
-                DB_Controller.AddStudent(item);
+                DB_Controller.Add(item);
         }
 
         static void AddCoach()
@@ -269,7 +270,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 24
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -285,7 +286,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 36
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -301,7 +302,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 48
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -317,7 +318,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 60
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -333,7 +334,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 12
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -349,7 +350,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 18
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -364,8 +365,7 @@ namespace SchoolDance.Util
                 phoneNumber = "9876543210",
                 workExperienceMonth = 30
             };
-
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -381,7 +381,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 42
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -397,7 +397,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 54
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
 
             obj = new Coach
             {
@@ -408,7 +408,7 @@ namespace SchoolDance.Util
                 date = DateTime.Now.AddDays(-14),
             };
 
-            DB_Controller.AddCoach(obj);
+            DB_Controller.Add(obj);
         }
 
         static void AddLesson()
@@ -427,7 +427,7 @@ namespace SchoolDance.Util
                 studentId = "1, 2, 3"
             };
 
-            DB_Controller.AddLesson(obj);
+            DB_Controller.Add(obj);
 
             obj = new Lesson
             {
@@ -442,7 +442,7 @@ namespace SchoolDance.Util
                 studentId = "2, 3, 1"
             };
 
-            DB_Controller.AddLesson(obj);
+            DB_Controller.Add(obj);
 
             obj = new Lesson
             {
@@ -457,7 +457,7 @@ namespace SchoolDance.Util
                 studentId = ""
             };
 
-            DB_Controller.AddLesson(obj);
+            DB_Controller.Add(obj);
         }
 
         static void AddPayment()
@@ -469,7 +469,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_Controller.AddPayment(obj);
+            DB_Controller.Add(obj);
 
             obj = new Payment
             {
@@ -478,7 +478,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_Controller.AddPayment(obj);
+            DB_Controller.Add(obj);
 
             obj = new Payment
             {
@@ -487,7 +487,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_Controller.AddPayment(obj);
+            DB_Controller.Add(obj);
 
             obj = new Payment
             {
@@ -496,7 +496,7 @@ namespace SchoolDance.Util
                 date_end_subscription = DateTime.Now,
             };
 
-            DB_Controller.AddPayment(obj);
+            DB_Controller.Add(obj);
         }
 
         static void AddAdministrator()
@@ -514,7 +514,7 @@ namespace SchoolDance.Util
                 workExperienceMonth = 24
             };
 
-            DB_Controller.AddAdministrator(obj);
+            DB_Controller.Add(obj);
         }
     }
 }
